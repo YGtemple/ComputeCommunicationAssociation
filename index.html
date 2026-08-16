@@ -131,6 +131,63 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
+        /* ===== QQ 群二维码卡片 ===== */
+        .qr-card {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            background: linear-gradient(135deg, #f0f9ff, #ede9fe);
+            border: 1px solid #c7d2fe;
+            border-radius: 16px;
+            padding: 22px 26px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+
+        .qr-text {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .qr-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+
+        .qr-sub {
+            font-size: 13px;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .qr-link {
+            display: block;
+            width: 140px;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+            padding: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            transition: transform 0.2s, box-shadow 0.2s;
+            flex-shrink: 0;
+        }
+
+        .qr-link:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(74,108,247,0.25);
+        }
+
+        .qr-link img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
         .info-item .label {
             font-size: 12px;
             color: var(--text-light);
@@ -663,9 +720,24 @@
                 <div class="value">王佳琦、罗景祺</div>
             </div>
             <div class="info-item">
+                <div class="label">队长</div>
+                <div class="value">李俊辉</div>
+            </div>
+            <div class="info-item">
                 <div class="label">对接资源</div>
                 <div class="value">字节跳动·火山引擎校园生态</div>
             </div>
+        </div>
+
+        <!-- QQ 群二维码（可点击放大 / 跳转加群） -->
+        <div class="qr-card">
+            <div class="qr-text">
+                <div class="qr-title">扫码加入「AI交流群」</div>
+                <div class="qr-sub">群号：<strong>926936791</strong>，点击二维码放大或扫码即可加入</div>
+            </div>
+            <a class="qr-link" href="qq_qrcode.jpg" target="_blank" rel="noopener" title="点击查看大图 / 长按识别二维码加入群">
+                <img src="qq_qrcode.jpg" alt="AI交流群 二维码 926936791" />
+            </a>
         </div>
 
         <!-- 一、社群介绍 -->
