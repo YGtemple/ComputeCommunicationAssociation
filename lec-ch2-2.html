@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第2章 工具全家桶 —— 6大AI编程工具详解 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">第2章 · 工具全家桶 —— 6大AI编程工具详解 （2/10）</span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter" id="lec-ch2"><div class="lec-body"><section class="lec-sec"><h3 class="lec-h3" id="lec-ch2-3"><span class="lec-sec-no">2.3</span> 工具二：豆包（字节跳动 · 对话式AI主力）</h3>
+<h4 class="lec-h4">2.3.1 工具介绍</h4>
+<p><strong>豆包</strong>是字节跳动推出的 AI 对话助手，类似 ChatGPT 的国产版本。它不是专门的编程工具，但因为其<strong>中文理解能力强、免费、使用门槛低</strong>，成为 Vibe Coding 中非常好用的辅助工具。</p>
+<p>在课程中，豆包主要用于：</p>
+<ul class="lec-list">
+<li><strong>需求梳理：</strong>把模糊的想法变成清晰的需求描述</li>
+<li><strong>代码生成：</strong>直接让豆包写代码片段，然后复制到 Trae 中</li>
+<li><strong>问题解答：</strong>遇到不懂的编程概念、报错信息，随时问豆包</li>
+<li><strong>提示词优化：</strong>让豆包帮你优化给 Trae 的提示词</li>
+<li><strong>内容创作：</strong>个人主页的文案、项目说明等，让豆包帮你写</li>
+</ul>
+<h4 class="lec-h4">2.3.2 使用方式</h4>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>方式</th><th>访问方法</th><th>适合场景</th></tr></thead>
+<tbody>
+<tr><td><strong>网页版</strong></td><td>浏览器访问 https://www.doubao.com</td><td>电脑上使用，最方便，推荐</td></tr>
+<tr><td><strong>手机 APP</strong></td><td>应用商店搜索"豆包"下载</td><td>随时随地问问题、梳理思路</td></tr>
+<tr><td><strong>桌面客户端</strong></td><td>官网下载 Windows/Mac 客户端</td><td>频繁使用时，不用开浏览器</td></tr>
+<tr><td><strong>小程序</strong></td><td>抖音/今日头条内搜索"豆包"</td><td>不想装 APP 时临时使用</td></tr>
+</tbody>
+</table>
+</div>
+<p>注册登录：用手机号注册即可，完全免费。免费版已经足够 Vibe Coding 使用。</p>
+<h4 class="lec-h4">2.3.3 豆包写代码的正确姿势</h4>
+<p><strong>姿势1：直接生成代码</strong></p>
+<p>在对话框输入清晰的需求，豆包会直接生成代码：</p>
+<pre class="lec-code lec-prompt"><code>帮我写一个 HTML 登录页面，要求：
+1. 包含用户名输入框、密码输入框、登录按钮
+2. 页面居中，简洁美观的设计风格
+3. 主色调蓝色，圆角按钮
+4. 点击登录按钮有简单的验证（非空检查）
+5. 代码写在一个 HTML 文件中，包含 CSS 和 JS</code></pre>
+<p>豆包生成代码后，你可以：</p>
+<ul class="lec-list">
+<li>点击代码块右上角的"复制"按钮，复制全部代码</li>
+<li>在 Trae 中新建文件，粘贴代码</li>
+<li>保存为 .html 文件，双击用浏览器打开查看效果</li>
+</ul>
+<p><strong>姿势2：迭代修改</strong></p>
+<p>第一版代码不满意？继续在对话中说修改需求：</p>
+<pre class="lec-code lec-prompt"><code>在刚才的登录页面基础上：
+1. 把背景改成渐变色（从浅蓝到浅紫）
+2. 输入框加图标（用户名加小人图标，密码加锁图标）
+3. 登录按钮加 hover 效果（鼠标放上去变深色）
+4. 加一个"忘记密码"的链接</code></pre>
+<p>豆包会记住上下文，在之前的代码基础上修改。</p>
+<p><strong>姿势3：解释和学习</strong></p>
+<pre class="lec-code lec-prompt"><code>刚才生成的代码里，这一段我看不懂：
+【粘贴代码片段】
+帮我逐行解释一下，用通俗的语言，我是零基础。</code></pre>
+<h4 class="lec-h4">2.3.4 豆包使用技巧</h4>
+<ul class="lec-list">
+<li><strong>新建对话：</strong>不同的项目建议新建不同的对话，避免上下文混淆</li>
+<li><strong>善用"深度思考"模式：</strong>复杂需求可以开启深度思考，回答质量更高（但速度慢一些）</li>
+<li><strong>给参考：</strong>想要特定风格时，可以给豆包看参考图或参考代码</li>
+<li><strong>分步骤：</strong>复杂需求不要一次全说，先搭框架，再逐步加功能</li>
+<li><strong>让它自检：</strong>代码生成后，可以说"检查一下这段代码有没有 bug 或可以优化的地方"</li>
+<li><strong>用"继续"补全：</strong>如果豆包回答到一半断了，输入"继续"，它会接着写</li>
+</ul>
+</section><section class="lec-sec"><h3 class="lec-h3" id="lec-ch2-4"><span class="lec-sec-no">2.4</span> 工具三：DeepSeek（国产开源 · 代码能力强）</h3>
+<h4 class="lec-h4">2.4.1 工具介绍</h4>
+<p><strong>DeepSeek</strong>是国内深度求索公司推出的开源大语言模型，以<strong>代码能力强、推理能力强、完全开源、免费使用</strong>著称。在编程任务上，DeepSeek 经常能媲美甚至超过 GPT-4，是 Vibe Coding 的强力备选工具。</p>
+<p>DeepSeek 的优势：</p>
+<ul class="lec-list">
+<li><strong>代码能力强：</strong>DeepSeek Coder 是专门针对代码优化的模型</li>
+<li><strong>推理能力强：</strong>DeepSeek R1 推理模型，复杂逻辑处理好</li>
+<li><strong>完全免费：</strong>网页版免费使用，API 价格极低</li>
+<li><strong>开源：</strong>模型开源，可以本地部署（需要好显卡）</li>
+<li><strong>长上下文：</strong>支持长文本，大项目也能处理</li>
+</ul>
+<h4 class="lec-h4">2.4.2 使用方式</h4>
+<p><strong>网页版（最简单，推荐）</strong></p>
+<ol class="lec-steps">
+<li>浏览器访问：https://chat.deepseek.com</li>
+<li>用手机号注册登录</li>
+<li>直接在对话框输入需求，和豆包用法一样</li>
+<li>可以在顶部切换模型：DeepSeek V3（通用）或 DeepSeek R1（推理）</li>
+</ol>
+<p><strong>API 接入（进阶）</strong></p>
+<p>如果你想在 Trae、Cursor 等工具中使用 DeepSeek 模型，可以通过 API 接入：</p>
+<ol class="lec-steps">
+<li>访问 DeepSeek 开放平台：https://platform.deepseek.com</li>
+<li>注册登录，在左侧菜单找到"API Keys"</li>
+<li>点击"创建新的 API Key"，复制保存好（只显示一次）</li>
+<li>在 Trae/Cursor 的模型设置中，选择自定义模型，填入：
+          <ul class="lec-list">
+<li>API 地址：https://api.deepseek.com</li>
+<li>API Key：你刚才复制的 key</li>
+<li>模型名：deepseek-chat 或 deepseek-reasoner</li>
+</ul>
+</li>
+</ol>
+<aside class="lec-callout lec-note"><div class="lec-co-title">📌 补充</div><div class="lec-co-body"><strong>关于 API 费用：</strong>DeepSeek API 价格非常便宜，输入约 1 元/百万 token，输出约 2 元/百万 token。做几个小项目可能几毛钱都花不到。新用户注册还会送免费额度。学生完全负担得起。</div></aside>
+<h4 class="lec-h4">2.4.3 DeepSeek 写代码技巧</h4>
+<ul class="lec-list">
+<li><strong>用 R1 模型处理复杂逻辑：</strong>涉及算法、复杂业务逻辑时，切换到 R1 推理模型，质量更高</li>
+<li><strong>用 V3 模型做日常开发：</strong>普通页面生成、样式调整，用 V3 速度更快</li>
+<li><strong>让它先思考再回答：</strong>可以在提示词开头加"请先思考，然后给出答案"，提升质量</li>
+<li><strong>代码审查：</strong>"请审查这段代码，找出潜在的 bug、安全问题和性能问题"</li>
+<li><strong>分步实现：</strong>复杂项目让 DeepSeek 先给出实现计划，确认后再分步写代码</li>
+</ul>
+</section><section class="lec-sec"><h3 class="lec-h3" id="lec-ch2-5"><span class="lec-sec-no">2.5</span> 工具四：WorkBuddy（腾讯出品 · 备选工具）</h3>
+<h4 class="lec-h4">2.5.1 工具介绍</h4>
+<p><strong>WorkBuddy</strong>（曾用名 CodeBuddy）是腾讯云推出的 AI 编程助手，有两种形态：IDE 插件版和独立客户端版。</p>
+<p>WorkBuddy 的特点：</p>
+<ul class="lec-list">
+<li><strong>腾讯出品</strong>，对中文需求理解好</li>
+<li><strong>多模式：</strong>Craft（生成模式）、Plan（计划模式）、Chat（对话模式）</li>
+<li><strong>免费额度</strong>：有免费使用额度，对学生友好</li>
+<li><strong>腾讯生态集成</strong>：和腾讯云、微信小程序等生态结合好</li>
+</ul>
+<h4 class="lec-h4">2.5.2 安装与使用</h4>
+<p><strong>独立客户端（推荐新手）</strong></p>
+<ol class="lec-steps">
+<li>访问 WorkBuddy 官网：https://codebuddy.tencent.com</li>
+<li>下载对应系统的安装包</li>
+<li>安装后用微信或腾讯云账号登录</li>
+<li>界面和 Trae 类似，左侧文件、中间编辑、右侧 AI 对话</li>
+</ol>
+<p><strong>VS Code 插件（有基础的同学）</strong></p>
+<ol class="lec-steps">
+<li>打开 VS Code，按 <kbd class="lec-kbd">Ctrl+Shift+X</kbd> 打开扩展市场</li>
+<li>搜索"WorkBuddy"或"Tencent Cloud AI"</li>
+<li>点击安装，安装完成后重启 VS Code</li>
+<li>点击左侧活动栏的 WorkBuddy 图标，登录账号即可使用</li>
+</ol>
+<h4 class="lec-h4">2.5.3 三种模式详解</h4>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>模式</th><th>用途</th><th>适合场景</th></tr></thead>
+<tbody>
+<tr><td><strong>Craft（生成模式）</strong></td><td>AI 自动生成完整项目或功能</td><td>从零开始做新项目、生成完整页面</td></tr>
+<tr><td><strong>Plan（计划模式）</strong></td><td>AI 先给出修改计划，确认后再执行</td><td>修改已有项目、复杂功能开发，避免 AI 乱改</td></tr>
+<tr><td><strong>Chat（对话模式）</strong></td><td>问答、解释、讨论</td><td>问问题、解释代码、梳理思路</td></tr>
+</tbody>
+</table>
+</div>
+<aside class="lec-callout lec-tip"><div class="lec-co-title">💡 讲师提示</div><div class="lec-co-body"><strong>新手建议：</strong>先用 Craft 模式快速生成初版，然后用 Chat 模式逐步调整。Plan 模式适合项目变大后、需要谨慎修改时使用。</div></aside>
+</section><section class="lec-sec"><h3 class="lec-h3" id="lec-ch2-6"><span class="lec-sec-no">2.6</span> 工具五：GPT / ChatGPT（OpenAI · 国际主流）</h3>
+<h4 class="lec-h4">2.6.1 工具介绍</h4>
+<p><strong>ChatGPT</strong>是 OpenAI 推出的 AI 对话助手，是目前全球最知名的 AI 工具。GPT-4o、GPT-4o-mini 等模型在代码生成方面能力很强。</p>
+<p>在课程中，GPT 作为<strong>备选工具</strong>使用：</p>
+<ul class="lec-list">
+<li>当国产工具生成的代码不满意时，可以用 GPT 试试</li>
+<li>复杂的算法、架构问题，GPT 处理能力强</li>
+<li>英文资料、国际开源项目相关问题，GPT 更有优势</li>
+</ul>
+<h4 class="lec-h4">2.6.2 使用方式</h4>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>方式</th><th>说明</th><th>费用</th></tr></thead>
+<tbody>
+<tr><td><strong>网页版</strong></td><td>访问 https://chat.openai.com，注册账号</td><td>免费版可用 GPT-4o-mini；Plus 订阅 $20/月可用 GPT-4o</td></tr>
+<tr><td><strong>手机 APP</strong></td><td>App Store / Google Play 搜索"ChatGPT"</td><td>同网页版</td></tr>
+<tr><td><strong>桌面客户端</strong></td><td>官网下载 Windows/Mac 客户端</td><td>同网页版</td></tr>
+</tbody>
+</table>
+</div>
+<aside class="lec-callout lec-warn"><div class="lec-co-title">⚠️ 注意</div><div class="lec-co-body"><strong>注意：</strong>ChatGPT 在国内访问需要特殊网络条件。如果无法访问，不用担心，课程中的所有任务用 Trae + 豆包 + DeepSeek 都能完成。GPT 只是备选，不是必须。</div></aside>
+</section><section class="lec-sec"><h3 class="lec-h3" id="lec-ch2-7"><span class="lec-sec-no">2.7</span> 工具六：Grok（xAI · 可选参考）</h3>
+<p><strong>Grok</strong>是埃隆·马斯克的 xAI 公司推出的 AI 助手，以"性格鲜明、实时信息、幽默风趣"著称。Grok 在编程方面也有不错的能力。</p>
+<p>在课程中，Grok 作为<strong>可选参考工具</strong>：</p>
+<ul class="lec-list">
+<li>偶尔用来对比不同 AI 的代码生成结果</li>
+<li>需要实时搜索最新技术文档时</li>
+<li>换个 AI 的思路解决棘手问题</li>
+</ul>
+<p>使用方式：访问 https://grok.com 或下载手机 APP，需要 X（Twitter）账号登录。免费版有使用限制，Premium+ 订阅解锁完整功能。国内访问需要特殊网络条件。</p>
+<aside class="lec-callout lec-tip"><div class="lec-co-title">💡 讲师提示</div><div class="lec-co-body"><strong>课程建议：</strong>Grok 不是必须的工具。如果你能访问并且有订阅，可以偶尔用用；如果没有，完全不影响学习。把精力放在 Trae + 豆包 + DeepSeek 这三个有 generous 免费额度、中文友好的工具上就够了。</div></aside>
+</section><section class="lec-sec"><h3 class="lec-h3" id="lec-ch2-8"><span class="lec-sec-no">2.8</span> 工具选择与组合策略</h3>
+<h4 class="lec-h4">2.8.1 新手推荐组合</h4>
+<p><strong>零基础新手最佳组合（均有免费版，轻度使用零成本）：</strong></p>
+<ul class="lec-list">
+<li><strong>主力 IDE：</strong>Trae（写项目、改代码）</li>
+<li><strong>对话助手：</strong>豆包（问问题、梳理需求、写文案）</li>
+<li><strong>代码加强：</strong>DeepSeek（复杂逻辑、代码审查）</li>
+</ul>
+<p>这三个工具都有 generous 的免费额度（Trae 每月500积分+签到、豆包基础对话不限次、DeepSeek 网页版完全免费），中文友好，足够你完成课程中的所有项目。</p>
+<h4 class="lec-h4">2.8.2 不同场景的工具选择</h4>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>场景</th><th>推荐工具</th><th>原因</th></tr></thead>
+<tbody>
+<tr><td>从零做新项目</td><td>Trae（Builder模式）</td><td>AI 原生 IDE，自动创建文件，体验最流畅</td></tr>
+<tr><td>生成代码片段</td><td>豆包 / DeepSeek</td><td>对话式，生成后复制粘贴，简单直接</td></tr>
+<tr><td>修改已有代码</td><td>Trae（Builder/Chat）</td><td>直接在项目中修改，上下文完整</td></tr>
+<tr><td>解释代码/学概念</td><td>豆包 / DeepSeek</td><td>中文解释通俗易懂</td></tr>
+<tr><td>复杂算法/逻辑</td><td>DeepSeek R1 / GPT-4o</td><td>推理能力强，复杂问题处理好</td></tr>
+<tr><td>代码审查/找bug</td><td>DeepSeek / GPT-4o</td><td>代码分析能力强，找问题准</td></tr>
+<tr><td>写文案/项目说明</td><td>豆包</td><td>中文创作能力强</td></tr>
+<tr><td>根据设计图写页面</td><td>Trae / GPT-4o</td><td>多模态支持，能看图写代码</td></tr>
+</tbody>
+</table>
+</div>
+<h4 class="lec-h4">2.8.3 多模型组合使用技巧</h4>
+<ol class="lec-steps">
+<li><strong>不要在一个工具上死磕：</strong>一个工具生成的代码不满意，换个工具试试，可能效果完全不同</li>
+<li><strong>用 A 工具生成，B 工具审查：</strong>比如用 Trae 生成代码，然后把代码贴给 DeepSeek 让它审查找 bug</li>
+<li><strong>用对话工具梳理需求，再用 IDE 实现：</strong>先在豆包里把需求聊清楚、梳理成结构化的需求文档，再拿到 Trae 里实现</li>
+<li><strong>建立自己的工具偏好：</strong>用多了你会发现不同工具的特点，形成自己的组合习惯</li>
+</ol>
+</section><section class="lec-sec"><h3 class="lec-h3" id="lec-ch2-10"><span class="lec-sec-no">2.10</span> 全球主流 AI 编程工具全景图（优缺点与使用限制）</h3><p>前面我们详细介绍了课程主力使用的 6 个工具（Trae、豆包、DeepSeek、WorkBuddy、GPT、Grok）。但全球 AI 编程工具远不止这些。本节带你全景了解全球各类主流 AI 编程工具，详细分析每个工具的<strong>优点、缺点、使用限制、价格和国内可用性</strong>，帮你根据自己的需求做出选择。</p><p><strong>工具分类说明：</strong>全球 AI 编程工具按形态可分为六大类——AI 原生 IDE、IDE 插件、终端/CLI 工具、开源可自托管工具、国产工具、AI 软件工程师（SaaS Agent）。不同形态适合不同人群和场景。</p><h4 class="lec-h4">2.10.1 第一类：AI 原生 IDE（独立编辑器）</h4><p>AI 原生 IDE 是基于 VS Code 或其他编辑器深度定制、从底层为 AI 编程设计的独立开发环境。它们不是插件，而是完整的编辑器，AI 功能深度集成。</p><p><strong>工具1：Cursor —— 最成熟的 AI IDE 标杆</strong></p></section></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-ch2.html">← 上一页</a>
+    <span class="pager-info">第 2 页，共 10 页</span>
+    <a class="pager-btn" href="lec-ch2-3.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>
