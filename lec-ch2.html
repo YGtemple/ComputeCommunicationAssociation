@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第2章 工具全家桶 —— 6大AI编程工具详解 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">第2章 · 工具全家桶 —— 6大AI编程工具详解 （1/10）</span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter" id="lec-ch2"><header class="lec-ch-head">
+<span class="lec-ch-badge">第2章</span>
+<h2 class="lec-ch-title">工具全家桶 —— 6大AI编程工具详解</h2>
+<p class="lec-ch-sub">第三篇 · 工具篇</p>
+</header><div class="lec-body"><section class="lec-sec"><h3 class="lec-h3" id="lec-ch2-1"><span class="lec-sec-no">2.1</span> 工欲善其事，必先利其器</h3>
+<p>Vibe Coding 的核心是"和 AI 对话让它写代码"，而对话的载体就是各种 AI 编程工具。选对顺手的工具，能让你的效率翻倍；选错了，可能会让你在安装配置上就卡住。</p>
+<p>本章将详细介绍课程中会用到的 <strong>6 大 AI 编程工具</strong>，每个工具都包含：工具介绍、下载安装、界面导览、核心功能、使用技巧、优缺点分析。你不需要全部安装，建议先装好主力工具（Trae + 豆包），其他的按需了解。</p>
+<p><strong>本课程工具选择建议：</strong></p>
+<ul class="lec-list">
+<li><strong>主力工具：</strong>Trae（本地IDE，写项目主力）+ 豆包（对话式，问问题、改需求）</li>
+<li><strong>备选工具：</strong>WorkBuddy（腾讯出品，多一个选择）、DeepSeek（代码能力强，免费）</li>
+<li><strong>可选工具：</strong>GPT（国际主流，复杂任务备用）、Grok（xAI出品，偶尔对比参考）</li>
+</ul>
+</section><section class="lec-sec"><h3 class="lec-h3" id="lec-ch2-2"><span class="lec-sec-no">2.2</span> 工具一：Trae（字节跳动出品 · 课程主力推荐）</h3><h4 class="lec-h4">2.2.1 工具介绍</h4><p><strong>Trae</strong>（The Real AI Engineer）是字节跳动火山引擎推出的 AI 原生 IDE（集成开发环境），基于 VS Code 架构深度定制。它不是在传统编辑器上加插件，而是从底层为 AI 编程设计。</p><p>为什么选它作为课程主力：</p><ul class="lec-list">
+<li><strong>中文友好</strong>：字节出品，对中文需求的理解和生成能力优秀</li>
+<li><strong>完全免费</strong>：国内版目前所有功能免费开放，对学生非常友好</li>
+<li><strong>AI 原生</strong>：Chat、Builder、SOLO 三种模式，覆盖从辅助到全流程</li>
+<li><strong>智能体体系</strong>：可创建自定义智能体，打造专属AI助手团队</li>
+<li><strong>Skill 能力</strong>：可激活架构设计、代码重构、单元测试等专业Skill</li>
+<li><strong>上手简单</strong>：界面类似 VS Code，有编程基础的同学秒上手，零基础也能快速学会</li>
+</ul><h4 class="lec-h4">2.2.2 下载与安装</h4><p><strong>第一步：下载安装包</strong></p><ol class="lec-steps">
+<li>打开浏览器，访问 Trae 官网：<strong>https://www.trae.cn</strong></li>
+<li>点击首页的"立即下载"按钮</li>
+<li>根据你的电脑系统选择对应版本：
+          <ul class="lec-list">
+<li>Windows：下载 .exe 安装包（支持 Windows 10/11 64位）</li>
+<li>macOS：下载 .dmg 安装包（注意区分 Intel 芯片和 Apple Silicon 芯片）</li>
+<li>Linux：下载 .AppImage 或 .deb 包</li>
+</ul>
+</li>
+</ol><aside class="lec-callout lec-note"><div class="lec-co-title">📌 补充</div><div class="lec-co-body"><strong>小贴士：</strong>Trae 分为国内版（trae.cn）和国际版（trae.ai）。国内版采用积分制（免费用户每月500积分+每日签到200），使用豆包和 DeepSeek 模型；国际版有免费版和 Pro 版。国内用户推荐直接使用国内版。</div></aside><p><strong>第二步：安装</strong></p><ul class="lec-list">
+<li><strong>Windows：</strong>双击下载的 .exe 文件，按向导默认安装即可（一路点"下一步"）。如果系统弹出安全警告，点击"更多信息"后选择"仍要运行"。</li>
+<li><strong>macOS：</strong>双击 .dmg 文件，将 Trae 图标拖拽到 Applications 文件夹。首次打开时如果系统提示"无法打开"，需进入"系统偏好设置"→"安全性与隐私"→"通用"，点击"仍要打开"。</li>
+<li><strong>Linux：</strong>.deb 包用<code class="lec-inl-code">sudo dpkg -i 文件名.deb</code> 安装；.AppImage 右键属性勾选"允许作为程序执行"后双击运行。</li>
+</ul><p><strong>第三步：登录与初始配置</strong></p><ol class="lec-steps">
+<li>安装完成后，双击桌面图标启动 Trae</li>
+<li>首次启动会有欢迎向导：
+          <ul class="lec-list">
+<li>选择主题（暗色/亮色，推荐暗色）</li>
+<li>选择语言（默认简体中文）</li>
+<li>如果你用过 VS Code/Cursor，可以一键导入插件和配置</li>
+<li>安装命令行工具（可选，方便终端用 trae 命令打开项目）</li>
+</ul>
+</li>
+<li>登录认证：使用手机号或稀土掘金账号登录（必须登录才能使用AI功能）</li>
+<li>等待模型缓存下载（首次启动约200MB，保持网络畅通）</li>
+</ol><p><strong>验证安装成功</strong></p><ul class="lec-list">
+<li>查看底部状态栏是否显示"已登录"状态</li>
+<li>按快捷键 <kbd class="lec-kbd">Ctrl+U</kbd>（Windows）或<kbd class="lec-kbd">Cmd+U</kbd>（Mac），右侧AI面板应该正常弹出</li>
+<li>在AI聊天框输入"你好"，看是否能得到回复</li>
+</ul><h4 class="lec-h4">2.2.3 界面导览</h4><p>Trae 的界面布局清晰直观，主要分为以下区域：</p><pre class="lec-code"><code>┌─────────────────────────────────────────────────────┐
+│ 顶部菜单栏（文件、编辑、选择、视图、前往、运行、帮助）│
+├───────────┬─────────────────────────┬─────────────┤
+│           │                         │             │
+│ 左侧边栏  │     中央编辑区          │  右侧AI面板 │
+│ • 文件    │     • 代码编辑器        │  • Chat对话 │
+│ • 搜索    │     • 多标签页          │  • Builder  │
+│ • 源代码  │     • Diff对比视图      │  • 智能体   │
+│ • 扩展    │     • 内置Web预览       │  • 任务列表 │
+│ • 远程    │                         │             │
+├───────────┴─────────────────────────┴─────────────┤
+│ 底部状态栏（终端、问题面板、输出、调试控制台、AI状态）│
+└─────────────────────────────────────────────────────┘</code></pre><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>区域</th><th>位置</th><th>功能</th></tr></thead>
+<tbody>
+<tr><td><strong>顶部菜单栏</strong></td><td>最顶部</td><td>文件、编辑、视图等传统菜单，以及 AI 模型选择器</td></tr>
+<tr><td><strong>左侧活动栏</strong></td><td>最左边一列图标</td><td>资源管理器（文件）、搜索、源代码管理、AI 助手、扩展插件等</td></tr>
+<tr><td><strong>侧边栏</strong></td><td>活动栏右侧</td><td>显示文件列表、搜索结果等，点击活动栏图标切换</td></tr>
+<tr><td><strong>编辑区</strong></td><td>中间最大区域</td><td>显示和编辑代码文件，是你最常看的地方</td></tr>
+<tr><td><strong>AI 对话面板</strong></td><td>右侧</td><td>和 AI 对话的地方，输入需求、查看 AI 回复</td></tr>
+<tr><td><strong>底部状态栏</strong></td><td>最底部</td><td>终端、问题面板、输出、AI 模型状态等</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">2.2.4 常用快捷键速查</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>操作</th><th>Windows</th><th>macOS</th></tr></thead>
+<tbody>
+<tr><td>唤起AI侧边对话框</td><td><kbd class="lec-kbd">Ctrl+U</kbd></td><td><kbd class="lec-kbd">Cmd+U</kbd></td></tr>
+<tr><td>Builder模式（行内编辑）</td><td><kbd class="lec-kbd">Ctrl+K</kbd></td><td><kbd class="lec-kbd">Cmd+K</kbd></td></tr>
+<tr><td>代码自动补全</td><td><kbd class="lec-kbd">Ctrl+Space</kbd></td><td><kbd class="lec-kbd">Cmd+Space</kbd></td></tr>
+<tr><td>打开命令面板</td><td><kbd class="lec-kbd">Ctrl+Shift+P</kbd></td><td><kbd class="lec-kbd">Cmd+Shift+P</kbd></td></tr>
+<tr><td>快速打开文件</td><td><kbd class="lec-kbd">Ctrl+P</kbd></td><td><kbd class="lec-kbd">Cmd+P</kbd></td></tr>
+<tr><td>注释/取消注释</td><td><kbd class="lec-kbd">Ctrl+/</kbd></td><td><kbd class="lec-kbd">Cmd+/</kbd></td></tr>
+<tr><td>保存文件</td><td><kbd class="lec-kbd">Ctrl+S</kbd></td><td><kbd class="lec-kbd">Cmd+S</kbd></td></tr>
+<tr><td>关闭当前标签</td><td><kbd class="lec-kbd">Ctrl+W</kbd></td><td><kbd class="lec-kbd">Cmd+W</kbd></td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">2.2.5 三大核心模式详解</h4><p>Trae 有三个核心使用模式，理解它们是用好 Trae 的关键：</p><p><strong>模式一：Chat 模式（对话模式）</strong></p><ul class="lec-list">
+<li><strong>用途：</strong>提问、讨论、解释代码、规划方案、修改需求</li>
+<li><strong>打开方式：</strong>点击左侧活动栏的 AI 图标，或按快捷键<kbd class="lec-kbd">Ctrl+U</kbd></li>
+<li><strong>典型用法：</strong>
+<ul class="lec-list">
+<li>"这段代码是什么意思？帮我解释一下"</li>
+<li>"我想做一个个人主页，帮我规划一下需要哪些文件"</li>
+<li>"这个报错是什么原因？怎么修复？"</li>
+<li>"把页面主色调改成蓝色，字体加大一号"</li>
+</ul>
+</li>
+<li><strong>进阶技巧：</strong>
+<ul class="lec-list">
+<li><strong>选中代码提问：</strong>在编辑区选中一段代码，然后在Chat中输入问题，AI会自动结合选中内容回答</li>
+<li><strong>粘贴错误信息：</strong>把终端里的红色报错日志完整复制给AI，它会分析原因并给出修复方案</li>
+<li><strong>追问细化：</strong>如果第一次回答不够满意，可以继续追问，AI会记住上下文</li>
+</ul>
+</li>
+</ul><p><strong>模式二：Builder 模式（构建模式 / 行内编辑）</strong></p><ul class="lec-list">
+<li><strong>用途：</strong>直接生成或修改代码，AI 会在当前文件中直接编辑</li>
+<li><strong>打开方式：</strong>按快捷键<kbd class="lec-kbd">Ctrl+K</kbd>（Mac:<kbd class="lec-kbd">Cmd+K</kbd>），或选中代码后右键选择"AI 编辑"</li>
+<li><strong>典型用法：</strong>
+<ul class="lec-list">
+<li>选中一段代码，按 Ctrl+K，输入"把这个函数重构一下，加上错误处理"</li>
+<li>在空文件中按 Ctrl+K，输入"帮我写一个登录页面的 HTML 结构"</li>
+<li>"给这个按钮添加点击事件，弹出提示框"</li>
+</ul>
+</li>
+<li><strong>操作流程：</strong>
+<ol class="lec-steps">
+<li>选中要修改的代码（或不选中，在光标位置生成）</li>
+<li>按 Ctrl+K 打开 Builder 输入框</li>
+<li>输入修改需求</li>
+<li>AI 生成修改后的代码，显示 Diff 对比（左边原代码，右边新代码）</li>
+<li>点击"接受"应用修改，或"拒绝"放弃</li>
+</ol>
+</li>
+</ul><p><strong>模式三：SOLO 模式（AI主导的全流程开发）</strong></p><ul class="lec-list">
+<li><strong>用途：</strong>AI 为主导，从需求分析到部署上线全流程自主开发</li>
+<li><strong>特点：</strong>采用三栏布局（左侧任务列表、中间对话流、右侧工具面板），AI 可以自主调用工具、创建文件、运行命令</li>
+<li><strong>能做什么：</strong>
+<ol class="lec-steps">
+<li>理解需求：读取PRD文档或听取需求描述</li>
+<li>规划方案：设计系统架构、技术选型</li>
+<li>编写代码：生成完整功能模块</li>
+<li>自动测试：编写并运行单元测试</li>
+<li>修复问题：分析测试失败原因并修复</li>
+<li>部署上线：生成部署脚本或配置文件</li>
+</ol>
+</li>
+<li><strong>适合谁：</strong>有一定编程经验的开发者，能审查 AI 生成的代码。新手建议先用 Chat 和 Builder 模式。</li>
+</ul><aside class="lec-callout lec-tip"><div class="lec-co-title">💡 讲师提示</div><div class="lec-co-body">
+<p><strong>新手使用建议：</strong></p>
+<ul class="lec-list">
+<li><strong>规划阶段</strong>用 Chat 模式：先和 AI 讨论需求、确定方案</li>
+<li><strong>实现阶段</strong>用 Builder 模式：方案确定后，让 AI 直接写代码</li>
+<li><strong>审查阶段</strong>回到 Chat 模式：代码写完后，让 AI 解释、检查、优化</li>
+<li>SOLO 模式等熟练后再尝试，新手用 Chat + Builder 就够了</li>
+</ul>
+</div></aside><h4 class="lec-h4">2.2.6 智能体体系：打造专属AI助手团队</h4><p>Trae 的智能体是可自由配置的 AI 助手，你可以根据需求创建多个智能体，分别负责不同的开发任务。</p><p><strong>内置智能体</strong></p><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>智能体</th><th>功能</th></tr></thead>
+<tbody>
+<tr><td><strong>代码审查员</strong></td><td>审查代码质量、指出潜在问题</td></tr>
+<tr><td><strong>测试工程师</strong></td><td>自动生成单元测试</td></tr>
+<tr><td><strong>文档撰写员</strong></td><td>生成API文档、README</td></tr>
+<tr><td><strong>性能优化师</strong></td><td>分析代码性能瓶颈</td></tr>
+<tr><td><strong>安全审计员</strong></td><td>检查安全漏洞</td></tr>
+</tbody>
+</table>
+</div><p><strong>创建自定义智能体</strong></p><ol class="lec-steps">
+<li>在右侧AI面板点击"智能体管理"</li>
+<li>选择"创建自定义智能体"</li>
+<li>配置基本信息：
+          <ul class="lec-list">
+<li><strong>名称：</strong>如"前端页面美化专家"</li>
+<li><strong>提示词：</strong>描述智能体的角色和职责，例如："你是一个前端页面美化专家，精通 HTML/CSS，擅长把朴素的页面改造成现代美观的设计。你会保持功能不变，只优化样式。"</li>
+<li><strong>工具集：</strong>选择允许使用的工具（文件读写、代码执行等）</li>
+</ul>
+</li>
+<li>点击保存，之后就可以在Chat中随时调用这个专属智能体</li>
+</ol><h4 class="lec-h4">2.2.7 Skill 功能：让AI变身领域专家</h4><p>Skill 是 Trae 中预定义的"专家模式"，不仅仅是提示词，更是一套结构化的行动指南。通过激活特定的 Skill，你可以让 AI 瞬间变身"架构师"、"测试专家"或"重构大师"。</p><p><strong>热门 Skill 一览</strong></p><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>Skill名称</th><th>核心能力</th><th>实战指令示例</th></tr></thead>
+<tbody>
+<tr><td><strong>架构设计</strong></td><td>生成系统架构图、模块划分、技术选型</td><td>"激活【架构设计】Skill。我要做一个待办清单应用，请给出文件结构和技术选型。"</td></tr>
+<tr><td><strong>代码重构</strong></td><td>识别代码异味，优化性能和可读性</td><td>"激活【代码重构】Skill。请分析这段代码，提取公共方法，消除重复。"</td></tr>
+<tr><td><strong>智能调试</strong></td><td>分析报错日志，定位根因，提供修复方案</td><td>"激活【智能调试】Skill。这是报错信息，请结合上下文分析原因。"</td></tr>
+<tr><td><strong>单元测试</strong></td><td>自动生成高覆盖率测试用例</td><td>"激活【单元测试】Skill。为这个函数生成测试用例，覆盖正常、边界、异常情况。"</td></tr>
+<tr><td><strong>文档生成</strong></td><td>自动生成API文档、README</td><td>"激活【文档生成】Skill。扫描项目，生成README文档。"</td></tr>
+<tr><td><strong>安全审计</strong></td><td>检查SQL注入、XSS、硬编码密钥</td><td>"激活【安全审计】Skill。检查这段代码有没有XSS风险。"</td></tr>
+<tr><td><strong>性能调优</strong></td><td>分析复杂度，识别瓶颈，优化算法</td><td>"激活【性能调优】Skill。这个循环处理1万条数据很慢，请优化。"</td></tr>
+<tr><td><strong>代码审查</strong></td><td>模拟资深工程师进行Code Review</td><td>"激活【代码审查】Skill。以严苛视角审查这段代码。"</td></tr>
+</tbody>
+</table>
+</div><p><strong>高效使用 Skill 的三个黄金法则</strong></p><ol class="lec-steps">
+<li><strong>明确激活：</strong>在对话开始时，显式地告诉 AI"激活【Skill名称】"，这能显著改变 AI 的回答模式</li>
+<li><strong>上下文投喂：</strong>选中相关代码文件、日志文件或需求文档再发起指令，效果提升200%</li>
+<li><strong>迭代反馈：</strong>像对待同事一样指出 AI 方案的不足（"这个方案内存占用太高，换一种"），让它基于 Skill 重新思考</li>
+</ol><h4 class="lec-h4">2.2.8 Trae 优缺点总结</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>优点 ✅</th><th>缺点 ⚠️</th></tr></thead>
+<tbody>
+<tr><td>中文理解和生成能力优秀</td><td>生态相对较新，插件数量不如 VS Code 多</td></tr>
+<tr><td>国内版免费额度充足（每月500积分+签到），所有功能可用</td><td>部分高级功能仍在快速迭代中</td></tr>
+<tr><td>AI 原生设计，Chat/Builder/SOLO 三种模式</td><td>大项目处理能力有待验证</td></tr>
+<tr><td>智能体体系 + Skill 能力，可高度定制</td><td>社区教程和资料相对较少（但在快速增长）</td></tr>
+<tr><td>界面友好，零基础易上手</td><td>—</td></tr>
+<tr><td>多模型支持（豆包、DeepSeek等）</td><td>—</td></tr>
+</tbody>
+</table>
+</div></section></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-ch1.html">← 上一页</a>
+    <span class="pager-info">第 1 页，共 10 页</span>
+    <a class="pager-btn" href="lec-ch2-2.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>
