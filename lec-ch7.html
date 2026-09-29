@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第7章 调试与排错 —— 代码跑不起来怎么办 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">第7章 · 调试与排错 —— 代码跑不起来怎么办 </span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter" id="lec-ch7"><header class="lec-ch-head">
+<span class="lec-ch-badge">第7章</span>
+<h2 class="lec-ch-title">调试与排错 —— 代码跑不起来怎么办</h2>
+<p class="lec-ch-sub">第八篇 · 调试篇</p>
+</header><div class="lec-body"><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch7-1"><span class="lec-sec-no">7.1</span> 调试是 Vibe Coding 的必备技能</h3>
+<p>很多新手一看到报错就慌了："我又不会写代码，报错了我怎么修？"</p>
+<p>别担心。在 Vibe Coding 中，<strong>你不需要自己修 bug，你只需要"诊断问题 + 把信息给 AI"</strong>。AI 会帮你修。你的工作是：</p>
+<ol class="lec-steps">
+<li><strong>发现问题：</strong>知道哪里不对（白屏？按钮没反应？样式乱了？）</li>
+<li><strong>收集信息：</strong>打开开发者工具，看报错信息，看哪里出了问题</li>
+<li><strong>描述给 AI：</strong>把报错信息、相关代码、你做了什么操作、期望什么结果，完整地告诉 AI</li>
+<li><strong>验证修复：</strong>AI 给出修复方案后，测试是否真的修好了</li>
+</ol>
+<p><strong>核心认知：</strong>报错不是失败，是学习机会。每一个报错都在告诉你"这里有问题"，修好一个，你就多懂一分。专业程序员每天也会遇到大量报错，他们和新手的区别只是：他们知道怎么快速定位和解决问题。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch7-2"><span class="lec-sec-no">7.2</span> 调试七步流程</h3>
+<p>遇到问题时，按以下七步走，不要慌：</p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>步骤</th><th>做什么</th><th>怎么做</th></tr></thead>
+<tbody>
+<tr><td><strong>1. 冷静观察</strong></td><td>先看现象，不要急着改代码</td><td>页面白屏？按钮没反应？样式乱了？数据不保存？先准确描述问题</td></tr>
+<tr><td><strong>2. 打开控制台</strong></td><td>按 F12，看 Console 面板</td><td>有没有红色报错？报错信息是什么？第几行？</td></tr>
+<tr><td><strong>3. 复现问题</strong></td><td>确认问题能稳定复现</td><td>刷新页面再试一次，是每次都出问题，还是偶尔？做什么操作时出问题？</td></tr>
+<tr><td><strong>4. 定位范围</strong></td><td>缩小问题范围</td><td>是 HTML 结构问题？CSS 样式问题？JS 逻辑问题？最近改了什么？</td></tr>
+<tr><td><strong>5. 收集信息</strong></td><td>把诊断信息整理好</td><td>报错信息全文、相关代码、操作步骤、期望结果、实际结果</td></tr>
+<tr><td><strong>6. 求助 AI</strong></td><td>把信息给 AI，让它分析修复</td><td>用第3章的"调试报错提示词模板"，完整描述问题</td></tr>
+<tr><td><strong>7. 验证修复</strong></td><td>测试是否真的修好了</td><td>应用 AI 的修复后，刷新测试。如果没修好，回到第1步，把新的报错信息再给 AI</td></tr>
+</tbody>
+</table>
+</div>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch7-3"><span class="lec-sec-no">7.3</span> 如何读取报错信息</h3>
+<p>控制台的报错信息看起来吓人，但其实结构很清晰。学会读报错，调试就成功了一半。</p>
+<h4 class="lec-h4">7.3.1 报错信息的结构</h4>
+<pre class="lec-code"><code>Uncaught ReferenceError: addTask is not defined
+    at HTMLButtonElement.onclick (index.html:25:32)</code></pre>
+<p>拆解：</p>
+<ul class="lec-list">
+<li><strong>Uncaught</strong>：未捕获的错误（没有被 try-catch 处理）</li>
+<li><strong>ReferenceError</strong>：错误类型（引用错误，用了不存在的变量/函数）</li>
+<li><strong>addTask is not defined</strong>：错误描述（addTask 没有定义）</li>
+<li><strong>at HTMLButtonElement.onclick</strong>：错误发生在什么场景（按钮点击事件）</li>
+<li><strong>(index.html:25:32)</strong>：错误位置（index.html 第25行第32列）</li>
+</ul>
+<h4 class="lec-h4">7.3.2 常见错误类型</h4>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>错误类型</th><th>含义</th><th>常见原因</th><th>解决方向</th></tr></thead>
+<tbody>
+<tr><td><strong>SyntaxError</strong></td><td>语法错误</td><td>少了括号、引号不配对、少了分号、关键字拼写错误</td><td>去报错行号附近检查语法，括号引号是否配对</td></tr>
+<tr><td><strong>ReferenceError</strong></td><td>引用错误</td><td>用了没有声明的变量/函数、变量名拼写错误、作用域不对</td><td>检查变量/函数名是否正确、是否在当前作用域声明了</td></tr>
+<tr><td><strong>TypeError</strong></td><td>类型错误</td><td>对 null/undefined 调用方法、类型不匹配（比如对数字调用 toUpperCase）</td><td>检查变量是否为 null/undefined，方法是否存在于该类型</td></tr>
+<tr><td><strong>RangeError</strong></td><td>范围错误</td><td>数组索引越界、递归调用栈溢出、数字超出有效范围</td><td>检查循环条件、递归终止条件、数组长度</td></tr>
+<tr><td><strong>JSON.parse 错误</strong></td><td>JSON 解析错误</td><td>localStorage 中数据不是合法 JSON、第一次读取为 null</td><td>加 try-catch，读取失败时用默认值 []</td></tr>
+<tr><td><strong>NetworkError</strong></td><td>网络错误</td><td>图片/资源加载失败、API 请求失败、跨域问题</td><td>检查资源路径、网络连接、URL 是否正确</td></tr>
+</tbody>
+</table>
+</div>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch7-4"><span class="lec-sec-no">7.4</span> 六大常见问题排查指南</h3>
+<h4 class="lec-h4">7.4.1 问题一：页面白屏，什么都不显示</h4>
+<p><strong>排查步骤：</strong></p>
+<ol class="lec-steps">
+<li>按 F12 打开控制台，看有没有红色报错</li>
+<li>如果有 JS 报错：JS 错误会中断页面渲染，修复 JS 错误后页面就显示了</li>
+<li>如果没有报错：看 Elements 面板，body 里有没有内容？可能是 CSS 把内容隐藏了（display:none、visibility:hidden、颜色和背景一样）</li>
+<li>检查 HTML 结构：是不是 body 标签里什么都没有？或者标签没有闭合导致渲染中断？</li>
+<li>检查文件路径：是不是打开了错误的文件？或者文件是空的？</li>
+</ol>
+<p><strong>给 AI 的提示词：</strong></p>
+<pre class="lec-code lec-prompt"><code>我的网页打开后白屏，什么都不显示。
+
+控制台报错信息：
+【粘贴完整报错】
+
+我最近做了什么修改：
+【描述最近改了什么】
+
+请帮我分析白屏原因并给出修复方案。</code></pre>
+<h4 class="lec-h4">7.4.2 问题二：按钮点击没反应</h4>
+<p><strong>排查步骤：</strong></p>
+<ol class="lec-steps">
+<li>点击按钮后，控制台有没有新的报错？如果有，按报错信息修复</li>
+<li>检查按钮是否绑定了事件：在 Elements 面板选中按钮，看 Event Listeners 面板有没有 click 事件</li>
+<li>检查 JS 代码：addEventListener 的选择器是否正确？是不是 id/class 写错了？</li>
+<li>检查 JS 执行时机：是不是 script 标签在按钮之前执行，导致找不到按钮？（把 script 放到 body 末尾，或用 DOMContentLoaded）</li>
+<li>检查按钮是否被其他元素遮挡：Elements 面板选中按钮，看是不是有透明元素盖在上面</li>
+<li>检查按钮是否 disabled：是不是设置了 disabled 属性？</li>
+</ol>
+<h4 class="lec-h4">7.4.3 问题三：样式不生效 / 布局乱了</h4>
+<p><strong>排查步骤：</strong></p>
+<ol class="lec-steps">
+<li>在 Elements 面板选中元素，看右侧 Styles 面板：你写的 CSS 规则有没有出现？</li>
+<li>如果规则出现了但被划掉：说明被更高优先级的规则覆盖了。提高选择器优先级，或用 !important（不推荐滥用）</li>
+<li>如果规则根本没出现：说明选择器写错了，或者 CSS 语法有错误（前面的规则少了分号/大括号，导致后面的规则都失效）</li>
+<li>检查拼写：属性名和值有没有拼写错误？（比如 backgroud 少了 n，margin 写成了 marging）</li>
+<li>检查单位：数值有没有忘加单位？（比如 width: 200 应该是 width: 200px）</li>
+<li>布局乱了：检查是不是用了固定宽度导致溢出？是不是 Flexbox 没有设置 flex-wrap？</li>
+</ol>
+<h4 class="lec-h4">7.4.4 问题四：数据不保存 / 刷新后丢失</h4>
+<p><strong>排查步骤：</strong></p>
+<ol class="lec-steps">
+<li>打开 Application 面板，看 localStorage 中有没有数据？key 名对不对？</li>
+<li>如果 localStorage 是空的：检查保存逻辑，是不是没有在数据变化时调用 localStorage.setItem？</li>
+<li>如果有数据但刷新后不显示：检查页面加载时有没有从 localStorage 读取并渲染？读取的 key 名和保存的 key 名是否一致？</li>
+<li>检查 JSON 转换：保存时有没有 JSON.stringify？读取时有没有 JSON.parse？</li>
+<li>检查报错：控制台有没有 JSON.parse 相关的报错？如果数据格式不对，解析会失败</li>
+<li>检查是否在无痕模式：无痕模式下 localStorage 可能被限制</li>
+</ol>
+<h4 class="lec-h4">7.4.5 问题五：手机端显示异常</h4>
+<p><strong>排查步骤：</strong></p>
+<ol class="lec-steps">
+<li>在电脑上用开发者工具的设备模拟器（<kbd class="lec-kbd">Ctrl</kbd>+<kbd class="lec-kbd">Shift</kbd>+<kbd class="lec-kbd">M</kbd>）模拟手机，看能不能复现问题</li>
+<li>检查 viewport 标签：head 里有没有 <code class="lec-inl-code">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>？没有的话手机端会按桌面宽度缩放</li>
+<li>检查媒体查询：@media 的断点是否正确？max-width 和 min-width 有没有搞反？</li>
+<li>检查固定宽度：元素是不是设置了固定宽度（如 width: 800px）导致手机端溢出？改成 max-width: 100% 或 width: 100%</li>
+<li>检查 Flexbox：是不是没有 flex-wrap: wrap，导致元素挤在一行溢出？</li>
+<li>检查字体大小：手机端字体是不是太小（小于 14px）？iOS 上输入框字体小于 16px 会自动缩放</li>
+<li>检查触摸区域：按钮和链接的高度是不是小于 44px？手机上不好点</li>
+</ol>
+<h4 class="lec-h4">7.4.6 问题六：AI 改完后更糟了 / 功能改没了</h4>
+<p><strong>排查步骤：</strong></p>
+<ol class="lec-steps">
+<li>不要慌，先看 AI 改了什么：在 Trae 中用 Diff 视图对比修改前后的代码</li>
+<li>如果改坏了：用 Trae 的"时间线"（Timeline）功能回退到上一个正常版本</li>
+<li>回退后，重新给 AI 提需求，这次更明确："只修改 XXX 部分，其他所有功能保持不变"</li>
+<li>每一轮修改前，让 AI 先列出"当前已实现的功能列表"，确认后再改</li>
+<li>复杂修改分多轮：不要一次让 AI 改太多，一次改一个功能，改完测试通过后再改下一个</li>
+<li>重要版本手动备份：在关键节点（比如基础版完成后），复制一份 index.html 备份，改坏了可以恢复</li>
+</ol>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch7-5"><span class="lec-sec-no">7.5</span> 调试技巧进阶</h3>
+<h4 class="lec-h4">7.5.1 console.log 调试法</h4>
+<p>最常用也最有效的调试方法——在关键位置加 console.log，看变量的值和代码执行流程：</p>
+<pre class="lec-code"><code>function addTask() {
+  const text = input.value.trim();
+  console.log('输入的内容：', text);  // 看输入对不对
+  console.log('输入长度：', text.length);  // 看是不是空的
+
+  if (text === '') {
+    console.log('输入为空，不添加');  // 看有没有进入这个分支
+    return;
+  }
+
+  const newTask = { id: Date.now(), text: text, completed: false };
+  console.log('新任务：', newTask);  // 看新任务对象对不对
+
+  todos.push(newTask);
+  console.log('当前任务数组：', todos);  // 看数组对不对
+
+  saveToLocalStorage();
+  render();
+  console.log('添加完成，已渲染');  // 看有没有执行到这里
+}</code></pre>
+<p>加完 console.log 后，操作页面，看控制台输出，就能知道代码执行到哪一步、每一步的变量值是什么，问题出在哪里。</p>
+<h4 class="lec-h4">7.5.2 二分法定位问题</h4>
+<p>如果不知道问题出在哪段代码，可以用二分法：</p>
+<ol class="lec-steps">
+<li>把怀疑有问题的代码注释掉一半</li>
+<li>测试问题是否还存在</li>
+<li>如果不存在了：问题在被注释掉的那一半里</li>
+<li>如果还存在：问题在没注释的那一半里</li>
+<li>继续对有问题的那一半二分，直到定位到具体哪行</li>
+</ol>
+<p>这个方法对"页面白屏""样式全乱"这种不知道原因的问题特别有效。</p>
+<h4 class="lec-h4">7.5.3 最小化复现</h4>
+<p>如果问题很复杂，先做一个最小化的复现：</p>
+<ol class="lec-steps">
+<li>新建一个空 HTML 文件</li>
+<li>只保留和问题相关的最少代码</li>
+<li>看问题是否还能复现</li>
+<li>如果能：说明问题就在这段代码里，容易定位</li>
+<li>如果不能：逐步加回其他代码，直到问题复现，就能找到是哪部分引起的</li>
+</ol>
+</section><aside class="lec-callout lec-summary">
+<div class="lec-co-title">✅ 本章小结</div>
+<div class="lec-co-body">
+<p><strong>本章关键点：</strong></p>
+<ol class="lec-steps">
+<li><strong>报错是常态，不是你笨：</strong>专业程序员每天也遇到大量报错。区别只是他们知道怎么快速定位和解决。</li>
+<li><strong>你的工作不是修 bug，是诊断+描述：</strong>发现问题 → 收集信息（报错、代码、操作步骤）→ 描述给 AI → 验证修复。AI 帮你修。</li>
+<li><strong>调试七步流程：</strong>冷静观察 → 打开控制台 → 复现问题 → 定位范围 → 收集信息 → 求助 AI → 验证修复。</li>
+<li><strong>学会读报错：</strong>错误类型（SyntaxError/ReferenceError/TypeError）+ 错误描述 + 位置（文件名:行号:列号）。看懂这三个，问题就定位了一半。</li>
+<li><strong>六大常见问题排查：</strong>白屏（看控制台+CSS）、按钮没反应（事件绑定+执行时机）、样式不生效（选择器+优先级+语法）、数据不保存（localStorage+JSON）、手机端异常（viewport+媒体查询+固定宽度）、AI改坏了（回退+分轮修改）。</li>
+<li><strong>三大调试技巧：</strong>console.log（看变量值和执行流程）、二分法（快速定位问题代码）、最小化复现（剥离无关代码）。</li>
+<li><strong>改完一定要测试：</strong>不要 AI 说修好了就信，自己实际操作一遍。同时检查有没有引入新问题。</li>
+<li><strong>重要版本要备份：</strong>关键节点复制一份文件备份，或者用 Git 管理版本。改坏了能回退。</li>
+</ol>
+</div>
+</aside></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-ch6.html">← 上一页</a>
+    <span class="pager-info">讲义正文</span>
+    <a class="pager-btn" href="lec-appd.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>
