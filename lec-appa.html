@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>附录A 附录A 工具使用常见错误汇总 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">附录A · 附录A 工具使用常见错误汇总 </span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter lec-appendix" id="lec-appa"><header class="lec-ch-head">
+<span class="lec-ch-badge">附录A</span>
+<h2 class="lec-ch-title">附录A 工具使用常见错误汇总</h2>
+</header><div class="lec-body"><p><strong>常见错误1：同时装5个工具，哪个都没用熟</strong></p><p><strong>正确做法：</strong>新手先精通 Trae + 豆包两个工具，用熟了再尝试其他的。工具是手段，不是目的。</p><p><strong>常见错误2：AI 生成代码后不看直接运行</strong></p><p><strong>正确做法：</strong>生成后快速扫一遍，至少看 AI 改了哪些文件、核心逻辑是什么。AI 可能引入你不想要的东西。</p><p><strong>常见错误3：对话太长不清理，AI 开始乱回答</strong></p><p><strong>正确做法：</strong>对话进行到一定程度（10-20轮），让 AI 总结当前状态，新建对话粘贴总结继续。</p><p><strong>常见错误4：网络不好时反复点击，导致重复生成</strong></p><p><strong>正确做法：</strong>耐心等待 AI 回复完成，不要中途打断。如果确实卡住了，刷新页面重试。</p><p><strong>常见错误5：不登录就想用 AI 功能</strong></p><p><strong>正确做法：</strong>Trae、豆包等工具都需要登录才能使用 AI 功能。首次使用先完成登录。</p><p><strong>常见错误6：把 API Key 写在前端代码里</strong></p><p><strong>正确做法：</strong>如果需要调用 AI API，密钥应该放在后端，不要写在前端代码里（任何人都能看到）。本课程的项目不需要调用 API，用工具的对话功能就行。</p><section class="lec-sec"><h3 class="lec-h3" id="lec-appa-1"><span class="lec-sec-no">2.9.1</span> 各工具免费额度与签到领积分攻略（重要！不是所有工具都完全免费）</h3><aside class="lec-callout lec-warn"><div class="lec-co-title">⚠️ 注意</div><div class="lec-co-body"><strong>重要提醒：</strong>很多 AI 工具不是"完全免费无限制"的，而是采用<strong>积分制</strong>或<strong>每日额度制</strong>。免费用户有一定的免费额度，轻度使用通常够用，但重度使用可能需要签到领积分、完成任务领奖励，或开通会员。本节详细列出课程中每个工具的免费额度和领积分方法，帮你用最少的钱完成学习。</div></aside><h4 class="lec-h4">一、课程主力工具免费额度详情</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>工具</th><th>免费额度</th><th>签到/任务领积分</th><th>新用户福利</th><th>付费价格（参考）</th></tr></thead>
+<tbody>
+<tr><td><strong>Trae 国内版</strong><br/>（课程主力IDE）</td><td>每月 500 通用积分，所有功能可用（IDE、SOLO、MCP），2个云端任务并发</td><td>✅ 每日签到：每天 200 Work 专属积分（31天有效）<br/>✅ 邀请好友：双方各 500 Work 积分</td><td>注册送 2000 通用积分 + 2000 Work 专属积分（31天有效）</td><td>Lite 首月 ¥9.9（原价 ¥49/月，2000 Work积分）<br/>Pro 等更高档位</td></tr>
+<tr><td><strong>豆包</strong><br/>（课程主力对话）</td><td>基础对话、问答、写作、图像生成<strong>免费不限次</strong>；工作任务模式每日定额免费体验</td><td>✅ App 每日签到领基础积分（30-50点），连续签到可叠加<br/>✅ 完成成长任务提升账号等级（Lv.3+ 每日80次起生成额度）</td><td>新用户注册即可使用全部基础功能</td><td>专业版 68/200/500 元/月（含电脑操作、浏览器自动化、内置Office）<br/>学生认证用户工作任务模式享 2.5 倍免费额度</td></tr>
+<tr><td><strong>DeepSeek</strong><br/>（代码加强）</td><td>网页版/App 普通对话<strong>完全免费，无次数限制</strong>（仅对每个IP有调用频率限制，防止滥用）</td><td>无签到机制（对话本身就免费）</td><td>注册即可免费使用</td><td>API 收费（很便宜）：输入约1元/百万token，输出约2元/百万token<br/>新用户 API 送 500万 free tokens<br/>无个人会员订阅计划</td></tr>
+<tr><td><strong>WorkBuddy</strong><br/>（腾讯备选）</td><td>每月1号自动到账 500 积分（永久有效）</td><td>✅ 每日签到：第1-6天每天100积分，第7天1000积分（周大奖十倍），每月累计 3000-6400 积分<br/>✅ 成长计划任务：完成新手+进阶任务一次性 900 积分<br/>✅ 邀请好友：双方各 500 积分<br/>✅ 社区发文章：500-3000 积分</td><td>注册送 5000 积分（需手动去个人中心领取，90天有效）</td><td>个人专业版 58元/月或 696元/年（含2000积分）<br/>加量包 114元/1000积分</td></tr>
+<tr><td><strong>Kimi</strong><br/>（长文档阅读）</td><td>基础对话、联网搜索、20万汉字上下文解析<strong>免费</strong></td><td>无签到机制</td><td>注册即可使用基础功能</td><td>免费用户高级功能严格限额：每月仅1次深度研究、3次OK Computer、3次PPT生成<br/>会员 49元/月起，满血百万上下文需 199元/月以上</td></tr>
+<tr><td><strong>GPT / ChatGPT</strong><br/>（国际备选）</td><td>免费版可用 GPT-5.2（每5小时约10条消息），有广告</td><td>无签到机制</td><td>注册即可使用免费版</td><td>Go $8/月（免费版10倍额度，有广告）<br/>Plus $20/月<br/>Pro $100/月、$200/月<br/>国内不可直连</td></tr>
+<tr><td><strong>Grok</strong><br/>（可选参考）</td><td>免费版有使用限制</td><td>无签到机制</td><td>需 X（Twitter）账号登录</td><td>Premium+ 订阅解锁完整功能<br/>国内不可直连</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">二、办公效率工具免费额度详情</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>工具</th><th>免费额度</th><th>付费价格（参考）</th></tr></thead>
+<tbody>
+<tr><td><strong>WPS AI</strong></td><td>2026年5月起免费用户<strong>每日最多3次</strong>AI功能调用（文档续写、内容生成、表格公式、PPT生成等）<br/>WPS 365 体验版（0元/人/年）含 AI 伴写、全文总结、写公式、生成 PPT 等基础功能<br/>写作助手（AI伴写、帮我写、帮我改）完全免费开放</td><td>WPS 会员获更多 AI 次数<br/>超级会员含最高级 AI 权益<br/>商业协作版 199元/人/年</td></tr>
+<tr><td><strong>ChatExcel</strong></td><td>免费版<strong>每日数十次</strong>处理额度，个人日常整理台账、做数据分析基本够用</td><td>高级功能需付费</td></tr>
+<tr><td><strong>Gamma</strong></td><td>免费版可生成完整 PPT 含排版配图，足够个人使用</td><td>免费版有水印/限量<br/>去水印需会员（约 ¥168/年）<br/>导出 PPTX 可能排版错乱</td></tr>
+<tr><td><strong>ChatPDF</strong></td><td>免费版约 120页/3次/天 限制</td><td>付费解锁更多页数和次数<br/>国内访问不稳定</td></tr>
+<tr><td><strong>通义听悟</strong></td><td>免费版每月若干小时转写额度</td><td>付费解锁更多时长和高级功能</td></tr>
+<tr><td><strong>Canva 可画</strong></td><td>免费版大量模板、基础功能可用</td><td>Pro 版解锁高级模板、素材、品牌套件<br/>国内版有学生优惠</td></tr>
+<tr><td><strong>通义灵码</strong></td><td>个人版<strong>永久免费</strong>（基础补全 + Chat），无使用限制</td><td>专业版 ¥59/月（高级智能体功能）<br/>企业版定制报价</td></tr>
+<tr><td><strong>CodeGeeX</strong></td><td>个人版<strong>完全免费，无任何使用限制</strong>（Apache 2.0 开源协议）</td><td>企业版定制报价（私有化部署）</td></tr>
+<tr><td><strong>MarsCode</strong></td><td>个人版<strong>免费，使用无限制</strong></td><td>企业版定制报价</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">三、签到领积分实操攻略（每天5分钟，省出会员钱）</h4><p><strong>Trae 国内版签到</strong></p><ol class="lec-steps">
+<li>打开 Trae 客户端，登录账号</li>
+<li>点击右上角头像或左侧"积分"入口</li>
+<li>点击"每日签到"领取 200 Work 专属积分</li>
+<li>积分31天有效，记得在有效期内使用</li>
+<li><strong>每月累计：</strong>200 × 30 = 6000 Work 积分（加上每月500通用积分，轻度使用完全够用）</li>
+</ol><p><strong>WorkBuddy 签到（最划算，每周白嫖1000积分）</strong></p><ol class="lec-steps">
+<li>打开 WorkBuddy 客户端，点击左下角头像</li>
+<li>进入"今日礼包"手动领取（不自动到账，断签重新计算）</li>
+<li>第1-6天：每天 100 积分</li>
+<li>第7天：<strong>1000 积分周大奖（十倍！）</strong></li>
+<li>每周循环，每月累计 3000-6400 积分</li>
+<li><strong>额外福利：</strong>个人中心 → 成长计划 → 完成新手+进阶任务，一次性拿 900 积分</li>
+</ol><p><strong>豆包签到</strong></p><ol class="lec-steps">
+<li>打开豆包 App，进入"我的" → "成长中心"</li>
+<li>每日签到领基础积分（30-50点），连续签到可叠加</li>
+<li>完成任务（分享生成结果、使用语音输入、绑定邮箱、首次上传文档等）积累积分升级</li>
+<li>Lv.3 及以上用户享有每日 80 次起基础生成额度，活跃用户可达 120 次</li>
+<li><strong>学生认证：</strong>完成学生认证后，工作任务模式享 2.5 倍免费额度</li>
+</ol><h4 class="lec-h4">四、省积分/省额度的实用技巧</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>技巧</th><th>具体做法</th><th>适用工具</th></tr></thead>
+<tbody>
+<tr><td><strong>1. 简单任务用免费工具</strong></td><td>简单问答、写文案用豆包（免费不限次）；复杂代码逻辑用 DeepSeek（免费）；只有需要 IDE 内全流程开发时才用 Trae（消耗积分）</td><td>所有</td></tr>
+<tr><td><strong>2. 批量提问，减少对话轮次</strong></td><td>把多个小问题合并成一次提问，不要一句一句问。一次完整的对话比 5 次碎片化对话省积分</td><td>Trae、WorkBuddy</td></tr>
+<tr><td><strong>3. 上下文精简</strong></td><td>不要把整个项目所有文件都塞进上下文。只让 AI 看相关的文件，减少 token 消耗</td><td>Trae、Cursor</td></tr>
+<tr><td><strong>4. 长文档用 Kimi 免费额度</strong></td><td>读论文、看报告用 Kimi 基础对话（免费），不要消耗 Trae/WorkBuddy 的积分</td><td>Kimi</td></tr>
+<tr><td><strong>5. PPT 生成省次数</strong></td><td>WPS AI 免费用户每日仅3次，生成前先把大纲写好、需求想清楚，一次生成成功，不要反复试错</td><td>WPS AI</td></tr>
+<tr><td><strong>6. 积分有效期注意</strong></td><td>Trae 签到积分31天有效，WorkBuddy 注册积分90天有效。不要攒着不用，过期就浪费了</td><td>Trae、WorkBuddy</td></tr>
+<tr><td><strong>7. 新用户福利别忘领</strong></td><td>Trae 注册送4000积分、WorkBuddy 注册送5000积分（需手动领取）、DeepSeek API 送500万tokens。注册后第一时间去个人中心领取</td><td>所有</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">五、学生完成课程项目需要花钱吗？</h4><p><strong>结论：不需要花钱，免费额度完全够用。</strong></p><p>本课程的两个实战项目（个人主页、待办清单），每个项目大约需要：</p><ul class="lec-list">
+<li><strong>Trae：</strong>约 200-500 积分（每月免费500+签到6000，完全够用）</li>
+<li><strong>豆包：</strong>基础对话免费不限次，随便用</li>
+<li><strong>DeepSeek：</strong>网页版对话完全免费，随便用</li>
+<li><strong>部署：</strong>GitHub Pages / Netlify 完全免费</li>
+</ul><p>只要你养成每天签到的习惯（Trae + WorkBuddy 每天各点一下，1分钟搞定），免费额度不仅够完成课程项目，甚至够你做几个额外的练手项目。只有当你成为重度用户（每天做几个完整项目）时，才需要考虑开通会员（Trae Lite 首月仅 ¥9.9）。</p><aside class="lec-callout lec-note"><div class="lec-co-title">📌 补充</div><div class="lec-co-body">
+<p><strong>本节核心结论：</strong></p>
+<ol class="lec-steps">
+<li><strong>不是所有工具都完全免费：</strong>Trae、WorkBuddy 是积分制（每月基础额度+签到），WPS AI 每日3次，ChatExcel 每日数十次，Kimi 高级功能每月限额。豆包基础对话、DeepSeek 网页版、CodeGeeX、通义灵码个人版、MarsCode 是真正免费的。</li>
+<li><strong>签到是免费用户的核心技能：</strong>Trae 每天200积分、WorkBuddy 每周1600积分（第7天1000），每天1分钟签到，每月省出会员钱。</li>
+<li><strong>新用户福利别忘领：</strong>Trae 送4000积分、WorkBuddy 送5000积分（手动领）、DeepSeek API 送500万tokens。</li>
+<li><strong>学生完成课程不需要花钱：</strong>免费额度+签到完全够用，养成好习惯就能零成本学完整个课程。</li>
+<li><strong>免费政策可能变化：</strong>各平台的免费额度和签到政策可能随时调整，使用前以官网最新公告为准。本数据截至2026年8月。</li>
+</ol>
+</div></aside></section></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-ch2-10.html">← 上一页</a>
+    <span class="pager-info">讲义正文</span>
+    <a class="pager-btn" href="lec-ch3.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>
