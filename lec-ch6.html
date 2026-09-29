@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第6章 实战项目二 —— 待办清单/日程助手 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">第6章 · 实战项目二 —— 待办清单/日程助手 </span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter" id="lec-ch6"><header class="lec-ch-head">
+<span class="lec-ch-badge">第6章</span>
+<h2 class="lec-ch-title">实战项目二 —— 待办清单/日程助手</h2>
+<p class="lec-ch-sub">第七篇 · 实战篇（二）</p>
+</header><div class="lec-body"><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch6-1"><span class="lec-sec-no">6.1</span> 项目概述</h3>
+<p>欢迎来到第二个实战项目！这一章我们将做一个<strong>待办清单/日程助手</strong>。</p>
+<p>和个人主页（以展示为主）不同，待办清单是一个<strong>交互密集型</strong>应用，会用到大量 JavaScript 逻辑：添加、删除、完成、编辑、筛选、排序、本地存储。通过这个项目，你会更深入地理解 Vibe Coding 中“描述交互逻辑”的技巧。</p>
+<p>我们将采用<strong>渐进式开发</strong>：先做最基础的待办清单（添加、删除、完成），然后逐步增加功能（本地存储、优先级、分类、统计、筛选），最后升级成一个功能完整的日程助手。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch6-2"><span class="lec-sec-no">6.2</span> 第一步：基础版待办清单</h3>
+<h4 class="lec-h4">6.2.1 第一轮提示词（生成基础版）</h4>
+<pre class="lec-code lec-prompt"><code>帮我创建一个待办清单（Todo List）网页应用。
+
+【上下文】
+- 我是编程零基础的学生，这是我的第二个 Vibe Coding 项目
+- 先做基础版，功能不要太复杂，能跑起来最重要
+
+【功能需求】
+1. 顶部有一个输入框和“添加”按钮，输入内容后点击按钮或按回车键添加任务
+2. 任务列表显示在下方，每个任务包含：复选框、任务文字、删除按钮
+3. 勾选复选框后，任务文字加删除线并变灰，表示已完成
+4. 点击删除按钮移除该任务
+5. 空输入时不添加任务，并给出提示（可以用 alert 或输入框边框变红）
+6. 底部显示“已完成 X / 共 Y 项”的统计
+
+【约束】
+1. 技术栈：只用原生 HTML/CSS/JavaScript，不使用任何框架和库
+2. 所有代码写在一个 index.html 文件中，CSS 在 style 标签，JS 在 script 标签
+3. 不引入任何外部资源
+4. 设计风格：简洁现代，主色调蓝色（#3b82f6），圆角卡片，柔和阴影
+5. 响应式设计，手机端也能正常使用
+6. 代码中加详细的中文注释，方便我理解每一部分在做什么
+7. 删除任务时加一个确认（confirm），防止误删
+
+【输出要求】
+1. 先说明实现思路
+2. 给出完整的 index.html 代码
+3. 最后说明每个功能对应的代码位置，方便我后续修改</code></pre>
+<h4 class="lec-h4">6.2.2 测试基础版功能</h4>
+<p>生成后，在浏览器中打开，逐项测试：</p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>测试项</th><th>操作</th><th>预期结果</th></tr></thead>
+<tbody>
+<tr><td>添加任务</td><td>输入“学习 Vibe Coding”，点击添加</td><td>列表中出现该任务</td></tr>
+<tr><td>回车添加</td><td>输入内容，按回车键</td><td>任务被添加</td></tr>
+<tr><td>空输入</td><td>不输入内容，直接点添加</td><td>不添加任务，有提示</td></tr>
+<tr><td>完成任务</td><td>点击任务前的复选框</td><td>文字加删除线、变灰</td></tr>
+<tr><td>取消完成</td><td>再次点击复选框</td><td>文字恢复正常</td></tr>
+<tr><td>删除任务</td><td>点击删除按钮</td><td>弹出确认，确认后任务消失</td></tr>
+<tr><td>统计更新</td><td>添加/完成/删除任务后</td><td>底部统计数字正确更新</td></tr>
+</tbody>
+</table>
+</div>
+<p>如果有功能不正常，把现象和报错信息复制给 AI，让它修复。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch6-3"><span class="lec-sec-no">6.3</span> 第二步：添加本地存储（刷新不丢失）</h3>
+<p>基础版有一个大问题：<strong>刷新页面后任务全没了</strong>。这一轮我们加上 localStorage 本地存储。</p>
+<pre class="lec-code lec-prompt"><code>在现有的待办清单基础上，添加本地存储功能，让任务数据在刷新页面后不丢失。
+
+【需求】
+1. 每次添加、删除、完成任务时，自动把任务数据保存到 localStorage
+2. 页面加载时，从 localStorage 读取之前保存的任务并渲染
+3. 第一次使用时（localStorage 中没有数据），显示空状态提示：“还没有任务，添加一个吧！”
+4. 任务数据结构：每个任务包含 id（唯一标识）、text（内容）、completed（是否完成）
+5. 用 JSON.stringify 和 JSON.parse 进行数据转换
+
+【约束】
+1. 保持现有的所有功能不变（添加、删除、完成、统计）
+2. 只增加本地存储相关的逻辑
+3. 处理 localStorage 读取失败的情况（JSON.parse 错误时，清空并重新开始）
+4. 代码中加注释说明本地存储的逻辑
+
+给出修改后的完整代码，标注新增的部分。</code></pre>
+<p><strong>验证方法：</strong>添加几个任务 → 刷新页面 → 任务还在 → 完成一个任务 → 刷新 → 完成状态也保留了。如果刷新后任务消失，说明本地存储逻辑有问题，让 AI 检查。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch6-4"><span class="lec-sec-no">6.4</span> 第三步：添加优先级和分类</h3>
+<p>基础功能稳定后，增加优先级和分类功能，让待办清单更实用。</p>
+<pre class="lec-code lec-prompt"><code>在现有待办清单基础上，添加优先级和分类功能。
+
+【优先级功能】
+1. 添加任务时，可以选择优先级：高（红色）、中（黄色）、低（绿色），默认“中”
+2. 优先级用下拉选择框（select），放在输入框旁边
+3. 任务列表中，每个任务左侧显示优先级标签（彩色小圆角标签）
+4. 排序规则：高优先级排在最前面，同优先级按添加时间排序（新的在后）
+5. localStorage 中保存优先级信息
+
+【分类功能】
+1. 添加任务时，可以选择分类：工作、学习、生活、其他，默认“其他”
+2. 分类用下拉选择框，放在优先级旁边
+3. 任务列表中，任务文字后面显示分类标签（小标签，灰色系）
+4. 顶部加筛选栏：全部 / 工作 / 学习 / 生活 / 其他，点击筛选只显示对应分类的任务
+5. 筛选栏用按钮组形式，当前选中的按钮高亮
+
+【约束】
+1. 保持现有的添加、删除、完成、本地存储、统计功能不变
+2. 优先级和分类的下拉框在手机端要正常显示（可以换行）
+3. 排序和筛选时，统计数字要正确（显示当前筛选下的统计）
+4. 代码加中文注释
+
+给出修改后的完整代码。</code></pre>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch6-5"><span class="lec-sec-no">6.5</span> 第四步：添加编辑功能和更多筛选</h3>
+<pre class="lec-code lec-prompt"><code>在现有待办清单基础上，添加以下功能：
+
+【编辑任务】
+1. 每个任务加一个“编辑”按钮（铅笔图标，用 emoji ✏️）
+2. 点击编辑后，任务文字变成可编辑的输入框，自动聚焦并选中文字
+3. 按回车或点击“保存”确认修改，按 Esc 取消修改
+4. 修改后自动保存到 localStorage
+
+【更多筛选和排序】
+1. 筛选栏增加：全部 / 未完成 / 已完成 三个状态筛选
+2. 分类筛选和状态筛选可以组合使用（比如只看“学习”分类下“未完成”的任务）
+3. 增加排序选项：按优先级排序 / 按添加时间排序 / 按完成状态排序
+4. 排序用下拉选择框，放在筛选栏旁边
+
+【清空已完成】
+1. 底部统计旁边加一个“清除已完成”按钮
+2. 点击后弹出确认，确认后删除所有已完成的任务
+3. 没有已完成任务时按钮禁用（灰色，不可点击）
+
+【约束】
+1. 保持现有所有功能不变
+2. 编辑时的输入框样式要和整体风格一致
+3. 筛选和排序组合使用时逻辑要正确
+4. 所有操作后自动保存到 localStorage
+
+给出修改后的完整代码。</code></pre>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch6-6"><span class="lec-sec-no">6.6</span> 第五步：优化样式和动效</h3>
+<pre class="lec-code lec-prompt"><code>待办清单的功能已经比较完整了，现在优化样式和交互动效：
+
+1. 整体样式：卡片式设计，任务列表有最大宽度并居中，背景用淡灰色
+2. 添加任务动画：新任务添加时，从上方淡入下滑出现（opacity + translateY）
+3. 删除任务动画：删除时，任务淡出并高度收缩，然后移除
+4. 完成任务动画：勾选后，文字颜色和删除线有过渡效果（0.3s）
+5. 按钮 hover 效果：所有按钮 hover 时有颜色变化和轻微缩放
+6. 输入框聚焦效果：聚焦时边框变蓝色，加柔和阴影
+7. 空状态：没有任务时，显示一个大图标（📝）和提示文字，居中显示
+8. 优先级标签：高优先级红色背景白字，中优先级黄色背景深字，低优先级绿色背景白字
+9. 统计区域：底部统计用浅灰色背景条，文字居中
+10. 响应式：手机端输入框和选择框占满宽度，按钮大小适合触摸
+
+给出修改后的完整代码，重点是 CSS 动画部分。</code></pre>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch6-7"><span class="lec-sec-no">6.7</span> 第六步（选做）：升级为日程助手</h3>
+<p>如果基础待办清单你已经做得很熟练了，可以挑战一下升级成更强大的<strong>日程助手</strong>：</p>
+<pre class="lec-code lec-prompt"><code>把待办清单升级为一个简单的日程助手，在现有功能基础上增加：
+
+【日期和时间】
+1. 每个任务可以设置截止日期（用 input type="date"）
+2. 任务列表中显示截止日期，过期的任务日期标红
+3. 可以按日期排序，今天的任务排在前面
+
+【日历视图】
+1. 顶部加一个切换：列表视图 / 日历视图
+2. 日历视图显示一个月历，有任务的日期上有小圆点标记
+3. 点击日期可以查看当天的任务，也可以添加当天的任务
+
+【提醒功能】
+1. 任务截止日期当天，在页面顶部显示提醒条：“今天有 X 个任务到期”
+2. 过期任务在列表顶部显示，标红提醒
+
+【数据统计】
+1. 底部增加简单统计：本周完成率、累计完成任务数、当前待办数
+2. 用简单的进度条或数字展示
+
+【约束】
+1. 保持现有的所有待办清单功能
+2. 日历视图用原生 JS 实现，不引入日历库
+3. 视图切换时保持数据同步
+4. 所有数据保存到 localStorage
+
+这是进阶功能，如果实现有难度可以先做日期功能，日历视图后面再加。</code></pre>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch6-8"><span class="lec-sec-no">6.8</span> 待办清单常见问题</h3>
+<div class="lec-faq">
+<details class="lec-faq-item" open="">
+<summary>问题1：添加任务后列表不更新，或者显示重复</summary>
+<div class="lec-faq-ans">
+<p><strong>原因：</strong>渲染列表时没有先清空旧列表，导致重复追加。或者添加任务后没有调用渲染函数。</p>
+<p><strong>解决：</strong>让 AI 检查 render 函数，确保渲染前先<code class="lec-inl-code">list.innerHTML = ''</code> 清空。每次数据变化后都调用 render() 重新渲染。</p>
+</div>
+</details>
+<details class="lec-faq-item">
+<summary>问题2：刷新后任务顺序乱了，或者完成状态不对</summary>
+<div class="lec-faq-ans">
+<p><strong>原因：</strong>localStorage 保存的数据结构不完整，或者读取后没有正确恢复状态。</p>
+<p><strong>解决：</strong>检查保存的数据是否包含 id、text、completed、priority、category 等所有字段。读取后检查每个任务的 completed 状态是否正确设置了复选框的 checked 属性。</p>
+</div>
+</details>
+<details class="lec-faq-item">
+<summary>问题3：删除按钮点击没反应，或者删除了错误的任务</summary>
+<div class="lec-faq-ans">
+<p><strong>原因：</strong>事件绑定有问题，或者删除时没有正确找到对应任务的 id。</p>
+<p><strong>解决：</strong>用事件委托（给列表容器绑定 click 事件，判断 e.target 是否是删除按钮），或者在创建元素时用闭包绑定正确的 id。让 AI 检查删除逻辑。</p>
+</div>
+</details>
+<details class="lec-faq-item">
+<summary>问题4：筛选后统计数字不对</summary>
+<div class="lec-faq-ans">
+<p><strong>原因：</strong>统计是基于全部任务计算的，而不是基于当前筛选后的任务。</p>
+<p><strong>解决：</strong>让统计函数接收当前筛选后的任务列表，基于筛选后的数据计算。或者在 render 函数中先筛选，再渲染，再统计。</p>
+</div>
+</details>
+<details class="lec-faq-item">
+<summary>问题5：编辑任务后，按 Esc 没有取消，反而保存了</summary>
+<div class="lec-faq-ans">
+<p><strong>原因：</strong>keydown 事件处理逻辑有误，或者输入框的默认行为没有阻止。</p>
+<p><strong>解决：</strong>检查 keydown 事件处理：Enter 保存，Escape 取消。确保<code class="lec-inl-code">e.preventDefault()</code> 在需要时调用。</p>
+</div>
+</details>
+<details class="lec-faq-item">
+<summary>问题6：手机端输入框和按钮太小，不好点</summary>
+<div class="lec-faq-ans">
+<p><strong>原因：</strong>按钮和输入框的尺寸是为桌面端设计的，手机上触摸区域太小。</p>
+<p><strong>解决：</strong>在媒体查询中，把输入框和按钮的高度设为至少 44px（苹果推荐的最小触摸尺寸），字体不小于 16px（防止 iOS 自动缩放）。</p>
+</div>
+</details>
+</div>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch6-9"><span class="lec-sec-no">6.9</span> 待办清单检查清单</h3>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>检查项</th><th>基础版</th><th>进阶版</th></tr></thead>
+<tbody>
+<tr><td>能添加任务（按钮+回车）</td><td>☐</td><td>☐</td></tr>
+<tr><td>能删除任务（带确认）</td><td>☐</td><td>☐</td></tr>
+<tr><td>能标记完成/取消完成</td><td>☐</td><td>☐</td></tr>
+<tr><td>空输入有提示</td><td>☐</td><td>☐</td></tr>
+<tr><td>底部统计正确</td><td>☐</td><td>☐</td></tr>
+<tr><td>刷新页面数据不丢失</td><td>☐</td><td>☐</td></tr>
+<tr><td>优先级功能（高/中/低）</td><td>—</td><td>☐</td></tr>
+<tr><td>分类功能（工作/学习/生活）</td><td>—</td><td>☐</td></tr>
+<tr><td>筛选功能（分类+状态）</td><td>—</td><td>☐</td></tr>
+<tr><td>编辑任务功能</td><td>—</td><td>☐</td></tr>
+<tr><td>清除已完成功能</td><td>—</td><td>☐</td></tr>
+<tr><td>添加/删除动画流畅</td><td>—</td><td>☐</td></tr>
+<tr><td>手机端显示正常、好操作</td><td>☐</td><td>☐</td></tr>
+<tr><td>控制台无红色报错</td><td>☐</td><td>☐</td></tr>
+</tbody>
+</table>
+</div>
+</section><aside class="lec-callout lec-summary"><div class="lec-co-title">✅ 本章小结</div><div class="lec-co-body">
+<p><strong>本章关键点：</strong></p>
+<ol class="lec-steps">
+<li><strong>渐进式开发：</strong>先做基础版（添加/删除/完成）→ 加本地存储 → 加优先级分类 → 加编辑筛选 → 优化样式 → 升级日程助手。一步一步来，每步确认后再继续。</li>
+<li><strong>交互逻辑描述要清晰：</strong>待办清单的核心是交互，描述需求时要说清楚“用户做什么操作 → 发生什么 → 数据怎么变 → 界面怎么更新”。</li>
+<li><strong>数据驱动思维：</strong>所有操作本质上都是在修改一个任务数组（增删改查），然后重新渲染页面。理解了这个，交互逻辑就清晰了。</li>
+<li><strong>localStorage 是纯前端项目的数据命脉：</strong>记住 JSON.stringify（存）和 JSON.parse（取），第一次读取加 || [] 默认值。</li>
+<li><strong>每加一个功能都要测试：</strong>不要攒到最后一起测，加一个测一个，有问题立刻修。</li>
+<li><strong>完成比完美重要：</strong>基础版能跑起来就已经是胜利了。优先级、分类、日历这些都是加分项，有时间再做。</li>
+<li><strong>这个项目可以一直用：</strong>做好后部署上线，你自己每天都可以用它来管理任务。用着用着发现什么不爽，就继续迭代加功能——这就是最好的学习方式。</li>
+</ol>
+</div></aside></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-ch5-5.html">← 上一页</a>
+    <span class="pager-info">讲义正文</span>
+    <a class="pager-btn" href="lec-ch7.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>
