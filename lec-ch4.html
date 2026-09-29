@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第4章 前端三剑客极简入门 —— 看懂AI写的代码 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">第4章 · 前端三剑客极简入门 —— 看懂AI写的代码 （1/3）</span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter" id="lec-ch4"><header class="lec-ch-head">
+<span class="lec-ch-badge">第4章</span>
+<h2 class="lec-ch-title">前端三剑客极简入门 —— 看懂AI写的代码</h2>
+<p class="lec-ch-sub">第五篇 · 基础篇</p>
+</header><div class="lec-body"><section class="lec-sec"><h3 class="lec-h3" id="lec-ch4-1"><span class="lec-sec-no">4.1</span> 为什么要学"看懂代码"</h3>
+<p>很多同学会问："Vibe Coding 不是 AI 写代码吗？我为什么还要学代码？"</p>
+<p>问得好。Vibe Coding 确实不需要你<strong>手写</strong>代码，但你至少需要能<strong>看懂</strong>代码。就像你不需要会开车，但至少要能看懂导航、知道车在往哪走、出了问题大概是哪里坏了。</p>
+<p><strong>本章目标：</strong>不是让你成为程序员，而是让你达到三个能力：</p>
+<ol class="lec-steps">
+<li><strong>能看懂：</strong>AI 生成的代码，你能大概知道每部分在干什么</li>
+<li><strong>能定位：</strong>出了问题，你能大概判断是 HTML 结构问题、CSS 样式问题，还是 JS 逻辑问题</li>
+<li><strong>能沟通：</strong>和 AI 描述问题时，你能用准确的术语（比如"div 标签"、"class 属性"、"click 事件"），而不是"那个东西"、"那个框"</li>
+</ol>
+</section><section class="lec-sec"><h3 class="lec-h3" id="lec-ch4-2"><span class="lec-sec-no">4.2</span> 网页是怎么来的：三剑客的分工</h3>
+<p>一个网页，本质上是由三种"语言"共同构成的，我们称之为<strong>前端三剑客</strong>：</p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>语言</th><th>全称</th><th>负责什么</th><th>类比</th><th>例子</th></tr></thead>
+<tbody>
+<tr><td><strong>HTML</strong></td><td>HyperText Markup Language（超文本标记语言）</td><td>网页的<strong>结构和内容</strong>：有什么元素、元素之间什么关系</td><td>盖房子的<strong>骨架</strong>：哪里是墙、哪里是门、哪里是窗户</td><td>标题、段落、按钮、输入框、图片</td></tr>
+<tr><td><strong>CSS</strong></td><td>Cascading Style Sheets（层叠样式表）</td><td>网页的<strong>样式和外观</strong>：长什么样、什么颜色、多大、在哪</td><td>房子的<strong>装修</strong>：墙刷什么颜色、地板用什么材质、灯装什么样</td><td>颜色、字体、大小、间距、圆角、阴影、动画</td></tr>
+<tr><td><strong>JavaScript</strong></td><td>JavaScript（简称 JS）</td><td>网页的<strong>行为和交互</strong>：用户操作时发生什么</td><td>房子的<strong>水电和智能设备</strong>：按开关灯亮、开门空调自动开</td><td>点击按钮弹出提示、输入内容实时搜索、表单验证</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>一句话记忆：</strong>HTML 是骨架（有什么），CSS 是皮肤（长什么样），JS 是肌肉（能干什么）。三者配合，才是一个完整的网页。</p>
+<h4 class="lec-h4">一个最简单的网页例子</h4>
+<p>让我们看一个最简单的网页，感受三剑客如何配合：</p>
+<pre class="lec-code"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;我的第一个网页&lt;/title&gt;
+  &lt;style&gt;
+    /* 这是 CSS：控制样式 */
+    h1 {
+      color: blue;        /* 标题颜色：蓝色 */
+      text-align: center;  /* 标题居中 */
+    }
+    button {
+      background-color: green;  /* 按钮背景：绿色 */
+      color: white;              /* 按钮文字：白色 */
+      padding: 10px 20px;       /* 按钮内边距 */
+      border-radius: 5px;        /* 圆角 */
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- 这是 HTML：结构和内容 --&gt;
+  &lt;h1&gt;欢迎来到我的网页！&lt;/h1&gt;
+  &lt;p&gt;这是一个段落文字。&lt;/p&gt;
+  &lt;button id="myButton"&gt;点我一下&lt;/button&gt;
+
+  &lt;script&gt;
+    // 这是 JavaScript：行为和交互
+    document.getElementById('myButton').addEventListener('click', function() {
+      alert('你点击了按钮！');  // 点击按钮时弹出提示
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>这个网页中：</p>
+<ul class="lec-list">
+<li><strong>HTML（body 部分）：</strong>定义了一个标题、一个段落、一个按钮</li>
+<li><strong>CSS（style 标签里）：</strong>让标题变成蓝色居中，按钮变成绿色圆角白字</li>
+<li><strong>JS（script 标签里）：</strong>让按钮被点击时弹出"你点击了按钮！"</li>
+</ul>
+</section><section class="lec-sec"><h3 class="lec-h3" id="lec-ch4-3"><span class="lec-sec-no">4.3</span> HTML：网页的骨架</h3><h4 class="lec-h4">4.3.1 什么是标签</h4><p>HTML 由一个个<strong>标签（Tag）</strong>组成。标签用尖括号括起来，通常是成对出现的：</p><pre class="lec-code"><code>&lt;标签名&gt;内容&lt;/标签名&gt;
+
+例如：
+&lt;h1&gt;这是一级标题&lt;/h1&gt;
+&lt;p&gt;这是一个段落&lt;/p&gt;
+&lt;button&gt;这是一个按钮&lt;/button&gt;</code></pre><ul class="lec-list">
+<li><code class="lec-inl-code">&lt;h1&gt;</code> 是<strong>开始标签</strong>，表示从这里开始是标题</li>
+<li><code class="lec-inl-code">&lt;/h1&gt;</code> 是<strong>结束标签</strong>（多了一个斜杠），表示标题到这里结束</li>
+<li>中间的文字是<strong>内容</strong></li>
+</ul><p>有些标签没有结束标签，叫做<strong>自闭合标签</strong>，比如图片：</p><pre class="lec-code"><code>&lt;img src="图片地址" alt="图片描述"&gt;</code></pre><h4 class="lec-h4">4.3.2 什么是属性</h4><p>标签可以有<strong>属性（Attribute）</strong>，用来给标签添加额外信息。属性写在开始标签里：</p><pre class="lec-code"><code>&lt;标签名 属性名="属性值"&gt;内容&lt;/标签名&gt;
+
+例如：
+&lt;a href="https://www.baidu.com" target="_blank"&gt;百度链接&lt;/a&gt;
+&lt;img src="photo.jpg" alt="我的照片" width="200"&gt;
+&lt;button id="submitBtn" class="btn-primary"&gt;提交&lt;/button&gt;</code></pre><p>常见属性：</p><ul class="lec-list">
+<li><code class="lec-inl-code">id</code>：给元素一个唯一的名字，JS 用来找到它（比如<code class="lec-inl-code">id="myButton"</code>）</li>
+<li><code class="lec-inl-code">class</code>：给元素分类，CSS 用来批量设置样式（比如<code class="lec-inl-code">class="card"</code>）</li>
+<li><code class="lec-inl-code">src</code>：资源地址（图片、脚本等）</li>
+<li><code class="lec-inl-code">href</code>：链接地址</li>
+<li><code class="lec-inl-code">alt</code>：图片描述（图片加载失败时显示，也给盲人读屏软件用）</li>
+</ul><h4 class="lec-h4">4.3.3 常用标签速查表</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>标签</th><th>名称</th><th>用途</th><th>例子</th></tr></thead>
+<tbody>
+<tr><td><code class="lec-inl-code">&lt;h1&gt; ~ &lt;h6&gt;</code></td><td>标题</td><td>标题，h1最大，h6最小</td><td><code class="lec-inl-code">&lt;h1&gt;大标题&lt;/h1&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;p&gt;</code></td><td>段落</td><td>一段文字</td><td><code class="lec-inl-code">&lt;p&gt;这是一段话&lt;/p&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;a&gt;</code></td><td>链接</td><td>可点击的超链接</td><td><code class="lec-inl-code">&lt;a href="url"&gt;点我&lt;/a&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;img&gt;</code></td><td>图片</td><td>显示图片</td><td><code class="lec-inl-code">&lt;img src="a.jpg" alt="图"&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;button&gt;</code></td><td>按钮</td><td>可点击的按钮</td><td><code class="lec-inl-code">&lt;button&gt;确定&lt;/button&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;input&gt;</code></td><td>输入框</td><td>文本输入、复选框等</td><td><code class="lec-inl-code">&lt;input type="text" placeholder="请输入"&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;div&gt;</code></td><td>区块</td><td>最常用的容器，用来分组</td><td><code class="lec-inl-code">&lt;div&gt;一组内容&lt;/div&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;span&gt;</code></td><td>行内容器</td><td>对文字中的一部分设置样式</td><td><code class="lec-inl-code">&lt;span style="color:red"&gt;红色&lt;/span&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;ul&gt; / &lt;li&gt;</code></td><td>无序列表</td><td>带圆点的列表</td><td><code class="lec-inl-code">&lt;ul&gt;&lt;li&gt;项目1&lt;/li&gt;&lt;/ul&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;ol&gt; / &lt;li&gt;</code></td><td>有序列表</td><td>带数字的列表</td><td><code class="lec-inl-code">&lt;ol&gt;&lt;li&gt;第一步&lt;/li&gt;&lt;/ol&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;form&gt;</code></td><td>表单</td><td>包含输入框、按钮的提交区域</td><td><code class="lec-inl-code">&lt;form&gt;...&lt;/form&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;header&gt;</code></td><td>页眉</td><td>页面顶部区域（语义化）</td><td><code class="lec-inl-code">&lt;header&gt;导航栏&lt;/header&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;footer&gt;</code></td><td>页脚</td><td>页面底部区域（语义化）</td><td><code class="lec-inl-code">&lt;footer&gt;版权信息&lt;/footer&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;nav&gt;</code></td><td>导航</td><td>导航链接区域（语义化）</td><td><code class="lec-inl-code">&lt;nav&gt;菜单&lt;/nav&gt;</code></td></tr>
+<tr><td><code class="lec-inl-code">&lt;section&gt;</code></td><td>区块</td><td>一个独立的内容区块（语义化）</td><td><code class="lec-inl-code">&lt;section&gt;关于我&lt;/section&gt;</code></td></tr>
+</tbody>
+</table>
+</div><p><strong>语义化标签：</strong>header、footer、nav、section 这些标签叫"语义化标签"，它们本质上和 div 一样（都是容器），但名字有意义，让人和 AI 都能一眼看懂这个区域是干什么的。写代码时优先用语义化标签。</p><h4 class="lec-h4">4.3.4 HTML 的基本结构</h4><p>每个 HTML 文件都有一个固定的基本结构：</p><pre class="lec-code"><code>&lt;!DOCTYPE html&gt;              &lt;!-- 声明：这是一个 HTML5 文档 --&gt;
+&lt;html&gt;                       &lt;!-- 根标签：整个网页从这里开始 --&gt;
+  &lt;head&gt;                     &lt;!-- 头部：网页的元信息（不在页面上显示） --&gt;
+    &lt;meta charset="UTF-8"&gt;   &lt;!-- 字符编码：告诉浏览器用 UTF-8 解码 --&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;  &lt;!-- 响应式：让手机端正常显示 --&gt;
+    &lt;title&gt;网页标题&lt;/title&gt;   &lt;!-- 网页标题：显示在浏览器标签页上 --&gt;
+    &lt;style&gt;                  &lt;!-- CSS 样式写在这里 --&gt;
+      /* CSS 代码 */
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;                     &lt;!-- 主体：网页上显示的内容都在这里 --&gt;
+    &lt;!-- 页面内容：标题、段落、按钮、图片等 --&gt;
+    &lt;script&gt;                 &lt;!-- JavaScript 写在这里（通常放在 body 末尾） --&gt;
+      // JS 代码
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre><p><strong>记住：</strong>用户能看到的内容都在<code class="lec-inl-code">&lt;body&gt;</code> 里；<code class="lec-inl-code">&lt;head&gt;</code> 里是配置信息，用户看不到（除了 title 显示在标签页上）。</p><h4 class="lec-h4">4.3.5 HTML 常见错误</h4><aside class="lec-callout lec-warn"><div class="lec-co-title">⚠️ 注意</div><div class="lec-co-body">
+<p><strong>错误1：标签没有闭合</strong></p>
+<p><code class="lec-inl-code">&lt;div&gt;内容</code>（少了<code class="lec-inl-code">&lt;/div&gt;</code>）→ 会导致后面的元素布局错乱</p>
+<p><strong>错误2：标签嵌套错误</strong></p>
+<p><code class="lec-inl-code">&lt;div&gt;&lt;p&gt;文字&lt;/div&gt;&lt;/p&gt;</code>（交叉嵌套）→ 正确应该是<code class="lec-inl-code">&lt;div&gt;&lt;p&gt;文字&lt;/p&gt;&lt;/div&gt;</code></p>
+<p><strong>错误3：属性值没有加引号</strong></p>
+<p><code class="lec-inl-code">&lt;div class=box&gt;</code> → 正确应该是<code class="lec-inl-code">&lt;div class="box"&gt;</code></p>
+<p><strong>错误4：id 重复</strong></p>
+<p>同一个页面中两个元素用了相同的 id → JS 找元素时会混乱。id 必须唯一，重复的用 class。</p>
+</div></aside><h3 class="lec-h3" id="lec-ch4-4"><span class="lec-sec-no">4.4</span> CSS：网页的皮肤</h3><h4 class="lec-h4">4.4.1 CSS 的基本语法</h4><p>CSS 由一条条<strong>规则</strong>组成，每条规则告诉浏览器"哪个元素要变成什么样"：</p><pre class="lec-code"><code>选择器 {
+  属性名: 属性值;
+  属性名: 属性值;
+}
+
+例如：
+h1 {
+  color: blue;
+  font-size: 24px;
+  text-align: center;
+}</code></pre><ul class="lec-list">
+<li><strong>选择器（Selector）：</strong>选中要设置样式的元素（上面的<code class="lec-inl-code">h1</code> 表示选中所有一级标题）</li>
+<li><strong>属性（Property）：</strong>要设置什么样式（color 是颜色，font-size 是字号）</li>
+<li><strong>值（Value）：</strong>具体设置成什么（blue 是蓝色，24px 是24像素）</li>
+<li>每条声明以分号 <code class="lec-inl-code">;</code> 结尾</li>
+</ul><h4 class="lec-h4">4.4.2 三种写 CSS 的方式</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>方式</th><th>写法</th><th>优点</th><th>缺点</th><th>适用场景</th></tr></thead>
+<tbody>
+<tr><td><strong>内联样式</strong></td><td>写在 HTML 标签的 style 属性里：<code class="lec-inl-code">&lt;div style="color:red"&gt;</code></td><td>优先级最高，直接生效</td><td>代码混乱，不能复用，难维护</td><td>临时改一个元素的样式，不推荐常用</td></tr>
+<tr><td><strong>内部样式表</strong></td><td>写在 HTML 的 <code class="lec-inl-code">&lt;style&gt;</code> 标签里</td><td>和 HTML 在一个文件，方便</td><td>只能作用于当前页面</td><td>单文件小项目（本课程的项目都用这种）</td></tr>
+<tr><td><strong>外部样式表</strong></td><td>写在单独的 .css 文件中，用 <code class="lec-inl-code">&lt;link&gt;</code> 引入</td><td>可复用于多个页面，结构清晰</td><td>多一个文件，需要管理</td><td>多页面的正式项目</td></tr>
+</tbody>
+</table>
+</div><p>本课程的项目都是单文件（HTML/CSS/JS 都写在一个 .html 文件里），所以用<strong>内部样式表</strong>（<code class="lec-inl-code">&lt;style&gt;</code> 标签）。</p><h4 class="lec-h4">4.4.3 常用选择器</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>选择器</th><th>写法</th><th>选中什么</th><th>例子</th></tr></thead>
+<tbody>
+<tr><td><strong>元素选择器</strong></td><td><code class="lec-inl-code">标签名</code></td><td>所有该标签的元素</td><td><code class="lec-inl-code">p { color: red; }</code> 所有段落变红</td></tr>
+<tr><td><strong>ID 选择器</strong></td><td><code class="lec-inl-code">#id名</code></td><td>id 等于该值的元素（唯一）</td><td><code class="lec-inl-code">#header { background: blue; }</code></td></tr>
+<tr><td><strong>类选择器</strong></td><td><code class="lec-inl-code">.类名</code></td><td>class 包含该值的所有元素</td><td><code class="lec-inl-code">.card { border: 1px solid #ccc; }</code></td></tr>
+<tr><td><strong>后代选择器</strong></td><td><code class="lec-inl-code">父 子</code></td><td>父元素里面的所有子元素（包括深层）</td><td><code class="lec-inl-code">.header .nav a { ... }</code></td></tr>
+<tr><td><strong>伪类选择器</strong></td><td><code class="lec-inl-code">元素:状态</code></td><td>特定状态下的元素</td><td><code class="lec-inl-code">button:hover { ... }</code> 鼠标悬停时</td></tr>
+<tr><td><strong>群组选择器</strong></td><td><code class="lec-inl-code">A, B, C</code></td><td>同时选中多个元素</td><td><code class="lec-inl-code">h1, h2, h3 { font-family: sans-serif; }</code></td></tr>
+</tbody>
+</table>
+</div><p><strong>最常用的伪类：</strong></p><ul class="lec-list">
+<li><code class="lec-inl-code">:hover</code>：鼠标悬停时（按钮变颜色、卡片放大等）</li>
+<li><code class="lec-inl-code">:active</code>：鼠标按下时</li>
+<li><code class="lec-inl-code">:focus</code>：获得焦点时（输入框被点击时）</li>
+<li><code class="lec-inl-code">:nth-child(n)</code>：第 n 个子元素（列表隔行变色）</li>
+</ul><h4 class="lec-h4">4.4.4 常用 CSS 属性速查</h4><p><strong>文字相关</strong></p></section></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-appb.html">← 上一页</a>
+    <span class="pager-info">第 1 页，共 3 页</span>
+    <a class="pager-btn" href="lec-ch4-2.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>
