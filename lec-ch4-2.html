@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第4章 前端三剑客极简入门 —— 看懂AI写的代码 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">第4章 · 前端三剑客极简入门 —— 看懂AI写的代码 （2/3）</span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter" id="lec-ch4"><div class="lec-body"><section class="lec-sec"><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>属性</th><th>作用</th><th>常用值</th></tr></thead>
+<tbody>
+<tr><td><code class="lec-inl-code">color</code></td><td>文字颜色</td><td><code class="lec-inl-code">red</code>、<code class="lec-inl-code">#ff0000</code>、<code class="lec-inl-code">rgb(255,0,0)</code></td></tr>
+<tr><td><code class="lec-inl-code">font-size</code></td><td>字号大小</td><td><code class="lec-inl-code">16px</code>、<code class="lec-inl-code">1rem</code></td></tr>
+<tr><td><code class="lec-inl-code">font-weight</code></td><td>字重（粗细）</td><td><code class="lec-inl-code">normal</code>、<code class="lec-inl-code">bold</code>、<code class="lec-inl-code">600</code></td></tr>
+<tr><td><code class="lec-inl-code">text-align</code></td><td>文字对齐</td><td><code class="lec-inl-code">left</code>、<code class="lec-inl-code">center</code>、<code class="lec-inl-code">right</code></td></tr>
+<tr><td><code class="lec-inl-code">text-decoration</code></td><td>文字装饰</td><td><code class="lec-inl-code">none</code>、<code class="lec-inl-code">underline</code>、<code class="lec-inl-code">line-through</code></td></tr>
+<tr><td><code class="lec-inl-code">line-height</code></td><td>行高</td><td><code class="lec-inl-code">1.5</code>、<code class="lec-inl-code">24px</code></td></tr>
+</tbody>
+</table>
+</div><p><strong>盒子模型（尺寸和间距）</strong></p><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>属性</th><th>作用</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><code class="lec-inl-code">width</code></td><td>宽度</td><td><code class="lec-inl-code">200px</code>、<code class="lec-inl-code">50%</code>、<code class="lec-inl-code">100vw</code></td></tr>
+<tr><td><code class="lec-inl-code">height</code></td><td>高度</td><td><code class="lec-inl-code">100px</code>、<code class="lec-inl-code">auto</code></td></tr>
+<tr><td><code class="lec-inl-code">padding</code></td><td>内边距</td><td><code class="lec-inl-code">10px</code>（四边）、<code class="lec-inl-code">10px 20px</code>（上下 左右）</td></tr>
+<tr><td><code class="lec-inl-code">margin</code></td><td>外边距</td><td>同 padding，<code class="lec-inl-code">auto</code> 可水平居中</td></tr>
+<tr><td><code class="lec-inl-code">border</code></td><td>边框</td><td><code class="lec-inl-code">1px solid #ccc</code>（宽度 样式 颜色）</td></tr>
+<tr><td><code class="lec-inl-code">border-radius</code></td><td>圆角</td><td><code class="lec-inl-code">5px</code>、<code class="lec-inl-code">50%</code>（圆形）</td></tr>
+<tr><td><code class="lec-inl-code">box-shadow</code></td><td>阴影</td><td><code class="lec-inl-code">0 2px 8px rgba(0,0,0,0.1)</code></td></tr>
+</tbody>
+</table>
+</div><aside class="lec-callout lec-note"><div class="lec-co-title">📌 补充</div><div class="lec-co-body"><strong>盒子模型记忆：</strong>一个元素就像一个盒子——<strong>content</strong>（内容）是装东西的地方，<strong>padding</strong>（内边距）是内容和盒子壁之间的泡沫，<strong>border</strong>（边框）是盒子壁，<strong>margin</strong>（外边距）是这个盒子和其他盒子之间的距离。从内到外：content → padding → border → margin。</div></aside><p><strong>背景、布局、动画</strong></p><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>属性</th><th>作用</th><th>常用值</th></tr></thead>
+<tbody>
+<tr><td><code class="lec-inl-code">background-color</code></td><td>背景颜色</td><td><code class="lec-inl-code">#f5f5f5</code></td></tr>
+<tr><td><code class="lec-inl-code">background</code></td><td>背景简写</td><td><code class="lec-inl-code">linear-gradient(to right, blue, purple)</code> 渐变色</td></tr>
+<tr><td><code class="lec-inl-code">display</code></td><td>显示方式</td><td><code class="lec-inl-code">block</code>、<code class="lec-inl-code">inline</code>、<code class="lec-inl-code">flex</code>、<code class="lec-inl-code">none</code></td></tr>
+<tr><td><code class="lec-inl-code">position</code></td><td>定位方式</td><td><code class="lec-inl-code">static</code>、<code class="lec-inl-code">relative</code>、<code class="lec-inl-code">absolute</code>、<code class="lec-inl-code">fixed</code></td></tr>
+<tr><td><code class="lec-inl-code">transition</code></td><td>过渡动画</td><td><code class="lec-inl-code">all 0.3s ease</code></td></tr>
+<tr><td><code class="lec-inl-code">transform</code></td><td>变换</td><td><code class="lec-inl-code">scale(1.1)</code>（放大）、<code class="lec-inl-code">rotate(45deg)</code>（旋转）</td></tr>
+<tr><td><code class="lec-inl-code">cursor</code></td><td>鼠标样式</td><td><code class="lec-inl-code">pointer</code>（小手）</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">4.4.5 Flexbox 布局：现代网页布局的核心</h4><p>Flexbox（弹性盒子布局）是现代网页最常用的布局方式，AI 生成的代码 90% 都用它。你不需要精通，但要能看懂。</p><pre class="lec-code"><code>.container {
+  display: flex;           /* 开启弹性布局 */
+  flex-direction: row;     /* 主轴方向：row横向（默认）、column纵向 */
+  justify-content: center; /* 主轴对齐：flex-start左、center中、flex-end右、space-between两端对齐 */
+  align-items: center;     /* 交叉轴对齐：flex-start顶、center中、flex-end底、stretch拉伸 */
+  gap: 16px;               /* 子元素之间的间距 */
+  flex-wrap: wrap;         /* 子元素太多时是否换行 */
+}
+
+.item {
+  flex: 1;                 /* 子元素占据的比例：1表示平分 */
+}</code></pre><p><strong>常见布局模式</strong></p><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>布局</th><th>CSS</th><th>效果</th></tr></thead>
+<tbody>
+<tr><td>完全居中</td><td><code class="lec-inl-code">display:flex; justify-content:center; align-items:center;</code></td><td>子元素水平垂直都居中</td></tr>
+<tr><td>两端对齐</td><td><code class="lec-inl-code">display:flex; justify-content:space-between;</code></td><td>第一个靠左，最后一个靠右</td></tr>
+<tr><td>导航栏</td><td><code class="lec-inl-code">display:flex; justify-content:space-between; align-items:center;</code></td><td>左边logo，右边菜单，垂直居中</td></tr>
+<tr><td>卡片网格</td><td><code class="lec-inl-code">display:flex; flex-wrap:wrap; gap:16px;</code></td><td>卡片自动排列，一行放不下就换行</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">4.4.6 响应式设计：手机电脑都好看</h4><p>响应式设计就是让网页在不同屏幕尺寸上都能正常显示。核心是<strong>媒体查询（Media Query）</strong>：</p><pre class="lec-code"><code>/* 默认样式：电脑端 */
+.container {
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+}
+
+/* 当屏幕宽度小于等于 768px 时（平板和手机） */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0 16px;
+    flex-direction: column; /* 从横向变成纵向 */
+  }
+}</code></pre><p><strong>响应式关键原则：</strong></p><ol class="lec-steps">
+<li>HTML head 里必须有 <code class="lec-inl-code">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></li>
+<li>宽度用百分比（%），少用固定 px</li>
+<li>图片自适应：<code class="lec-inl-code">img { max-width: 100%; height: auto; }</code></li>
+<li>用 flex-wrap: wrap 让元素自动换行</li>
+</ol><h4 class="lec-h4">4.4.7 CSS 常见错误</h4><aside class="lec-callout lec-warn"><div class="lec-co-title">⚠️ 注意</div><div class="lec-co-body">
+<p><strong>错误1：选择器写错</strong></p>
+<p>class 选择器忘了点号：<code class="lec-inl-code">card { ... }</code> → 应该是<code class="lec-inl-code">.card { ... }</code>。</p>
+<p><strong>错误2：属性值忘了单位</strong></p>
+<p><code class="lec-inl-code">font-size: 24</code> → 应该是<code class="lec-inl-code">font-size: 24px</code>。</p>
+<p><strong>错误3：margin: 0 auto 不居中</strong></p>
+<p>margin: 0 auto 只能水平居中块级元素，而且元素必须有明确的 width。</p>
+<p><strong>错误4：忘记加 transition 就想有动画</strong></p>
+<p>设置了 hover 样式但没有 transition，颜色是突变的。需要在默认样式里加 <code class="lec-inl-code">transition: all 0.3s ease;</code>。</p>
+</div></aside></section><section class="lec-sec"><h3 class="lec-h3" id="lec-ch4-5"><span class="lec-sec-no">4.5</span> JavaScript：网页的肌肉</h3>
+<h4 class="lec-h4">4.5.1 JS 能做什么</h4>
+<p>在 Vibe Coding 的项目中，JS 主要做这些事：</p>
+<ul class="lec-list">
+<li><strong>响应交互：</strong>点击按钮、输入文字时执行操作</li>
+<li><strong>操作页面元素：</strong>添加/删除/修改页面上的内容</li>
+<li><strong>数据存储：</strong>把数据保存到浏览器本地（localStorage），刷新不丢失</li>
+<li><strong>表单验证：</strong>检查用户输入是否合法</li>
+</ul>
+<h4 class="lec-h4">4.5.2 JS 的基本语法</h4>
+<p><strong>变量和数据类型</strong></p>
+<pre class="lec-code"><code>const name = "张三";        // const：常量，不能重新赋值
+let age = 20;               // let：变量，可以重新赋值
+// 不要用 var（老方式，有问题）
+
+const str = "你好";          // 字符串
+const num = 100;            // 数字
+const bool = true;           // 布尔值
+const arr = [1, 2, 3];      // 数组
+const obj = { name: "张三", age: 20 };  // 对象</code></pre>
+<p><strong>函数</strong></p>
+<pre class="lec-code"><code>function greet(name) {
+  return "你好，" + name;
+}
+const result = greet("张三");
+
+// 箭头函数（AI 常用）
+const add = (a, b) =&gt; a + b;</code></pre>
+<p><strong>条件判断和循环</strong></p>
+<pre class="lec-code"><code>if (score &gt;= 90) {
+  console.log("优秀");
+} else if (score &gt;= 60) {
+  console.log("及格");
+} else {
+  console.log("不及格");
+}
+
+// 遍历数组（最常用）
+const fruits = ["苹果", "香蕉", "橙子"];
+fruits.forEach((fruit, index) =&gt; {
+  console.log(index + ": " + fruit);
+});</code></pre>
+<p><strong>数组和对象常用操作</strong></p>
+<pre class="lec-code"><code>const arr = [1, 2, 3];
+arr.push(4);           // 末尾添加
+arr.pop();             // 末尾删除
+arr.includes(2);       // 是否包含
+arr.length;            // 长度
+
+const person = { name: "张三", age: 20 };
+person.name;            // 取值
+person.age = 21;        // 修改
+person.city = "北京";   // 添加</code></pre>
+<h4 class="lec-h4">4.5.3 DOM 操作：JS 控制网页的核心</h4>
+<p><strong>DOM</strong>是浏览器把 HTML 转换成的树形结构。JS 通过 DOM 来读取和修改页面元素。</p>
+<p><strong>获取元素</strong></p>
+<pre class="lec-code"><code>const button = document.getElementById('myButton');  // 通过 id
+const firstCard = document.querySelector('.card');     // 第一个匹配的（CSS选择器）
+const allCards = document.querySelectorAll('.card');   // 所有匹配的</code></pre>
+<p><strong>修改元素</strong></p>
+<pre class="lec-code"><code>const title = document.getElementById('title');
+title.textContent = '新的标题';        // 改文字（推荐，安全）
+title.style.color = 'red';             // 改样式
+title.classList.add('highlight');      // 添加 class
+title.classList.remove('highlight');   // 删除 class
+title.classList.toggle('highlight');   // 切换 class</code></pre>
+<p><strong>创建和删除元素</strong></p>
+<pre class="lec-code"><code>const newDiv = document.createElement('div');
+newDiv.textContent = '我是新创建的';
+newDiv.className = 'item';
+container.appendChild(newDiv);   // 添加到页面
+newDiv.remove();                  // 删除自己</code></pre>
+<h4 class="lec-h4">4.5.4 事件：用户操作时触发</h4>
+<pre class="lec-code"><code>const button = document.getElementById('myButton');
+
+button.addEventListener('click', function(event) {
+  console.log('按钮被点击了！');
+});
+
+// 箭头函数写法
+button.addEventListener('click', (e) =&gt; {
+  console.log('点击了', e.target);
+});</code></pre>
+<p><strong>常见事件类型</strong></p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>事件</th><th>触发时机</th></tr></thead>
+<tbody>
+<tr><td><code class="lec-inl-code">click</code></td><td>鼠标点击</td></tr>
+<tr><td><code class="lec-inl-code">input</code></td><td>输入框内容变化（实时）</td></tr>
+<tr><td><code class="lec-inl-code">change</code></td><td>值改变且失去焦点</td></tr>
+<tr><td><code class="lec-inl-code">submit</code></td><td>表单提交</td></tr>
+<tr><td><code class="lec-inl-code">keydown</code></td><td>键盘按下</td></tr>
+<tr><td><code class="lec-inl-code">scroll</code></td><td>页面滚动</td></tr>
+</tbody>
+</table>
+</div>
+<h4 class="lec-h4">4.5.5 localStorage：浏览器本地存储</h4>
+<p><strong>localStorage</strong> 可以把数据保存在用户浏览器里，<strong>关闭页面、重启电脑都不会丢失</strong>。纯前端项目保存数据的唯一方式。</p>
+<pre class="lec-code"><code>// 保存（只能存字符串）
+localStorage.setItem('username', '张三');
+
+// 读取
+const name = localStorage.getItem('username');
+
+// 删除
+localStorage.removeItem('username');
+
+// 存储数组/对象（用 JSON 转换）
+const todos = [{ text: '学习', done: false }];
+localStorage.setItem('todos', JSON.stringify(todos));  // 存：转字符串
+const saved = JSON.parse(localStorage.getItem('todos')) || [];  // 取：转数组，加默认值</code></pre>
+<p><strong>localStorage 注意事项：</strong></p>
+<ul class="lec-list">
+<li>只能存字符串，数组/对象必须用 JSON.stringify 转换</li>
+<li>第一次读取可能是 null，加 <code class="lec-inl-code">|| []</code> 默认值</li>
+<li>存储容量约 5MB</li>
+<li>数据只存在当前浏览器，换浏览器就没了</li>
+<li>不要存敏感信息（密码等）</li>
+</ul>
+<h4 class="lec-h4">4.5.6 JS 常见错误</h4>
+<aside class="lec-callout lec-warn"><div class="lec-co-title">⚠️ 注意</div><div class="lec-co-body">
+<p><strong>错误1：Uncaught ReferenceError: xxx is not defined</strong></p>
+<p><strong>原因：</strong>使用了没有声明的变量，或变量名拼写错误。</p>
+<p><strong>错误2：Cannot read properties of null (reading 'addEventListener')</strong></p>
+<p><strong>原因：</strong>getElementById 没有找到元素（id 写错了，或 JS 在 HTML 元素之前执行）。</p>
+<p><strong>解决：</strong>检查 id；把 script 标签放在 body 末尾。</p>
+<p><strong>错误3：Uncaught SyntaxError: Unexpected token</strong></p>
+<p><strong>原因：</strong>语法错误，少了括号、引号不配对等。看报错行号去检查。</p>
+<p><strong>错误4：JSON.parse 错误</strong></p>
+<p><strong>原因：</strong>localStorage 中数据不是合法 JSON，或第一次是 null。加<code class="lec-inl-code">|| []</code> 默认值。</p>
+<p><strong>错误5：事件绑定了但没反应</strong></p>
+<p><strong>原因：</strong>动态创建的元素，在创建前就绑定了事件。创建后立即绑定，或用事件委托。</p>
+</div></aside>
+</section><section class="lec-sec"><h3 class="lec-h3" id="lec-ch4-6"><span class="lec-sec-no">4.6</span> 浏览器开发者工具：你的调试利器</h3>
+<p>浏览器自带的<strong>开发者工具（DevTools）</strong>是前端开发最重要的工具。</p>
+<h4 class="lec-h4">4.6.1 打开方式</h4>
+<ul class="lec-list">
+<li>快捷键：<kbd class="lec-kbd">F12</kbd> 或<kbd class="lec-kbd">Ctrl+Shift+I</kbd>（Mac:<kbd class="lec-kbd">Cmd+Option+I</kbd>）</li>
+<li>右键页面 → "检查"</li>
+</ul>
+<h4 class="lec-h4">4.6.2 常用面板</h4>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>面板</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td><strong>Elements（元素）</strong></td><td>查看和修改 HTML/CSS，实时改样式看效果</td></tr>
+<tr><td><strong>Console（控制台）</strong></td><td>看红色报错、console.log 输出、直接执行 JS 代码</td></tr>
+<tr><td><strong>Sources（源代码）</strong></td><td>断点调试 JS（进阶）</td></tr>
+<tr><td><strong>Application（应用）</strong></td><td>查看/修改 localStorage 数据</td></tr>
+</tbody>
+</table>
+</div>
+<h4 class="lec-h4">4.6.3 Console 使用技巧</h4>
+<ul class="lec-list">
+<li>红色文字是错误，黄色是警告。点击报错可跳转到对应代码行。</li>
+<li>在代码中加 <code class="lec-inl-code">console.log(变量名)</code>，运行时看变量值。</li>
+<li>在控制台底部直接输入 JS 代码按回车执行，测试用。</li>
+<li><kbd class="lec-kbd">Ctrl+L</kbd> 清空控制台。</li>
+</ul>
+</section></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-ch4.html">← 上一页</a>
+    <span class="pager-info">第 2 页，共 3 页</span>
+    <a class="pager-btn" href="lec-ch4-3.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第5章 实战项目一 —— 个人主页/简历页面 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">第5章 · 实战项目一 —— 个人主页/简历页面 （2/5）</span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter" id="lec-ch5"><div class="lec-body"><section class="lec-sec"><p><strong>判断原则：</strong>如果你的需求只是“我自己用、给别人看看、数据不重要”，纯前端就够了。如果你的需求涉及“多人用、数据要保存、要收钱、要安全”，那就必须上全栈。</p><p><strong>不要过早优化：</strong>很多人一开始就想做“完整的产品”，结果花了三个月做全栈，最后发现根本没人用。先用纯前端做个原型验证需求，有人用了再升级全栈，这是最聪明的做法。</p><h4 class="lec-h4">5.0.4 从纯前端到全栈的演进路径——一步一步来</h4><p>当你决定升级到全栈时，不需要一步到位。可以按照以下路径逐步演进：</p><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>阶段</th><th>技术方案</th><th>能做什么</th><th>学习成本</th></tr></thead>
+<tbody>
+<tr><td><strong>阶段1</strong><br/>纯静态 HTML</td><td>HTML + CSS + JS<br/>（本课程内容）</td><td>展示页面、简单交互、<br/>数据存在内存里</td><td>⭐ 极低</td></tr>
+<tr><td><strong>阶段2</strong><br/>本地数据保存</td><td>HTML + CSS + JS + localStorage</td><td>刷新不丢数据、<br/>但只能本设备用</td><td>⭐ 低（加几行代码）</td></tr>
+<tr><td><strong>阶段3</strong><br/>第三方后端服务</td><td>HTML + Supabase / LeanCloud / Firebase</td><td>用户注册登录、<br/>数据云端保存、多设备同步<br/>（不用自己写后端）</td><td>⭐⭐ 中等（学第三方平台）</td></tr>
+<tr><td><strong>阶段4</strong><br/>自己写简单后端</td><td>Node.js + Express + SQLite</td><td>完全掌控后端逻辑、<br/>自定义 API、简单数据库</td><td>⭐⭐⭐ 较高（学后端语言）</td></tr>
+<tr><td><strong>阶段5</strong><br/>完整全栈</td><td>React/Vue + Node.js/Python + MySQL/PostgreSQL + 部署运维</td><td>生产级产品、<br/>高并发、高可用</td><td>⭐⭐⭐⭐⭐ 很高</td></tr>
+</tbody>
+</table>
+</div><p><strong>给你的建议：</strong></p><ol class="lec-steps">
+<li><strong>现在：</strong>认真学好本课程的纯前端项目，把 Vibe Coding 的核心能力练熟。</li>
+<li><strong>下一步：</strong>给你的项目加上 localStorage，让数据刷新不丢。这只需要加几行代码，AI 会帮你写。</li>
+<li><strong>再下一步：</strong>如果你想做“真正的产品”，试试 Supabase 或 LeanCloud 这类第三方后端服务——不用自己写后端，就能拥有用户系统和云端数据库。</li>
+<li><strong>最后：</strong>等你对前端和第三方后端都熟了，再学自己写后端（推荐 Node.js，因为和前端都是 JavaScript，学习成本最低）。</li>
+</ol><p><strong>一步一步来，不要跳级。每一步都建立在上一步的基础上，这样你学得最扎实，也最有成就感。</strong></p><p><strong>本节核心结论（讲课重点）：</strong></p><ol class="lec-steps">
+<li><strong>纯前端项目有明显弊端：</strong>数据不持久、无用户系统、无数据库、无 API、不安全、无法规模化、迭代困难。它是“演示/玩具”，不是“产品”。</li>
+<li><strong>但它是新人最好的起点：</strong>门槛最低（不用配环境）、反馈最快（1小时出成果）、AI 辅助效果最好（HTML/CSS/JS 是 AI 强项）、能专注核心能力（需求分析/提示词/审查迭代）、为全栈打基础、很多场景确实够用。</li>
+<li><strong>不要过早做全栈：</strong>先用纯前端验证需求，有人用了再升级。精益创业思路。</li>
+<li><strong>升级路径：</strong>纯静态 → localStorage → 第三方后端（Supabase等）→ 自己写后端 → 完整全栈。一步一步来。</li>
+</ol></section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch5-1"><span class="lec-sec-no">5.1</span> 项目概述</h3>
+<p>欢迎来到第一个实战项目！在这一章，我们将用前面学的所有知识，从 0 到 1 做出一个<strong>个人主页/简历网站</strong>。</p>
+<p>这个项目的目标是：</p>
+<ul class="lec-list">
+<li>做出一个美观、现代的个人主页，展示你的个人信息、技能、项目和联系方式</li>
+<li>体验完整的 Vibe Coding 流程：需求梳理 → 生成初版 → 多轮迭代 → 优化打磨</li>
+<li>学会如何把 AI 生成的“模板内容”替换成你自己的真实信息</li>
+<li>最终产出一个可以部署上线、分享给别人的个人网站</li>
+</ul>
+<p><strong>参考网站：</strong>我们参考<strong>https://lzwjava.com/</strong> 这种简洁现代的个人主页风格——顶部导航、个人介绍、技能展示、项目作品、联系方式，单页滚动，响应式设计。你不一定要完全一样，但可以参考它的结构和风格。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch5-2"><span class="lec-sec-no">5.2</span> 第一步：需求梳理（动手前先想清楚）</h3>
+<p>在让 AI 写代码之前，先花 5 分钟想清楚你要什么。这一步非常重要——需求越清晰，AI 生成的结果越符合预期。</p>
+<h4 class="lec-h4">5.2.1 页面结构规划</h4>
+<p>一个典型的个人主页包含以下部分（你可以根据自己的情况增减）：</p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>序号</th><th>区块</th><th>内容</th><th>是否必须</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>顶部导航栏</td><td>姓名/Logo + 导航链接（关于我、技能、项目、联系）</td><td>✅ 必须</td></tr>
+<tr><td>2</td><td>首屏/Hero区</td><td>头像、姓名、一句话介绍、社交链接、CTA按钮</td><td>✅ 必须</td></tr>
+<tr><td>3</td><td>关于我</td><td>个人简介、教育背景、兴趣爱好</td><td>✅ 必须</td></tr>
+<tr><td>4</td><td>技能展示</td><td>技能列表（进度条或标签形式）</td><td>⭐ 推荐</td></tr>
+<tr><td>5</td><td>项目作品</td><td>3-5个项目卡片（标题、描述、截图、链接）</td><td>⭐ 推荐</td></tr>
+<tr><td>6</td><td>经历/教育</td><td>时间线形式展示工作/教育经历</td><td>可选</td></tr>
+<tr><td>7</td><td>联系方式</td><td>邮箱、GitHub、微信、QQ等</td><td>✅ 必须</td></tr>
+<tr><td>8</td><td>页脚</td><td>版权信息、回到顶部按钮</td><td>✅ 必须</td></tr>
+</tbody>
+</table>
+</div>
+<h4 class="lec-h4">5.2.2 设计风格选择</h4>
+<p>在让 AI 生成之前，先确定你喜欢的设计风格：</p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>风格</th><th>特点</th><th>适合人群</th><th>关键词</th></tr></thead>
+<tbody>
+<tr><td><strong>极简现代</strong></td><td>大量留白、黑白灰为主、一种强调色、无衬线字体</td><td>程序员、设计师、追求简洁的人</td><td>minimal, clean, modern, white space</td></tr>
+<tr><td><strong>渐变活力</strong></td><td>渐变背景、鲜艳色彩、圆角卡片、微动效</td><td>学生、创作者、年轻活泼的人</td><td>gradient, vibrant, colorful, rounded</td></tr>
+<tr><td><strong>暗黑科技</strong></td><td>深色背景、霓虹色强调、玻璃拟态、科技感字体</td><td>技术极客、电竞爱好者</td><td>dark mode, neon, glassmorphism, tech</td></tr>
+<tr><td><strong>温馨手绘</strong></td><td>暖色调、手绘元素、圆润字体、亲切感觉</td><td>文科生、艺术生、亲和力强的人</td><td>warm, hand-drawn, cozy, friendly</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>新手建议：</strong>第一次做推荐选<strong>“极简现代”</strong>或<strong>“渐变活力”</strong>风格，这两种风格 AI 生成的效果最稳定，不容易翻车。暗黑风格对颜色对比度要求高，新手容易做出“看不清字”的问题。</p>
+<h4 class="lec-h4">5.2.3 准备你的个人信息</h4>
+<p>AI 生成的是模板，里面的内容是占位的。你需要准备好自己的真实信息，后面替换进去：</p>
+<ul class="lec-list">
+<li><strong>基本信息：</strong>姓名、头像（可以先用占位图，后面换）、一句话自我介绍</li>
+<li><strong>关于我：</strong>一段 100-200 字的个人简介（你是谁、在做什么、兴趣是什么）</li>
+<li><strong>教育背景：</strong>学校、专业、年级</li>
+<li><strong>技能：</strong>3-8 项技能及熟练度（如：Python 70%、PPT 80%、视频剪辑 60%）</li>
+<li><strong>项目：</strong>2-5 个你做过的项目/作品（名称、一句话描述、链接，如果有的话）</li>
+<li><strong>联系方式：</strong>邮箱、GitHub（如果有）、微信/QQ、个人公众号等</li>
+</ul>
+<p>如果有些信息暂时没有（比如项目作品），可以先用占位内容，后面再补充。重要的是先把页面做出来。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch5-3"><span class="lec-sec-no">5.3</span> 第二步：生成初版（第一轮对话）</h3>
+<p>需求想清楚后，打开 Trae，新建一个项目文件夹，然后开始第一轮对话。</p>
+<h4 class="lec-h4">5.3.1 在 Trae 中新建项目</h4>
+<ol class="lec-steps">
+<li>打开 Trae，点击“打开文件夹”，选择一个空文件夹（比如在桌面新建一个叫 <code class="lec-inl-code">my-portfolio</code> 的文件夹）</li>
+<li>按 <kbd class="lec-kbd">Ctrl</kbd> + <kbd class="lec-kbd">U</kbd> 打开 AI 对话面板</li>
+<li>确认已经登录，模型选择默认的即可</li>
+</ol>
+<h4 class="lec-h4">5.3.2 第一轮提示词（生成完整初版）</h4>
+<p>这是最关键的一轮提示词。用我们第3章学的 CRCO 框架，写一个清晰、具体、有约束的提示词：</p>
+<pre class="lec-code lec-prompt"><code>帮我创建一个个人主页/简历网站。
+
+【上下文】
+- 我是编程零基础的学生，这是我的第一个 Vibe Coding 项目
+- 参考风格：类似 https://lzwjava.com/ 的简洁现代个人主页
+- 单页滚动式设计，所有内容在一个页面上
+
+【功能需求】
+页面包含以下部分（从上到下）：
+1. 顶部导航栏：左侧显示姓名，右侧是导航链接（关于我、技能、项目、联系），点击平滑滚动到对应区域。导航栏滚动时加背景毛玻璃效果。
+2. 首屏/Hero区：居中显示头像（圆形）、姓名、一句话介绍、两个按钮（查看项目、联系我）、社交链接图标（GitHub、邮箱）。背景用淡渐变。
+3. 关于我：左右布局，左边文字简介，右边可以放一张图片或图标。包含教育背景信息。
+4. 技能展示：用进度条形式展示 6 项技能，每项有技能名和百分比。
+5. 项目作品：3 个项目卡片，每个卡片有标题、描述、标签、“查看详情”按钮。卡片有 hover 上浮效果。
+6. 联系方式：居中显示，邮箱、GitHub、微信三个联系方式，带图标。
+7. 页脚：版权信息 + “回到顶部”按钮。
+
+【约束】
+1. 技术栈：只用原生 HTML/CSS/JavaScript，不使用任何框架和库
+2. 文件结构：所有代码写在一个 index.html 文件中，CSS 写在 style 标签里，JS 写在 script 标签里
+3. 不引入任何外部资源（字体、图标库、图片都用内联或占位）
+4. 图标用 emoji 或 SVG 内联，不要用外部图标库
+5. 图片用 https://picsum.photos 占位图服务，或用纯色渐变占位
+6. 设计风格：极简现代，主色调深蓝色（#1e40af），辅助色浅灰，大量留白
+7. 响应式设计：手机端（宽度小于768px）导航栏变成汉堡菜单，布局从左右变成上下
+8. 平滑滚动、hover 效果、过渡动画，提升交互体验
+9. 代码中加中文注释，方便我理解和修改
+
+【输出要求】
+1. 先简单说明实现思路和文件结构
+2. 给出完整的 index.html 代码
+3. 最后说明如何在浏览器中预览效果</code></pre>
+<p><strong>提示词使用说明：</strong></p>
+<ul class="lec-list">
+<li>你可以直接复制上面的提示词使用，也可以根据自己的喜好修改（比如把主色调改成你喜欢的颜色、增减页面区块）</li>
+<li>如果 AI 生成的代码太长被截断了，输入“继续”让它接着写</li>
+<li>生成后，Trae 会自动创建 index.html 文件，你点击文件就能看到代码</li>
+</ul>
+<h4 class="lec-h4">5.3.3 预览初版效果</h4>
+<p>AI 生成代码后：</p>
+<ol class="lec-steps">
+<li>在 Trae 的文件列表中找到 index.html，右键选择“在文件管理器中显示”</li>
+<li>双击 index.html 文件，用浏览器打开</li>
+<li>或者在 Trae 中安装“Live Server”插件，右键 index.html 选择“Open with Live Server”（推荐，修改代码后自动刷新）</li>
+</ol>
+<p>打开后，仔细看一遍页面，记下：</p>
+<ul class="lec-list">
+<li>哪些地方你觉得不错？</li>
+<li>哪些地方不符合预期？（布局、颜色、字体、间距）</li>
+<li>哪些功能有问题？（导航点击不滚动、动画不流畅、手机端显示异常）</li>
+<li>哪些内容需要替换成你自己的？（姓名、简介、技能、项目）</li>
+</ul>
+</section></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-ch5.html">← 上一页</a>
+    <span class="pager-info">第 2 页，共 5 页</span>
+    <a class="pager-btn" href="lec-ch5-3.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>

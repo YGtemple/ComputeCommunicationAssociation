@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第3章 提示词工程 —— 学会和AI说话 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">第3章 · 提示词工程 —— 学会和AI说话 （1/3）</span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter" id="lec-ch3"><header class="lec-ch-head">
+<span class="lec-ch-badge">第3章</span>
+<h2 class="lec-ch-title">提示词工程 —— 学会和AI说话</h2>
+<p class="lec-ch-sub">第四篇 · 提示词工程篇</p>
+</header><div class="lec-body"><section class="lec-sec"><h3 class="lec-h3" id="lec-ch3-1"><span class="lec-sec-no">3.1</span> 为什么提示词这么重要</h3>
+<p>想象一下这个场景：你去餐厅吃饭，对服务员说"给我来点吃的"。服务员会一脸懵——你想吃什么？中餐西餐？辣的不辣的？主食还是小吃？预算多少？最后他可能随便给你上了一盘你不爱吃的东西。</p>
+<p>但如果你说："给我来一份番茄牛腩盖饭，不要香菜，多放番茄，微辣，再配一碗紫菜蛋花汤。"服务员立刻就能准确给你上你想要的。</p>
+<p><strong>和 AI 对话也是一样的道理。</strong></p>
+<p>很多新手抱怨"AI 不好用"、"AI 生成的东西不是我想要的"，但其实问题往往出在你的提示词上——你说的太模糊、太笼统、太简略，AI 只能猜，猜出来的当然不是你想要的。</p>
+<p><strong>核心认知：</strong>提示词 = 你给 AI 的"工作说明书"。说明书写得越清楚，AI 干得越漂亮。Vibe Coding 的核心竞争力，不是你会不会写代码，而是你会不会<strong>清晰、准确、结构化地描述需求</strong>。</p>
+</section><section class="lec-sec"><h3 class="lec-h3" id="lec-ch3-2"><span class="lec-sec-no">3.2</span> CRCO 四要素模型：好提示词的万能框架</h3>
+<p>经过大量实践总结，一个好的编程提示词应该包含四个核心要素，我们称之为 <strong>CRCO 模型</strong>：</p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>字母</th><th>要素</th><th>英文</th><th>说明</th><th>占比</th></tr></thead>
+<tbody>
+<tr><td><strong>C</strong></td><td>上下文</td><td>Context</td><td>项目背景、技术栈、已有代码、约束条件</td><td>30%</td></tr>
+<tr><td><strong>R</strong></td><td>需求</td><td>Request</td><td>具体要做什么，功能点、页面结构、交互逻辑</td><td>40%</td></tr>
+<tr><td><strong>C</strong></td><td>约束</td><td>Constraints</td><td>技术限制、风格要求、文件结构、不要做什么</td><td>20%</td></tr>
+<tr><td><strong>O</strong></td><td>输出格式</td><td>Output</td><td>希望 AI 怎么输出：完整代码、分步说明、只给关键部分</td><td>10%</td></tr>
+</tbody>
+</table>
+</div>
+<h4 class="lec-h4">3.2.1 C - Context（上下文）：让 AI 知道"在什么背景下干活"</h4>
+<p>上下文是提示词中最容易被忽略、但最重要的部分。AI 不知道你的项目情况，你不告诉它，它就只能猜。</p>
+<p><strong>上下文应该包含：</strong></p>
+<ul class="lec-list">
+<li><strong>项目背景：</strong>这是什么项目？给谁用的？解决什么问题？</li>
+<li><strong>技术栈：</strong>用什么语言、框架、库？（如：纯 HTML/CSS/JS，不用框架）</li>
+<li><strong>已有代码/文件：</strong>当前项目有哪些文件？关键代码是什么？（在 IDE 中 AI 能自动读取，但对话工具中需要你提供）</li>
+<li><strong>之前做了什么：</strong>已经实现了哪些功能？现在在哪个阶段？</li>
+</ul>
+<p><strong>正反例对比</strong></p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>❌ 差的提示词（无上下文）</th><th>✅ 好的提示词（有上下文）</th></tr></thead>
+<tbody>
+<tr><td>"帮我加个删除功能"</td><td>"我正在做一个待办清单网页，用纯 HTML/CSS/JS 实现，已经有添加任务和显示列表的功能。现在需要给每个任务加一个删除按钮，点击后从列表中移除该任务。"</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>分析：</strong>左边的提示词，AI 不知道你在做什么项目、用什么技术、删除什么、怎么删，只能瞎猜。右边的提示词，AI 清楚地知道背景，能给出精准的代码。</p>
+<h4 class="lec-h4">3.2.2 R - Request（需求）：让 AI 知道"具体要做什么"</h4>
+<p>需求是提示词的核心，要<strong>具体、清晰、可执行</strong>。</p>
+<p><strong>好需求的特点：</strong></p>
+<ul class="lec-list">
+<li><strong>具体不笼统：</strong>不说"做个好看的页面"，说"主色调深蓝色，圆角卡片布局，顶部导航栏"</li>
+<li><strong>分点描述：</strong>复杂需求用 1、2、3 分点，AI 不容易遗漏</li>
+<li><strong>描述交互：</strong>不仅说有什么，还要说怎么用——"点击按钮后弹出确认框，确认后删除"</li>
+<li><strong>描述数据：</strong>数据从哪来？存到哪去？格式是什么？</li>
+</ul>
+<p><strong>正反例对比</strong></p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>❌ 差的需求（笼统模糊）</th><th>✅ 好的需求（具体清晰）</th></tr></thead>
+<tbody>
+<tr><td>"做一个个人主页，要好看"</td><td>"做一个个人主页，包含以下部分：<br/>1. 顶部导航栏：头像、姓名、一句话介绍<br/>2. 关于我：一段个人简介文字<br/>3. 技能展示：用进度条展示 HTML/CSS/JS 三项技能的熟练度<br/>4. 项目展示：3个项目卡片，每个卡片有标题、描述、链接<br/>5. 底部：联系方式（邮箱、GitHub）<br/>要求：响应式布局，手机端也能正常显示"</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>分析：</strong>左边"好看"是主观词，AI 不知道你觉得什么好看。右边把页面拆成具体的模块，每个模块有什么内容都说清楚了，AI 生成的结果和你预期的差距会小很多。</p>
+<h4 class="lec-h4">3.2.3 C - Constraints（约束）：让 AI 知道"不能做什么"</h4>
+<p>约束是告诉 AI 边界条件——<strong>用什么、不用什么、遵守什么规则</strong>。没有约束，AI 可能会用你不熟悉的技术、引入不必要的依赖、做出你不想要的设计。</p>
+<p><strong>常见约束类型：</strong></p>
+<ul class="lec-list">
+<li><strong>技术约束：</strong>"只用原生 HTML/CSS/JS，不使用任何框架和库"</li>
+<li><strong>文件约束：</strong>"所有代码写在一个 HTML 文件中，CSS 写在 style 标签里，JS 写在 script 标签里"</li>
+<li><strong>风格约束：</strong>"设计风格简洁现代，不要花哨的动画，主色调蓝色"</li>
+<li><strong>兼容性约束：</strong>"兼容 Chrome 和 Edge 浏览器"</li>
+<li><strong>负面约束：</strong>"不要使用 jQuery"、"不要用 alert 弹窗"、"不要引入外部字体"</li>
+</ul>
+<p><strong>正反例对比</strong></p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>❌ 无约束</th><th>✅ 有约束</th></tr></thead>
+<tbody>
+<tr><td>"帮我做一个登录页面"</td><td>"帮我做一个登录页面。<br/><strong>约束：</strong><br/>1. 只用原生 HTML/CSS/JS，不使用 React/Vue/jQuery 等任何框架或库<br/>2. 所有代码写在一个 index.html 文件中<br/>3. 不引入任何外部资源（字体、图标库等），图标用 emoji 或 SVG 内联<br/>4. 设计风格简洁，不要渐变背景和复杂动画"</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>分析：</strong>无约束时，AI 可能给你生成一个用了 React + Tailwind + 图标库的页面，你一个零基础的根本跑不起来。有了约束，AI 会严格按照你的要求生成，结果可控。</p>
+<h4 class="lec-h4">3.2.4 O - Output（输出格式）：让 AI 知道"怎么给你结果"</h4>
+<p>告诉 AI 你希望它怎么输出结果，可以节省你大量整理时间。</p>
+<p><strong>常见输出格式要求：</strong></p>
+<ul class="lec-list">
+<li><strong>"给出完整的可运行代码"</strong>（而不是只给关键片段）</li>
+<li><strong>"先给实现思路，再给代码"</strong>（先理解再动手）</li>
+<li><strong>"只修改 XXX 部分，其他保持不变"</strong>（避免 AI 大改）</li>
+<li><strong>"代码中加中文注释"</strong>（方便学习理解）</li>
+<li><strong>"用表格对比两种方案的优缺点"</strong>（做技术选型时）</li>
+</ul>
+<p><strong>正反例对比</strong></p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>❌ 不指定输出</th><th>✅ 指定输出格式</th></tr></thead>
+<tbody>
+<tr><td>"localStorage 怎么用"</td><td>"请用以下格式讲解 localStorage 的用法：<br/>1. 一句话说明它是什么<br/>2. 核心 API 列表（用表格）<br/>3. 一个完整的增删改查代码示例（带中文注释）<br/>4. 常见坑和注意事项"</td></tr>
+</tbody>
+</table>
+</div>
+</section><section class="lec-sec"><h3 class="lec-h3" id="lec-ch3-3"><span class="lec-sec-no">3.3</span> 好提示词 VS 坏提示词：10组经典对比</h3><p>光说理论不够，我们来看 10 组真实的正反例对比，感受一下差距。</p><h4 class="lec-h4">对比1：做一个待办清单</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>维度</th><th>❌ 坏提示词</th><th>✅ 好提示词</th></tr></thead>
+<tbody>
+<tr><td>提示词</td><td>"帮我写个待办清单"</td><td>"帮我创建一个待办清单网页应用。<br/><br/><strong>上下文：</strong>我是编程零基础，这是我的第一个项目，用纯前端实现。<br/><br/><strong>功能需求：</strong><br/>1. 顶部有输入框和"添加"按钮，输入内容后点击按钮或按回车添加任务<br/>2. 任务列表显示在下方，每个任务包含：复选框、任务文字、删除按钮<br/>3. 勾选复选框后，任务文字加删除线并变灰<br/>4. 点击删除按钮移除该任务<br/>5. 任务数据保存到 localStorage，刷新页面不丢失<br/><br/><strong>约束：</strong><br/>1. 只用原生 HTML/CSS/JS，不使用任何框架和库<br/>2. 所有代码写在一个 index.html 文件中<br/>3. 设计风格简洁现代，主色调蓝色，圆角设计<br/>4. 响应式布局，手机端也能正常使用<br/><br/><strong>输出：</strong>给出完整的可运行代码，代码中加中文注释。"</td></tr>
+<tr><td>AI 可能的输出</td><td>一个非常简陋的列表，可能没有样式，可能没有删除功能，可能用了你不认识的框架</td><td>一个功能完整、样式美观、带本地存储、有注释、能直接运行的待办应用</td></tr>
+<tr><td>需要修改的轮次</td><td>5-10 轮（缺功能、样式丑、有bug，一步步补）</td><td>1-2 轮（可能微调一下颜色或间距）</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">对比2：修改已有代码</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>❌ 坏提示词</th><th>✅ 好提示词</th></tr></thead>
+<tbody>
+<tr><td>"这个页面不好看，改一下"</td><td>"在当前的个人主页代码基础上，做以下样式修改：<br/>1. 把背景色从白色改成浅灰色（#f5f5f5）<br/>2. 内容区域用白色卡片，加阴影和圆角（圆角12px，阴影柔和）<br/>3. 标题字体加大到 28px，加粗，颜色改成深蓝色（#1a365d）<br/>4. 技能进度条的颜色从蓝色改成渐变色（从 #4299e1 到 #3182ce）<br/>5. 项目卡片之间的间距从 16px 增加到 24px<br/><br/>只修改样式，不改变 HTML 结构和 JS 功能。给出修改后的完整代码。"</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">对比3：问问题</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>❌ 坏提示词</th><th>✅ 好提示词</th></tr></thead>
+<tbody>
+<tr><td>"这段代码报错了，帮我看看"</td><td>"我运行这段代码时报错了，请帮我分析原因并给出修复方案。<br/><br/><strong>我的环境：</strong>Chrome 浏览器，纯 HTML/CSS/JS<br/><br/><strong>报错信息：</strong><br/>Uncaught ReferenceError: addTask is not defined<br/>    at HTMLButtonElement.onclick (index.html:25)<br/><br/><strong>相关代码：</strong><br/>【粘贴第20-30行的代码】<br/><br/><strong>我期望的行为：</strong>点击"添加"按钮后调用 addTask 函数添加任务<br/><br/>请：1. 解释报错原因 2. 给出修复后的代码 3. 说明以后如何避免类似问题"</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">对比4：加新功能</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>❌ 坏提示词</th><th>✅ 好提示词</th></tr></thead>
+<tbody>
+<tr><td>"给待办清单加个优先级"</td><td>"在现有的待办清单基础上，添加任务优先级功能。<br/><br/><strong>具体需求：</strong><br/>1. 添加任务时，可以选择优先级：高（红色）、中（黄色）、低（绿色），默认"中"<br/>2. 优先级用下拉选择框，放在输入框旁边<br/>3. 任务列表中，每个任务左侧显示优先级标签（彩色小标签）<br/>4. 高优先级任务排在最前面，同优先级按添加时间排序<br/>5. localStorage 中也要保存优先级信息<br/><br/><strong>约束：</strong><br/>1. 保持现有的添加、删除、完成、本地存储功能不变<br/>2. 只用原生 JS，不引入库<br/>3. 优先级标签用小圆角矩形，不要太占空间<br/><br/>给出修改后的完整代码，标注新增和修改的部分。"</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">对比5：优化代码</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>❌ 坏提示词</th><th>✅ 好提示词</th></tr></thead>
+<tbody>
+<tr><td>"优化一下这段代码"</td><td>"请优化下面这段待办清单的 JS 代码。<br/><br/><strong>优化目标（按优先级）：</strong><br/>1. 提高代码可读性：变量名和函数名要有意义，加中文注释<br/>2. 消除重复代码：如果有重复逻辑，提取成公共函数<br/>3. 提高性能：如果有性能问题，优化它（比如频繁操作DOM的情况）<br/>4. 增加错误处理：比如 localStorage 满了、JSON 解析失败等情况<br/><br/><strong>约束：</strong><br/>1. 不改变任何现有功能和用户交互<br/>2. 不引入任何外部库<br/>3. 保持代码结构清晰，适合零基础学习者阅读<br/><br/>请先列出你发现的问题和优化点，再给出优化后的完整代码。"</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">对比6：解释代码</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>❌ 坏提示词</th><th>✅ 好提示词</th></tr></thead>
+<tbody>
+<tr><td>"解释一下这段代码"</td><td>"请帮我解释下面这段代码，我是完全零基础的编程小白。<br/><br/><strong>要求：</strong><br/>1. 先用一句话说明这段代码整体在做什么<br/>2. 然后逐行解释，每一行都要说清楚：这行代码是什么意思、为什么要这么写<br/>3. 遇到专业术语（比如 DOM、事件监听、回调函数），用通俗的比喻解释<br/>4. 最后用一个生活化的例子类比这段代码的执行过程<br/><br/>代码如下：<br/>【粘贴代码】"</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">对比7：做技术选型</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>❌ 坏提示词</th><th>✅ 好提示词</th></tr></thead>
+<tbody>
+<tr><td>"我学什么好？"</td><td>"我是一个完全零基础的大学生，想用 Vibe Coding 做个人项目（个人主页、待办工具、小游戏等），以后可能想做简单的全栈应用。请帮我对比以下技术方向：<br/><br/>1. 纯 HTML/CSS/JS（原生前端）<br/>2. React + Vite<br/>3. Vue + Vite<br/><br/>请从以下维度对比（用表格）：<br/>- 学习难度（对零基础）<br/>- Vibe Coding 友好度（AI 生成代码的质量）<br/>- 能做什么项目<br/>- 生态和资料丰富度<br/>- 就业市场需求<br/><br/>最后结合我的情况（零基础、做个人项目、用 AI 辅助），给出明确的推荐和学习路径建议。"</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">对比8：调试报错</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>❌ 坏提示词</th><th>✅ 好提示词</th></tr></thead>
+<tbody>
+<tr><td>"页面白屏了，怎么办"</td><td>"我的网页打开后白屏，什么都不显示，请帮我排查。<br/><br/><strong>环境：</strong>Chrome 浏览器，Windows 11，纯 HTML/CSS/JS 单文件<br/><br/><strong>现象：</strong><br/>1. 双击 index.html 用 Chrome 打开，页面完全空白<br/>2. 按 F12 打开开发者工具，Console 面板有红色报错<br/><br/><strong>报错信息：</strong><br/>【完整复制 Console 中的所有红色报错】<br/><br/><strong>我的代码：</strong><br/>【粘贴完整的 index.html 代码，或至少是 script 标签中的 JS 代码】<br/><br/><strong>我最近做了什么修改：</strong>我刚加了一个"编辑任务"的功能，加完之后就白屏了<br/><br/>请：1. 分析白屏的直接原因 2. 定位到具体哪行代码有问题 3. 给出修复代码 4. 告诉我以后如何快速定位白屏问题"</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">对比9：写项目文档</h4></section></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-appa.html">← 上一页</a>
+    <span class="pager-info">第 1 页，共 3 页</span>
+    <a class="pager-btn" href="lec-ch3-2.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>
