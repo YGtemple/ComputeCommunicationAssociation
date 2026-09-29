@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第5章 实战项目一 —— 个人主页/简历页面 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">第5章 · 实战项目一 —— 个人主页/简历页面 （5/5）</span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter" id="lec-ch5"><div class="lec-body"><section class="lec-sec" id="lec-ch5-8"><ol class="lec-steps">
+<li><strong>打开 ChatExcel：</strong>访问 chatexcel.com，无需注册即可使用。</li>
+<li><strong>上传表格：</strong>拖拽你的 Excel/CSV 文件到页面，或点击上传按钮选择文件。</li>
+<li><strong>用自然语言操作：</strong>在对话框里用中文描述你想做的操作，AI 自动执行并展示结果。</li>
+<li><strong>下载结果：</strong>操作完成后，点击下载按钮保存修改后的表格。</li>
+</ol><p><strong>表格操作提示词示例</strong></p><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>你想做什么</th><th>提示词</th></tr></thead>
+<tbody>
+<tr><td><strong>数据计算</strong></td><td>“计算每个学生的总分（语文+数学+英语），添加到新的一列'总分'，然后按总分从高到低排序”</td></tr>
+<tr><td><strong>数据筛选</strong></td><td>“筛选出单价大于 100 元且销量大于 50 的商品，只显示商品名称、单价、销量、销售额四列”</td></tr>
+<tr><td><strong>数据统计</strong></td><td>“按部门统计平均工资和人数，用透视表展示，部门按平均工资从高到低排序”</td></tr>
+<tr><td><strong>找异常值</strong></td><td>“找出销售额异常高或异常低的记录（偏离平均值超过2个标准差），标红并列出”</td></tr>
+<tr><td><strong>生成公式</strong></td><td>“我想在 D 列计算 B 列乘以 C 列再打 8 折，帮我写 Excel 公式，并解释公式的含义”</td></tr>
+<tr><td><strong>数据可视化</strong></td><td>“基于这份销售数据，生成一个月度销售额趋势的折线图，和一个各品类销售额占比的饼图”</td></tr>
+<tr><td><strong>数据清洗</strong></td><td>“把 A 列的日期统一成 YYYY-MM-DD 格式，B 列的手机号去掉中间的空格和横杠，删除重复行”</td></tr>
+</tbody>
+</table>
+</div><p><strong>表格处理避坑指南</strong></p><p><strong>坑1：AI 算错数据</strong><br/>AI 处理表格时可能算错，尤其是复杂计算。<strong>重要数据必须手动抽查验证</strong>，可以用 Excel 公式重新算几个关键值对比。</p><p><strong>坑2：原始数据被覆盖</strong><br/>在 ChatExcel 等在线工具里操作后，下载的是新文件，原始文件不受影响。但在 WPS AI 里直接操作时，建议先备份原始文件，操作后另存为新文件。</p><p><strong>坑3：大文件处理慢或失败</strong><br/>超过 10MB 或几万行的表格，在线工具可能处理慢或失败。建议拆分成小文件，或用 WPS AI 本地处理。</p><p><strong>坑4：敏感数据不要上传</strong><br/>包含个人信息（身份证、手机号、工资）的敏感表格，不要上传到公共在线工具。用 WPS AI 本地处理或企业版工具。</p><h4 class="lec-h4">5.8.6 场景五：AI 生成思维导图——思路混乱时的救星</h4><p><strong>推荐工具</strong></p><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>工具</th><th>核心优势</th><th>免费额度</th></tr></thead>
+<tbody>
+<tr><td><strong>MindShow</strong>（首选）</td><td>输入文字大纲自动生成思维导图；一键转 PPT；模板多；操作简单</td><td>有免费版</td></tr>
+<tr><td><strong>豆包 + 手动导入</strong></td><td>让豆包生成 Markdown 格式的思维导图大纲，然后导入到 XMind/幕布/ProcessOn 中</td><td>免费</td></tr>
+<tr><td><strong>XMind AI</strong></td><td>专业思维导图软件内置 AI；生成、扩展、总结思维导图；质量高</td><td>部分免费</td></tr>
+<tr><td><strong>幕布 AI</strong></td><td>大纲笔记和思维导图一键切换；AI 辅助整理大纲</td><td>有免费版</td></tr>
+</tbody>
+</table>
+</div><p><strong>用豆包生成思维导图的方法（免费且灵活）</strong></p><ol class="lec-steps">
+<li><strong>让豆包生成大纲：</strong>用提示词让豆包生成 Markdown 格式的思维导图大纲。<br/><em>示例：“帮我生成一份'高等数学上册知识点'的思维导图大纲，用 Markdown 无序列表格式，包含3级层级，覆盖函数与极限、导数与微分、积分、微分方程四个主要部分。”</em></li>
+<li><strong>复制大纲：</strong>豆包生成后，复制 Markdown 格式的大纲文本。</li>
+<li><strong>导入思维导图工具：</strong>打开 XMind、幕布、ProcessOn 或 MindShow，选择“导入 Markdown”或直接粘贴，自动生成思维导图。</li>
+<li><strong>调整和美化：</strong>在思维导图工具里调整结构、颜色、样式，导出为图片或 PDF。</li>
+</ol><p><strong>思维导图提示词示例</strong></p><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>场景</th><th>提示词</th></tr></thead>
+<tbody>
+<tr><td><strong>课程复习</strong></td><td>“帮我整理'大学物理-力学部分'的知识点思维导图，用 Markdown 格式，3级层级。要求：每个知识点配一个简短说明，重点公式标注出来，易错点用'⚠️'标记。”</td></tr>
+<tr><td><strong>读书笔记</strong></td><td>“基于以下书籍内容[粘贴或上传]，生成一份读书笔记思维导图，包含：核心观点、关键概念、重要案例、金句摘录、我的思考五个分支。”</td></tr>
+<tr><td><strong>项目规划</strong></td><td>“帮我做一个'大学生创新创业大赛项目'的规划思维导图，包含：项目背景、目标用户、产品功能、技术方案、运营计划、财务预算、风险评估七个分支，每个分支展开3-5个子项。”</td></tr>
+<tr><td><strong>论文大纲</strong></td><td>“我的论文主题是'XX'，研究方法是'XX'，帮我生成一份论文结构思维导图，包含：摘要、引言、文献综述、研究方法、实验设计、数据分析、结论、参考文献，每个部分列出需要包含的子内容。”</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">5.8.7 场景六：AI 设计/图片——不会 PS 也能做专业设计</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>工具</th><th>擅长什么</th><th>免费额度</th></tr></thead>
+<tbody>
+<tr><td><strong>Canva 可画</strong>（首选）</td><td>海量模板（海报、封面、PPT、简历、社交媒体图）；拖拽式编辑；AI 辅助设计；中文友好；免费版大量模板可用，Pro 版解锁高级模板和素材</td><td>大量免费模板，Pro 版付费</td></tr>
+<tr><td><strong>稿定设计</strong></td><td>国内模板更贴合中国场景；电商、运营、教育模板多；AI 抠图、AI 生成</td><td>有免费版</td></tr>
+<tr><td><strong>美图设计室</strong></td><td>AI 生成海报、商品图；电商场景强；操作极简</td><td>有免费额度</td></tr>
+<tr><td><strong>豆包 AI 画图</strong></td><td>文字生成图片；做配图、插画、概念图；中文提示词理解好</td><td>免费有额度</td></tr>
+</tbody>
+</table>
+</div><p><strong>Canva 使用要点：</strong>搜索模板 → 选择尺寸 → 替换文字和图片 → 调整配色 → 下载。做课程封面、活动海报、简历、社交媒体配图都非常快。AI 功能包括：Magic Design（输入文字自动生成设计）、AI 抠图、AI 扩图、智能配色。</p><h4 class="lec-h4">5.8.8 场景七：AI 会议/语音——听课开会不再手忙脚乱</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>工具</th><th>核心优势</th><th>免费额度</th></tr></thead>
+<tbody>
+<tr><td><strong>通义听悟</strong>（首选）</td><td>阿里出品；实时转写+总结+行动项+待办；支持音视频文件上传；可转 PPT；中文识别准；多语言翻译；免费版每月若干小时额度，签到可领额外时长</td><td>有免费额度（每月若干小时）</td></tr>
+<tr><td><strong>讯飞听见</strong></td><td>语音识别行业标杆；准确率最高；支持方言；专业转写</td><td>有免费额度，高级功能付费</td></tr>
+<tr><td><strong>飞书妙记</strong></td><td>飞书生态内；会议自动录制转写；和飞书文档/任务联动</td><td>飞书用户免费</td></tr>
+<tr><td><strong>豆包语音</strong></td><td>上传音频文件转文字+总结；操作简单；和豆包对话联动</td><td>免费</td></tr>
+</tbody>
+</table>
+</div><p><strong>通义听悟使用要点：</strong>上传录音/视频文件或实时录制 → AI 自动转写文字 → 生成智能摘要（章节划分、核心观点、行动项、待办清单）→ 可导出 Word/PDF/PPT → 可搜索定位到具体时间点。听课时录下来，课后 5 分钟就能拿到完整笔记和重点总结。</p><h4 class="lec-h4">5.8.9 学生党高频办公场景速查表</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>你遇到的场景</th><th>用什么工具</th><th>怎么做（一句话）</th></tr></thead>
+<tbody>
+<tr><td>下周要做课堂汇报 PPT</td><td>WPS AI</td><td>输入主题+大纲 → 选模板生成 → 逐页修改 → 导出</td></tr>
+<tr><td>老师给了一篇 50 页的英文论文要读</td><td>Kimi 或 豆包</td><td>上传 PDF → 先让它总结 → 再针对具体问题提问</td></tr>
+<tr><td>要写 2000 字的课程报告</td><td>豆包 + WPS AI</td><td>豆包生成大纲 → 分段写内容 → 复制到 Word → WPS AI 润色</td></tr>
+<tr><td>实验数据要做统计和图表</td><td>ChatExcel + WPS</td><td>上传 Excel → 自然语言描述操作 → 下载结果 → WPS 做图表</td></tr>
+<tr><td>复习时要整理知识点框架</td><td>豆包 + XMind/幕布</td><td>豆包生成 Markdown 大纲 → 导入思维导图工具 → 调整导出</td></tr>
+<tr><td>要做活动海报/公众号封面</td><td>Canva 可画</td><td>搜索模板 → 替换文字图片 → 调整配色 → 下载</td></tr>
+<tr><td>听讲座/上课要记笔记</td><td>通义听悟</td><td>录音或上传音频 → 自动转写+总结 → 导出笔记</td></tr>
+<tr><td>要翻译英文文档/论文</td><td>豆包 或 Kimi</td><td>上传文档 → "翻译成中文，保持专业术语准确" → 导出</td></tr>
+<tr><td>简历要优化</td><td>豆包 + Canva</td><td>豆包优化简历文字 → Canva 选简历模板排版 → 导出 PDF</td></tr>
+<tr><td>小组作业要分工和整理</td><td>豆包 + 飞书文档</td><td>豆包生成任务分解 → 飞书文档协作 → 豆包汇总整理</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">5.8.10 AI 办公工具的通用原则与避坑总结</h4><p><strong>AI 办公工具的 5 条黄金原则：</strong></p><ol class="lec-steps">
+<li><strong>AI 是助手不是替代：</strong>AI 帮你打草稿、提效率，但最终的判断、审查、决策必须是你自己。永远不要直接交付 AI 生成的未审查内容。</li>
+<li><strong>事实必须核实：</strong>AI 会“幻觉”——编造数据、引用、事实。所有重要信息（数据、人名、时间、引用、法律条款）必须查证。</li>
+<li><strong>敏感信息不上传：</strong>身份证、手机号、工资、合同、公司内部资料等敏感信息，不要上传到公共 AI 工具。用本地处理工具或企业版。</li>
+<li><strong>分段生成、逐段审查：</strong>不要一次性让 AI 生成完整长文/长 PPT。先大纲、再分段、逐段审查修改，质量高得多。</li>
+<li><strong>加入个人特色：</strong>AI 生成的内容有“模板化”问题。必须加入你自己的观点、例子、语言风格，否则一眼就能看出是 AI 写的。</li>
+</ol><p><strong>本节核心结论（讲课重点）：</strong></p><ol class="lec-steps">
+<li><strong>AI 办公工具覆盖 7 大场景：</strong>PPT 生成、PDF 处理、文档写作、表格数据、思维导图、设计图片、会议语音。每个场景都有免费好用的工具。</li>
+<li><strong>学生党最优组合：</strong>WPS AI（PPT）+ 豆包（PDF/文档）+ Kimi（长文档）+ ChatExcel（表格）+ MindShow/豆包（思维导图）+ Canva（设计）+ 通义听悟（会议）。全部国内直连、中文友好。</li>
+<li><strong>正确工作流：</strong>明确需求 → AI 生成大纲/初稿 → 逐段审查修改 → 加入个人思考 → 润色定稿。AI 打草稿，你做决策。</li>
+<li><strong>三大坑：</strong>直接交 AI 生成的内容（AI 味重）、不核实事实（AI 会编造）、上传敏感信息（隐私风险）。</li>
+<li><strong>这些技能和 Vibe Coding 是相通的：</strong>清晰描述需求、审查 AI 输出、迭代优化——这些核心能力在写代码和做办公时是一样的。学会了一个，另一个自然就会了。</li>
+</ol></section></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-ch5-4.html">← 上一页</a>
+    <span class="pager-info">第 5 页，共 5 页</span>
+    <a class="pager-btn" href="lec-ch6.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>
