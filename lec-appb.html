@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>附录B 附录B 提示词常见错误汇总与正反例对比 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">附录B · 附录B 提示词常见错误汇总与正反例对比 </span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter lec-appendix" id="lec-appb"><header class="lec-ch-head">
+<span class="lec-ch-badge">附录B</span>
+<h2 class="lec-ch-title">附录B 提示词常见错误汇总与正反例对比</h2>
+</header><div class="lec-body">
+<p><strong>错误1：太笼统，用"好看""简单""好用"等主观词</strong></p>
+<p><strong>表现：</strong>"帮我做个好看的页面"、"写个简单的网站"</p>
+<p><strong>为什么错：</strong>AI 不知道你觉得什么是"好看"、什么是"简单"，只能按它的理解来，结果往往不符合预期。</p>
+<p><strong>正确做法：</strong>用具体、可量化的描述。"主色调深蓝色（#1e40af），圆角卡片布局，顶部固定导航栏，整体留白充足"。</p>
+<p><strong>错误2：一次提太多需求，AI 遗漏部分功能</strong></p>
+<p><strong>表现：</strong>一段话里塞了 10 个功能点，AI 只实现了 7 个。</p>
+<p><strong>为什么错：</strong>AI 的注意力有限，需求太多时容易遗漏。</p>
+<p><strong>正确做法：</strong>用编号分点列出（1、2、3...），每个点只说一件事。复杂项目分多轮实现，先核心后扩展。</p>
+<p><strong>错误3：不提供上下文，让 AI 猜</strong></p>
+<p><strong>表现：</strong>"帮我改一下这个功能"，但不说是哪个项目、什么功能、现在是什么样。</p>
+<p><strong>为什么错：</strong>AI 没有读心术，不知道你的项目背景。</p>
+<p><strong>正确做法：</strong>先说清楚"我在做什么项目、现在实现到哪一步、要改什么"。在 IDE 中 AI 能自动读取项目文件，但对话工具中必须你自己提供。</p>
+<p><strong>错误4：只说"要什么"，不说"不要什么"</strong></p>
+<p><strong>表现：</strong>只说功能需求，不说约束，结果 AI 用了你不想要的框架、引入了不必要的依赖。</p>
+<p><strong>为什么错：</strong>没有负面约束，AI 会按它的"最佳实践"来，可能和你的环境不兼容。</p>
+<p><strong>正确做法：</strong>明确写出约束："只用原生 HTML/CSS/JS，不使用任何框架和库"、"不要用 alert 弹窗"、"不引入外部字体"。</p>
+<p><strong>错误5：追求一次完美，反复改提示词而不迭代</strong></p>
+<p><strong>表现：</strong>花 30 分钟写一个"完美提示词"，希望一次生成满意结果，结果还是不满意。</p>
+<p><strong>为什么错：</strong>Vibe Coding 的核心是迭代，不是一次完美。提示词写得再好，也需要根据生成结果调整。</p>
+<p><strong>正确做法：</strong>先写一个 70 分的提示词生成初版，然后根据结果一轮轮修改。"先跑起来，再优化"。</p>
+<p><strong>错误6：不看 AI 生成的代码，直接运行</strong></p>
+<p><strong>表现：</strong>AI 生成代码后，看都不看直接运行，出了问题也不知道改了什么。</p>
+<p><strong>为什么错：</strong>AI 可能引入你不想要的功能、可能有 bug、可能改了你不想改的地方。</p>
+<p><strong>正确做法：</strong>生成后快速扫一遍，至少看：改了哪些文件、核心逻辑是什么、有没有引入外部依赖。在 IDE 中用 Diff 视图对比修改。</p>
+<p><strong>错误7：对话太长不清理，AI 开始"失忆"或"混乱"</strong></p>
+<p><strong>表现：</strong>一个对话聊了 30 轮后，AI 开始忘记之前的决定、给出矛盾的建议、甚至引用不存在的代码。</p>
+<p><strong>为什么错：</strong>AI 的上下文窗口有限，对话太长时早期信息会被"遗忘"。</p>
+<p><strong>正确做法：</strong>对话进行到 10-15 轮时，让 AI 总结当前项目状态（已实现什么、文件结构是什么、接下来要做什么），然后新建对话，把总结粘贴进去继续。</p>
+<p><strong>错误8：报错了只说"报错了"，不给具体信息</strong></p>
+<p><strong>表现：</strong>"代码报错了，帮我看看"，但不贴报错信息、不贴代码、不说环境。</p>
+<p><strong>为什么错：</strong>AI 无法凭空诊断问题，需要具体信息。</p>
+<p><strong>正确做法：</strong>完整提供：报错信息（复制控制台红色文字）、相关代码、环境信息、你做了什么操作、期望什么结果。信息越全，定位越快。</p>
+</div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-ch3-3.html">← 上一页</a>
+    <span class="pager-info">讲义正文</span>
+    <a class="pager-btn" href="lec-ch4.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>
