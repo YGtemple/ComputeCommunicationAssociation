@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第5章 实战项目一 —— 个人主页/简历页面 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">第5章 · 实战项目一 —— 个人主页/简历页面 （1/5）</span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter" id="lec-ch5"><header class="lec-ch-head">
+<span class="lec-ch-badge">第5章</span>
+<h2 class="lec-ch-title">实战项目一 —— 个人主页/简历页面</h2>
+<p class="lec-ch-sub">第六篇 · 实战篇（一）</p>
+</header><div class="lec-body"><section class="lec-sec"><h3 class="lec-h3" id="lec-ch5-0"><span class="lec-sec-no">5.0</span> 开始前必读：纯前端项目的真相——弊端与为什么新人恰恰适合</h3><p><strong>在开始做项目之前，你必须先知道一件事：</strong>本课程教你做的个人主页和待办清单，都是<strong>纯前端 HTML 项目</strong>。这类项目有明显的局限性，但对于零基础新人来说，它恰恰是最好的起点。这一节我们把这件事讲透——既不夸大它的能力，也不否定它的价值。</p><h4 class="lec-h4">5.0.1 大部分人用 Vibe Coding 做出来的 HTML 项目，有哪些弊端？</h4><p>你在网上看到很多人用 AI 几分钟做出一个“网站”，看起来很厉害。但如果你仔细看，会发现 90% 以上都只是一个<strong>纯前端的 HTML 页面</strong>。这类项目有以下几个根本性的弊端：</p><h4 class="lec-h4">弊端1：没有后端，数据无法真正保存</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>问题</th><th>具体表现</th></tr></thead>
+<tbody>
+<tr><td><strong>刷新就丢</strong></td><td>你在待办清单里加了 10 条任务，一刷新页面，全没了。因为数据只存在于浏览器内存里，页面一关就消失。</td></tr>
+<tr><td><strong>localStorage 是临时方案</strong></td><td>有人会用浏览器的 localStorage 存数据，看起来“刷新不丢了”，但：换一台电脑就没了、换个浏览器就没了、清一次浏览器缓存就没了、数据量超过 5MB 就存不下了。</td></tr>
+<tr><td><strong>无法多设备同步</strong></td><td>你在电脑上加的待办，手机上看不到。因为数据只存在你这台电脑的浏览器里，没有一个“中心仓库”来同步。</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">弊端2：没有用户系统，无法区分不同人</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>问题</th><th>具体表现</th></tr></thead>
+<tbody>
+<tr><td><strong>所有人看到的都一样</strong></td><td>你的待办清单，别人打开看到的也是你的待办（或者都是空的）。因为没有“登录”这个概念，系统不知道你是谁。</td></tr>
+<tr><td><strong>无法注册/登录/个人中心</strong></td><td>不能做“我的账户”“修改密码”“个人设置”这些功能，因为这些都需要后端来验证身份和保存用户信息。</td></tr>
+<tr><td><strong>无法团队协作</strong></td><td>待办清单只能你一个人用，不能分享给团队成员一起编辑。因为没有权限系统，不知道谁能看、谁能改。</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">弊端3：没有数据库，复杂数据处理不了</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>问题</th><th>具体表现</th></tr></thead>
+<tbody>
+<tr><td><strong>数据关系简单</strong></td><td>比如你想做一个“课程管理系统”，一个老师带多个学生，一个学生选多门课，一门课有多个作业——这种复杂的关系，纯前端很难处理。</td></tr>
+<tr><td><strong>数据量大了性能差</strong></td><td>待办清单超过几百条，页面就开始卡。因为所有数据都要一次性加载到浏览器内存里，没有数据库的索引和分页能力。</td></tr>
+<tr><td><strong>无法做统计分析</strong></td><td>想知道“本月完成了多少任务”“哪类任务完成率最低”，纯前端做起来很费劲，因为没有数据库的查询和聚合能力。</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">弊端4：没有 API，无法对接外部服务</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>问题</th><th>具体表现</th></tr></thead>
+<tbody>
+<tr><td><strong>无法支付</strong></td><td>想做一个“付费会员”功能？不可能。因为支付需要后端来调用微信/支付宝接口，纯前端直接调支付接口会把密钥暴露给所有人。</td></tr>
+<tr><td><strong>无法发邮件/短信</strong></td><td>用户注册后发一封验证邮件？任务到期前发短信提醒？这些都需要后端来调用邮件/短信服务。</td></tr>
+<tr><td><strong>无法调用第三方服务</strong></td><td>想接入地图、天气、AI 对话等服务？很多第三方 API 不允许纯前端直接调用（跨域限制 + 密钥安全），需要后端做中转。</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">弊端5：安全性几乎为零</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>问题</th><th>具体表现</th></tr></thead>
+<tbody>
+<tr><td><strong>代码完全公开</strong></td><td>任何人按 F12 就能看到你所有的代码，包括你的逻辑、配置、甚至写死的密钥。没有任何秘密可言。</td></tr>
+<tr><td><strong>数据可以被随意篡改</strong></td><td>用户可以在浏览器控制台里随便改数据，比如把“余额 0”改成“余额 10000”。因为没有后端来校验数据的合法性。</td></tr>
+<tr><td><strong>无法保护敏感信息</strong></td><td>用户的密码、手机号、身份证号这些敏感信息，纯前端根本存不了——存了就是公开的。</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">弊端6：无法真正“上线”给大量用户用</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>问题</th><th>具体表现</th></tr></thead>
+<tbody>
+<tr><td><strong>只能静态托管</strong></td><td>纯前端项目可以放在 GitHub Pages、Vercel、Netlify 这些静态托管平台上，但这些平台只能“给用户发文件”，不能处理动态请求。</td></tr>
+<tr><td><strong>用户量一大就扛不住</strong></td><td>如果有 1000 个人同时用你的待办清单，纯前端是扛不住的——因为每个人的数据都在各自浏览器里，互不相通，而且静态托管平台有流量限制。</td></tr>
+<tr><td><strong>无法做服务端渲染</strong></td><td>搜索引擎优化（SEO）差，因为内容都是浏览器里用 JS 生成的，搜索引擎抓不到。</td></tr>
+</tbody>
+</table>
+</div><h4 class="lec-h4">弊端7：迭代和维护困难</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>问题</th><th>具体表现</th></tr></thead>
+<tbody>
+<tr><td><strong>更新要重新发文件</strong></td><td>你改了一版，要把新的 HTML 文件发给每个用户，用户要手动替换旧文件。没有“自动更新”这个概念。</td></tr>
+<tr><td><strong>无法收集用户反馈</strong></td><td>不知道用户用了哪些功能、在哪里卡住了、有什么 bug。因为没有后端来收集使用数据和错误日志。</td></tr>
+<tr><td><strong>无法做 A/B 测试</strong></td><td>想测试“红色按钮和蓝色按钮哪个点击率高”？纯前端做不了，因为需要后端来分流和统计。</td></tr>
+</tbody>
+</table>
+</div><p><strong>一句话总结纯前端项目的天花板：</strong>它能做“展示”和“交互”，但做不了“存储”“用户”“安全”“规模”。它是一个“玩具”或“演示”，不是一个“产品”。</p><p>如果你看到有人用 AI 做了一个“看起来很完整的网站”，先问一句：<strong>数据存在哪？用户怎么登录？</strong>90% 的情况下答案是“存在浏览器里”“不需要登录”——那它就是一个纯前端演示，不是真正的产品。</p><h4 class="lec-h4">5.0.2 但是！为什么零基础新人恰恰适合从这类项目开始？</h4><p>讲了这么多弊端，你可能会问：那我们为什么还要学做纯前端项目？直接学全栈不行吗？</p><p><strong>答案是：对于零基础新人来说，纯前端项目是最好的起点，没有之一。</strong>原因如下：</p><h4 class="lec-h4">原因1：学习曲线最平缓——不需要配环境</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>对比项</th><th>纯前端项目</th><th>全栈项目</th></tr></thead>
+<tbody>
+<tr><td><strong>需要装的软件</strong></td><td>一个浏览器 + 一个文本编辑器（或 Trae）</td><td>Node.js/Python + 数据库（MySQL/PostgreSQL）+ 各种依赖包 + 环境变量配置</td></tr>
+<tr><td><strong>环境配置时间</strong></td><td>0 分钟，打开就能写</td><td>几小时到几天，新人最容易在这一步放弃</td></tr>
+<tr><td><strong>常见环境问题</strong></td><td>几乎没有</td><td>版本不兼容、端口被占用、依赖冲突、权限问题、数据库连不上……</td></tr>
+</tbody>
+</table>
+</div><p><strong>新人最大的敌人不是“学不会”，而是“环境配不好导致还没开始就放弃了”。</strong>纯前端项目完全规避了这个问题——你写一个 HTML 文件，双击用浏览器打开，就能看到效果。不需要装任何服务器、数据库、运行时。</p><h4 class="lec-h4">原因2：AI 辅助效果最好——HTML/CSS/JS 是 AI 最擅长的领域</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>对比项</th><th>纯前端项目</th><th>全栈项目</th></tr></thead>
+<tbody>
+<tr><td><strong>AI 训练数据量</strong></td><td>极大（网上有海量 HTML/CSS/JS 教程和示例）</td><td>相对少（后端代码涉及业务逻辑，公开的少）</td></tr>
+<tr><td><strong>代码量</strong></td><td>小（一个项目通常几百到几千行）</td><td>大（前后端加起来几千到几万行）</td></tr>
+<tr><td><strong>上下文窗口</strong></td><td>装得下（AI 能看到整个项目）</td><td>装不下（AI 只能看到一部分，容易前后矛盾）</td></tr>
+<tr><td><strong>出错定位</strong></td><td>容易（浏览器控制台直接报错）</td><td>困难（可能是前端错、可能是后端错、可能是数据库错、可能是网络错）</td></tr>
+</tbody>
+</table>
+</div><p><strong>Vibe Coding 的核心是“用自然语言描述需求，AI 帮你写代码”。</strong>这个模式在纯前端领域效果最好，因为：</p><ul class="lec-list">
+<li>HTML/CSS/JS 的语法简单、规范统一，AI 不容易写错</li>
+<li>视觉效果可以即时验证，不对了立刻让 AI 改</li>
+<li>代码量小，AI 的上下文窗口能装下整个项目，不会“顾头不顾尾”</li>
+</ul><h4 class="lec-h4">原因3：专注于核心能力——不被环境问题分散精力</h4><p>本课程的核心目标不是“教你写代码”，而是<strong>“教你用 Vibe Coding 的方式做东西”</strong>。Vibe Coding 的核心能力是：</p><ol class="lec-steps">
+<li><strong>需求分析能力</strong>：把“我想做个网站”拆解成具体的功能和页面</li>
+<li><strong>提示词能力</strong>：用清晰的语言告诉 AI 你想要什么</li>
+<li><strong>审查和迭代能力</strong>：看懂 AI 写的东西，发现问题，让它改</li>
+<li><strong>UI/UX 审美</strong>：知道什么是好看的、好用的</li>
+<li><strong>调试能力</strong>：出了问题能定位和修复</li>
+</ol><p>这些能力<strong>和前端/后端无关</strong>，是做任何项目都需要的。纯前端项目让你可以专注于练习这些核心能力，而不是被“数据库连不上”“端口被占用”“依赖版本冲突”这些环境问题搞得焦头烂额。</p><p><strong>等你把这些核心能力练熟了，再学后端就只是“多学一种工具”，而不是“从零开始学做东西”。</strong></p><h4 class="lec-h4">原因4：成就感来得快——正反馈强，不容易放弃</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>对比项</th><th>纯前端项目</th><th>全栈项目</th></tr></thead>
+<tbody>
+<tr><td><strong>第一个能看的成果</strong></td><td>30 分钟 - 1 小时</td><td>几天到一周（先配环境、再学框架、再写接口）</td></tr>
+<tr><td><strong>完整项目时间</strong></td><td>2-4 小时</td><td>几周到几个月</td></tr>
+<tr><td><strong>分享给朋友</strong></td><td>发个 HTML 文件或链接，朋友立刻能看</td><td>要部署服务器、配域名、朋友要注册才能用</td></tr>
+</tbody>
+</table>
+</div><p><strong>学习新东西，最重要的是正反馈。</strong>纯前端项目让你在 1-2 小时内就能做出一个“能看、能用、能分享”的东西，这种成就感会驱动你继续学下去。</p><p>而全栈项目的反馈周期太长了——你可能花了三天配环境，还没看到任何效果，这时候大部分人就放弃了。<strong>先做纯前端项目建立信心和兴趣，再逐步挑战更复杂的全栈项目，这是最科学的学习路径。</strong></p><h4 class="lec-h4">原因5：为后续全栈开发打基础——前端是全栈的一半</h4><p>全栈开发 = 前端 + 后端。<strong>前端是全栈的一半，而且是用户直接接触的那一半。</strong></p><p>你在纯前端项目中学到的这些东西，在全栈开发中 100% 用得上：</p><ul class="lec-list">
+<li><strong>HTML/CSS/JS</strong>：全栈项目的前端部分还是用这些</li>
+<li><strong>页面布局和 UI 设计</strong>：不管有没有后端，页面都要好看</li>
+<li><strong>交互逻辑</strong>：按钮点击、表单验证、页面跳转，这些前端逻辑在全栈项目中一样要写</li>
+<li><strong>数据思维</strong>：纯前端项目里你会思考“数据存在哪、怎么展示、怎么修改”，这正是理解后端数据库的基础</li>
+<li><strong>调试能力</strong>：浏览器开发者工具、console.log、断点调试，这些在全栈开发中依然是基本功</li>
+</ul><p><strong>更重要的是，做过纯前端项目后，你会自然地产生疑问：</strong>“数据怎么才能不丢？”“怎么让不同用户看到不同内容？”这些疑问就是你学习后端的最好动力。这时候再学后端，你就不是在学“抽象的概念”，而是在解决“你实际遇到的问题”。</p><h4 class="lec-h4">原因6：很多真实场景确实只需要纯前端</h4><p>不要觉得纯前端项目“没用”。实际上，很多真实的需求，纯前端完全能搞定：</p><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>场景</th><th>为什么纯前端够用</th></tr></thead>
+<tbody>
+<tr><td><strong>个人主页/简历/作品集</strong></td><td>就是展示信息，不需要用户登录，不需要数据保存（内容是你自己写死的）</td></tr>
+<tr><td><strong>小工具类</strong></td><td>计算器、单位换算、颜色选择器、Markdown 编辑器、JSON 格式化……这些工具的数据都是用户当场输入当场输出，不需要保存</td></tr>
+<tr><td><strong>演示页面/活动页面/落地页</strong></td><td>营销活动页、产品介绍页、报名表单页（表单可以提交到第三方服务），这些都是展示为主</td></tr>
+<tr><td><strong>个人待办/笔记</strong></td><td>用 localStorage 存数据，自己一个人用完全够用。换设备的需求不强</td></tr>
+<tr><td><strong>教学演示/原型验证</strong></td><td>想验证一个想法行不行？先用纯前端做个原型给人看，比写完整全栈快 10 倍</td></tr>
+</tbody>
+</table>
+</div><p><strong>很多成功的产品，最早就是一个纯前端原型。</strong>先做出来给人用，验证了需求，再慢慢加后端。这就是“精益创业”的思路——先用最小成本验证想法，再投入资源做完整版。</p><p><strong>一句话总结为什么新人从纯前端开始：</strong>它<strong>门槛最低、反馈最快、AI 辅助效果最好、能专注核心能力、为全栈打基础、而且很多场景确实够用</strong>。它不是“最终形态”，但它是“最好的起点”。</p><p><strong>不要因为它有弊端就看不起它，也不要因为它简单就觉得它“不够高级”。</strong>把简单的东西做好，比做一个半吊子的复杂东西有价值得多。</p><h4 class="lec-h4">5.0.3 什么时候你需要升级到全栈？——明确的信号清单</h4><p>纯前端项目有它的天花板。当你遇到以下任何一个信号时，就说明你需要考虑升级到全栈了：</p><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>信号</th><th>说明</th><th>需要加什么</th></tr></thead>
+<tbody>
+<tr><td>🔴 <strong>需要用户注册登录</strong></td><td>不同用户要看到不同内容，需要身份验证</td><td>后端 + 用户系统 + 数据库</td></tr>
+<tr><td>🔴 <strong>需要多设备/多用户数据同步</strong></td><td>电脑上加的待办，手机上也要看到；多人协作编辑</td><td>后端 + 数据库 + API</td></tr>
+<tr><td>🔴 <strong>需要支付功能</strong></td><td>付费会员、商品购买、打赏</td><td>后端 + 支付接口 + 订单系统</td></tr>
+<tr><td>🔴 <strong>需要发邮件/短信/通知</strong></td><td>注册验证、密码找回、到期提醒</td><td>后端 + 邮件/短信服务</td></tr>
+<tr><td>🟡 <strong>数据量超过 localStorage 能力</strong></td><td>数据超过几千条，或需要复杂查询和统计</td><td>后端 + 数据库</td></tr>
+<tr><td>🟡 <strong>需要后台管理界面</strong></td><td>要管理用户、审核内容、查看数据统计</td><td>后端 + 管理后台 + 数据库</td></tr>
+<tr><td>🟡 <strong>要做真正的产品给很多人用</strong></td><td>预期用户量超过几十人，需要稳定运行</td><td>后端 + 服务器 + 数据库 + 运维</td></tr>
+<tr><td>🟢 <strong>需要保护敏感数据</strong></td><td>用户密码、身份证号、银行卡号等</td><td>后端 + 加密 + 安全措施</td></tr>
+</tbody>
+</table>
+</div></section></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-appc.html">← 上一页</a>
+    <span class="pager-info">第 1 页，共 5 页</span>
+    <a class="pager-btn" href="lec-ch5-2.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>
