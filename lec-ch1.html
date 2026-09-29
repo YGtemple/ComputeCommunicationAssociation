@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第1章 认识 Vibe Coding —— 什么是氛围编程 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">第1章 · 认识 Vibe Coding —— 什么是氛围编程 </span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter" id="lec-ch1"><header class="lec-ch-head">
+<span class="lec-ch-badge">第1章</span>
+<h2 class="lec-ch-title">认识 Vibe Coding —— 什么是氛围编程</h2>
+<p class="lec-ch-sub">第二篇 · 认知篇</p>
+</header><div class="lec-body"><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch1-1"><span class="lec-sec-no">1.1</span> 从一个故事开始</h3>
+<p>想象一下：你有一个很棒的想法——做一个专门帮同学组队参加比赛的小网站。你去找会编程的朋友帮忙，他说："可以啊，不过我最近很忙，可能要等一个月。而且你这个需求还挺复杂的，前端后端数据库，少说也要做两三周。"</p>
+<p>你叹了口气，想法就这样搁置了。</p>
+<p>但现在，有了 <strong>Vibe Coding</strong>，情况完全不同了。你打开电脑，打开 Trae，用中文输入："帮我做一个大学生比赛组队网站，需要有发布组队信息、浏览队伍、申请加入、消息通知功能，界面要简洁好看。"</p>
+<p>几分钟后，一个可以运行的网站出现在你面前。你点了点，发现某个地方不太对，又输入："把申请按钮改成蓝色，加一个队伍人数显示，再优化一下手机端的显示。"</p>
+<p>又过了几分钟，网站改好了。你不需要写一行代码，不需要懂什么是前端后端，只需要<strong>用中文描述你想要什么</strong>。</p>
+<p>这，就是 Vibe Coding。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch1-2"><span class="lec-sec-no">1.2</span> 什么是 Vibe Coding</h3>
+<h4 class="lec-h4">官方定义</h4>
+<p><strong>Vibe Coding（氛围编程 / 感觉编程）</strong>是由 OpenAI 联合创始人<strong>Andrej Karpathy</strong> 在 2025 年 2 月提出的一种全新 AI 编程范式。</p>
+<p>Karpathy 的原话是：</p>
+<p>"fully give in to the vibes, embrace exponentials, and forget that the code even exists."</p>
+<p>（完全沉浸在感觉里，拥抱 AI 带来的指数级效率，忘掉代码本身的存在。）</p>
+<h4 class="lec-h4">通俗解释</h4>
+<p><strong>一句话：你用自然语言说出想法，AI 帮你写代码，你负责验收和提修改意见。</strong></p>
+<p>更具体地说：</p>
+<ul class="lec-list">
+<li><strong>传统编程</strong>：人 = 代码编写者，AI = 补全助手（帮你补一行代码）</li>
+<li><strong>Vibe Coding</strong>：人 = 指挥官 + 审核员，AI = 写代码的打工人</li>
+</ul>
+<p>你不再需要逐行敲代码，不再需要记忆语法，不再需要查文档查半天。你只需要：</p>
+<ol class="lec-steps">
+<li>想清楚你要什么</li>
+<li>用中文/英文描述给 AI 听</li>
+<li>AI 生成代码，你运行看看效果</li>
+<li>不满意的地方，再描述给 AI，让它改</li>
+<li>重复直到满意</li>
+</ol>
+<h4 class="lec-h4">一个类比</h4>
+<p>如果把做软件比作盖房子：</p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>角色</th><th>传统编程</th><th>Vibe Coding</th></tr></thead>
+<tbody>
+<tr><td>你</td><td>建筑师 + 泥瓦匠 + 装修工（自己搬砖砌墙）</td><td>业主 + 设计师（你说要什么，施工队来干）</td></tr>
+<tr><td>AI</td><td>递砖的小工（帮你递一下砖）</td><td>整个施工队（设计、砌墙、装修全包）</td></tr>
+<tr><td>你的工作</td><td>学习怎么砌墙、怎么布线、怎么装修</td><td>想清楚要几室几厅、什么风格、预算多少</td></tr>
+<tr><td>效率</td><td>几个月到几年</td><td>几小时到几天</td></tr>
+</tbody>
+</table>
+</div>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch1-3"><span class="lec-sec-no">1.3</span> 传统编程 VS Vibe Coding</h3>
+<p>用一张表看清楚两者的区别：</p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>对比维度</th><th>传统手写代码</th><th>Vibe Coding</th></tr></thead>
+<tbody>
+<tr><td><strong>工作重心</strong></td><td>学习语法、框架、逐行敲代码</td><td>描述需求、指挥 AI、审查结果</td></tr>
+<tr><td><strong>入门门槛</strong></td><td>高，需要学数月甚至数年</td><td>低，会打字描述需求就能开始</td></tr>
+<tr><td><strong>开发速度</strong></td><td>慢，搭建环境就很久</td><td>快，几十分钟做出 Demo</td></tr>
+<tr><td><strong>代码质量</strong></td><td>取决于个人水平，自己完全掌握</td><td>AI 生成，需要人审查把关</td></tr>
+<tr><td><strong>适合场景</strong></td><td>生产环境正式项目、核心业务、高安全要求</td><td>快速原型、小工具、Demo、学习验证想法、个人项目</td></tr>
+<tr><td><strong>核心能力</strong></td><td>算法、数据结构、架构设计、调试能力</td><td>需求描述、提示词工程、结果判断、迭代优化</td></tr>
+<tr><td><strong>出错时</strong></td><td>自己查文档、调试、Stack Overflow</td><td>把报错贴给 AI，让它分析修复</td></tr>
+<tr><td><strong>风险</strong></td><td>开发慢、人手不足</td><td>代码黑盒、隐藏 Bug、技术债</td></tr>
+</tbody>
+</table>
+</div>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch1-4"><span class="lec-sec-no">1.4</span> Vibe Coding 的核心工作流程</h3>
+<p>Vibe Coding 不是一次性的"说一句话就完事"，而是一个<strong>迭代循环</strong>。掌握这个循环，你就掌握了 Vibe Coding 的精髓。</p>
+<h4 class="lec-h4">五步循环法</h4>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>步骤</th><th>你做什么</th><th>AI 做什么</th><th>关键要点</th></tr></thead>
+<tbody>
+<tr><td><strong>1. 描述需求</strong></td><td>用自然语言说清楚你要什么</td><td>理解需求，规划实现方案</td><td>越具体越好，功能、样式、技术栈都要说</td></tr>
+<tr><td><strong>2. 生成代码</strong></td><td>等待 AI 生成</td><td>生成完整代码，创建文件</td><td>第一次不要追求完美，能跑就行</td></tr>
+<tr><td><strong>3. 运行测试</strong></td><td>运行代码，试用功能，看效果</td><td>—</td><td>仔细看，记下哪里不对、哪里想改</td></tr>
+<tr><td><strong>4. 反馈修改</strong></td><td>把问题和修改需求告诉 AI</td><td>分析问题，修改代码</td><td>一次改一个点，不要一次性提太多</td></tr>
+<tr><td><strong>5. 重复循环</strong></td><td>回到步骤3，直到满意</td><td>持续优化</td><td>迭代是 Vibe Coding 的灵魂</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>核心心法：</strong>Vibe Coding 不是"一次生成完美作品"，而是"快速生成初版 → 持续迭代优化"。第一版丑、有 bug 都没关系，能运行就是胜利。后续通过一轮轮对话，把它打磨成你想要的样子。</p>
+<h4 class="lec-h4">实际例子：做一个待办清单</h4>
+<p>让我们用一个真实的例子走一遍这个流程：</p>
+<h4 class="lec-h4">第1轮：生成初版</h4>
+<p><strong>你说：</strong>"帮我创建一个待办清单网页，包含输入框、添加按钮、任务列表，用 HTML+CSS+JS，页面简洁美观。"</p>
+<p><strong>AI 做：</strong>生成 index.html，包含基本的输入框、按钮和列表。</p>
+<p><strong>你看：</strong>能运行，可以添加任务，但样式很朴素，没有删除功能，没有标记完成功能。</p>
+<h4 class="lec-h4">第2轮：加功能</h4>
+<p><strong>你说：</strong>"给每个任务加一个删除按钮，再加点复选框可以标记完成，完成的任务文字加删除线。"</p>
+<p><strong>AI 做：</strong>修改代码，添加删除按钮和复选框。</p>
+<p><strong>你看：</strong>功能有了，但颜色不好看，手机上显示有点挤。</p>
+<h4 class="lec-h4">第3轮：优化样式</h4>
+<p><strong>你说：</strong>"把主色调改成清新的蓝色，按钮加圆角，优化手机端的响应式布局。"</p>
+<p><strong>AI 做：</strong>调整 CSS，添加响应式媒体查询。</p>
+<p><strong>你看：</strong>好看多了！但刷新页面任务就没了。</p>
+<h4 class="lec-h4">第4轮：加存储</h4>
+<p><strong>你说：</strong>"把任务数据保存到浏览器本地存储，刷新页面不会丢失。"</p>
+<p><strong>AI 做：</strong>添加 localStorage 逻辑。</p>
+<p><strong>你看：</strong>完美！一个功能完整的待办清单做好了。</p>
+<p>看到了吗？<strong>4 轮对话，从无到有，做出了一个完整的应用</strong>。这就是 Vibe Coding 的威力。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch1-5"><span class="lec-sec-no">1.5</span> 谁适合学 Vibe Coding</h3>
+<h4 class="lec-h4">✅ 非常适合</h4>
+<ul class="lec-list">
+<li><strong>在校学生</strong>：快速做毕设 Demo、课程作业、竞赛原型、社团小工具</li>
+<li><strong>非技术专业同学</strong>：文、经、管、艺等专业，想做工具但不会编程</li>
+<li><strong>创业者 / 产品经理</strong>：快速验证产品想法，做 MVP（最小可行产品）</li>
+<li><strong>内容创作者</strong>：做个人主页、作品集网站、互动小工具</li>
+<li><strong>办公族</strong>：做数据处理小工具、自动化脚本、内部工具</li>
+<li><strong>编程初学者</strong>：先用 AI 做出东西建立信心，再回头学原理</li>
+</ul>
+<aside class="lec-callout lec-warn">
+<div class="lec-co-title">⚠️ 需要谨慎</div>
+<div class="lec-co-body">
+<ul class="lec-list">
+<li><strong>大型生产项目</strong>：涉及大量用户、核心业务、高安全要求的项目，不建议纯 Vibe Coding</li>
+<li><strong>对代码质量要求极高的场景</strong>：如操作系统、编译器、金融核心系统</li>
+<li><strong>需要深度性能优化的场景</strong>：AI 生成的代码可能不是最优的</li>
+</ul>
+</div>
+</aside>
+<p><strong>最佳定位：</strong>Vibe Coding 最适合做<strong>个人项目、原型验证、小工具、学习练习</strong>。对于正式项目，可以用 Vibe Coding 快速生成初稿，然后人工审查、重构、优化。两者结合，效率最高。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch1-6"><span class="lec-sec-no">1.6</span> 常见误区澄清</h3>
+<h4 class="lec-h4">误区1：Vibe Coding = 完全不用懂代码</h4>
+<p><strong>事实：</strong>你可以不会<strong>手写</strong>代码，但至少要能<strong>看懂</strong> AI 在干什么、判断结果对不对、看得懂报错信息。完全不懂的话，项目很容易失控。</p>
+<p>这就是为什么课程第4章会教你"前端三剑客极简入门"——不求会写，求能看懂。</p>
+<h4 class="lec-h4">误区2：Vibe Coding 会让程序员失业</h4>
+<p><strong>事实：</strong>Vibe Coding 不是替代程序员，而是<strong>改变程序员的工作方式</strong>。就像计算器没有让数学家失业，Photoshop 没有让设计师失业一样。AI 帮你写重复的样板代码，你可以把精力放在架构设计、业务逻辑、用户体验上。</p>
+<p>而且，<strong>会 Vibe Coding 的程序员，效率是不会的人的 5-10 倍</strong>。未来不是 AI 替代人，而是会用 AI 的人替代不会用 AI 的人。</p>
+<h4 class="lec-h4">误区3：AI 生成的代码一定是对的</h4>
+<p><strong>事实：</strong>AI 会"幻觉"，会生成看起来合理但实际有 bug 的代码，会引入安全漏洞，会用过时的 API。<strong>你必须审查和测试</strong>。这也是为什么"运行测试"是五步循环中不可或缺的一步。</p>
+<h4 class="lec-h4">误区4：提示词越长越好</h4>
+<p><strong>事实：</strong>提示词的关键是<strong>清晰、具体、有结构</strong>，不是越长越好。一段啰嗦但模糊的长提示词，效果远不如一段简洁但精准的提示词。第3章会详细教你提示词工程。</p>
+<h4 class="lec-h4">误区5：一次就要生成完美的作品</h4>
+<p><strong>事实：</strong>Vibe Coding 的灵魂是<strong>迭代</strong>。追求一次完美只会让你反复修改提示词、浪费时间。正确的做法是：先让它能跑起来，再一轮轮优化。"完成比完美更重要"。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch1-7"><span class="lec-sec-no">1.7</span> Vibe Coding 的三种进化模式</h3>
+<p>随着你越来越熟练，Vibe Coding 也在进化。业内通常把它分为三个层次：</p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>层次</th><th>名称</th><th>特点</th><th>适合阶段</th></tr></thead>
+<tbody>
+<tr><td><strong>第一层</strong></td><td>Vibe Coding（氛围编程）</td><td>凭感觉描述需求，AI 自由发挥，快速出原型</td><td>初学者、快速验证想法</td></tr>
+<tr><td><strong>第二层</strong></td><td>Spec Coding（规范编程）</td><td>先写详细的需求规格说明书，AI 按规范精确实现</td><td>进阶用户、中等复杂度项目</td></tr>
+<tr><td><strong>第三层</strong></td><td>Harness Engineering（脚手架工程）</td><td>搭建完整的开发环境、测试框架、CI/CD，让 AI 在受控环境中自主开发</td><td>高级用户、团队协作、正式项目</td></tr>
+</tbody>
+</table>
+</div>
+<p>本课程主要教第一层 <strong>Vibe Coding</strong>，并在第9章进阶技巧中简要介绍第二层 Spec Coding 的思路。第三层 Harness Engineering 涉及较深的工程知识，不在本课程范围内。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch1-8"><span class="lec-sec-no">1.8</span> 来自实战的 5 条方法论</h3>
+<p>根据大量实战经验总结，以下 5 条方法论是 Vibe Coding 成功的关键：</p>
+<h4 class="lec-h4">方法论1：痛点必须来自你自己</h4>
+<p>做项目前问自己："如果做不出来，明天还会被这问题折磨吗？"不会就别开始。解决自己真实痛点的项目，才有动力做完。</p>
+<h4 class="lec-h4">方法论2：PRD 写场景，不写功能</h4>
+<p>不要上来就列"功能1、功能2"，先写"用户在什么场景下遇到什么问题"。场景是给自己看的，功能是给程序员看的。想清楚场景，功能自然就清晰了。</p>
+<h4 class="lec-h4">方法论3：UI 阶段花的时间 &gt; 编码阶段</h4>
+<p>AI 时代最反直觉的事：写代码变便宜了，做审美变贵了。你花在"找参考 → 调风格 → 改细节"的时间必须超过写代码。AI 不知道什么叫"好看"，这是人的核心价值。</p>
+<h4 class="lec-h4">方法论4：AI 提示词必须有验收标准</h4>
+<p>没有验收标准的提示词，必然翻车。"做完了"不等于"能用了"。每个需求都要写清楚"怎么算做完了"，比如"点击第3句，朗读第3句，不是第1句"。</p>
+<h4 class="lec-h4">方法论5：上线不是终点，反馈才是起点</h4>
+<p>产品上线后，用户反馈会驱动你快速迭代。很多最有价值的功能，都是上线后根据用户反馈加的。不要追求"完美了再上线"，先上线，再迭代。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch1-9"><span class="lec-sec-no">1.9</span> 本章小结</h3>
+<aside class="lec-callout lec-summary">
+<div class="lec-co-title">✅ 本章小结</div>
+<div class="lec-co-body">
+<p><strong>本章你需要记住的关键点：</strong></p>
+<ol class="lec-steps">
+<li><strong>Vibe Coding 是什么：</strong>用自然语言描述需求，AI 写代码，你验收和迭代。</li>
+<li><strong>核心流程：</strong>描述需求 → 生成代码 → 运行测试 → 反馈修改 → 重复循环。</li>
+<li><strong>关键心法：</strong>先跑起来，再慢慢优化，迭代是灵魂。</li>
+<li><strong>适合场景：</strong>个人项目、原型验证、小工具、学习练习。正式项目需人工审查。</li>
+<li><strong>你的角色：</strong>你是机长，AI 是副驾驶。你把控方向和质量，AI 帮你干体力活。</li>
+<li><strong>5条方法论：</strong>痛点来自自己、PRD写场景、UI时间&gt;编码时间、提示词有验收标准、上线是起点不是终点。</li>
+</ol>
+</div>
+</aside>
+<p>下一章，我们将进入<strong>第三篇 工具篇</strong>，详细介绍 Trae、豆包、WorkBuddy、GPT、DeepSeek、Grok 六大 AI 编程工具的下载安装、界面介绍和核心功能演示。工具是 Vibe Coding 的武器，选对顺手的工具，事半功倍。</p>
+</section></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-ch0-2.html">← 上一页</a>
+    <span class="pager-info">讲义正文</span>
+    <a class="pager-btn" href="lec-ch2.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>
