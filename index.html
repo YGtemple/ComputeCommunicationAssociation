@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-page-node-id="0EFNIGNAGjlH7uJnoJBiuB">
-<head data-page-node-id="RCFIHZjFDnt47k3JNH5QTH">
-    <meta charset="UTF-8" data-page-node-id="ShrQ4Bry218dTsbmSpTLw3">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="uINBEJQLwfjRrr6ExMI6Ta">
-    <title>校园AI&计算机交流社群 - 新手指南</title>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI小组 · AIGC × Vibe Coding - 新手指南</title>
     <style>
         :root {
             --primary: #4a6cf7;
@@ -14,6 +14,8 @@
             --text-light: #666666;
             --border: #e2e8f0;
             --accent: #7c3aed;
+            --pink: #ec4899;
+            --cyan: #06b6d4;
             --success: #10b981;
         }
 
@@ -22,6 +24,8 @@
             padding: 0;
             box-sizing: border-box;
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -32,16 +36,16 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 920px;
             margin: 0 auto;
             padding: 20px;
         }
 
         /* ===== 封面区域 ===== */
         .header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: linear-gradient(135deg, #151029 0%, #1a1a3e 45%, #10244d 100%);
             color: white;
-            padding: 60px 40px;
+            padding: 64px 40px 56px;
             text-align: center;
             border-radius: 16px;
             margin-bottom: 30px;
@@ -52,23 +56,46 @@
         .header::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(74,108,247,0.3) 0%, transparent 70%);
+            top: -40%;
+            right: -15%;
+            width: 420px;
+            height: 420px;
+            background: radial-gradient(circle, rgba(236,72,153,0.28) 0%, transparent 70%);
             border-radius: 50%;
         }
 
         .header::after {
             content: '';
             position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(124,58,237,0.2) 0%, transparent 70%);
+            bottom: -35%;
+            left: -12%;
+            width: 340px;
+            height: 340px;
+            background: radial-gradient(circle, rgba(74,108,247,0.32) 0%, transparent 70%);
             border-radius: 50%;
+        }
+
+        /* 胶片装饰条 */
+        .film-strip {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 0 14px;
+            z-index: 2;
+        }
+        .film-strip.top { top: 0; }
+        .film-strip.bottom { bottom: 0; }
+        .film-strip i {
+            width: 11px;
+            height: 8px;
+            background: rgba(15,16,41,0.85);
+            border-radius: 2px;
+            display: block;
         }
 
         .header-content {
@@ -78,41 +105,47 @@
 
         .header .badge {
             display: inline-block;
-            background: rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.12);
             border: 1px solid rgba(255,255,255,0.25);
             padding: 6px 18px;
             border-radius: 20px;
             font-size: 13px;
             letter-spacing: 2px;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             backdrop-filter: blur(10px);
         }
 
         .header h1 {
-            font-size: 32px;
+            font-size: 34px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             letter-spacing: 2px;
         }
 
-        .header h1 span {
-            background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
+        .header h1 .grad-a {
+            background: linear-gradient(90deg, #f472b6, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header h1 .grad-b {
+            background: linear-gradient(90deg, #60a5fa, #22d3ee);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .header .subtitle {
-            font-size: 18px;
-            opacity: 0.9;
+            font-size: 17px;
+            opacity: 0.92;
             font-weight: 300;
         }
 
         .header .slogan {
-            margin-top: 24px;
-            font-size: 14px;
-            opacity: 0.7;
-            letter-spacing: 4px;
+            margin-top: 26px;
+            font-size: 13px;
+            opacity: 0.72;
+            letter-spacing: 3px;
         }
 
         /* ===== 信息卡片 ===== */
@@ -131,12 +164,24 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
-        /* ===== QQ 群号横幅（纯文字版） ===== */
+        .info-item .label {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .info-item .value {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* ===== QQ 群号横幅 ===== */
         .qq-banner {
             display: flex;
             align-items: center;
             gap: 12px;
-            background: linear-gradient(135deg, #f0f9ff, #ede9fe);
+            background: linear-gradient(135deg, #f0f9ff, #fdf2f8);
             border: 1px solid #c7d2fe;
             border-radius: 16px;
             padding: 18px 22px;
@@ -158,18 +203,6 @@
         .qq-text strong {
             color: var(--primary);
             font-size: 16px;
-        }
-
-        .info-item .label {
-            font-size: 12px;
-            color: var(--text-light);
-            margin-bottom: 4px;
-        }
-
-        .info-item .value {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text);
         }
 
         /* ===== 章节卡片 ===== */
@@ -241,17 +274,293 @@
             border-radius: 50%;
         }
 
+        /* ===== 四大方向卡片 ===== */
+        .focus-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 8px;
+        }
+
+        .focus-card {
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+        }
+
+        .focus-card.featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 55%, #4a1d63 100%);
+            border: none;
+            color: #fff;
+        }
+
+        .focus-card.featured::after {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -8%;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(236,72,153,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .focus-card .fc-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .focus-card .fc-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+            flex-shrink: 0;
+        }
+
+        .fc-icon-video { background: linear-gradient(135deg, #f472b6, #a78bfa); }
+        .fc-icon-code  { background: linear-gradient(135deg, #60a5fa, #22d3ee); }
+        .fc-icon-flow  { background: linear-gradient(135deg, #a78bfa, #818cf8); }
+        .fc-icon-algo  { background: linear-gradient(135deg, #34d399, #22d3ee); }
+
+        .focus-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .focus-card .fc-core {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 10px;
+            background: rgba(244,114,182,0.22);
+            color: #fbcfe8;
+            margin-left: 8px;
+            vertical-align: middle;
+            letter-spacing: 1px;
+        }
+
+        .focus-card p {
+            font-size: 13.5px;
+            color: var(--text-light);
+            line-height: 1.75;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .focus-card.featured p { color: rgba(255,255,255,0.85); }
+
+        .focus-card ul {
+            list-style: none;
+            padding: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .focus-card ul li {
+            font-size: 13px;
+            padding: 5px 0 5px 20px;
+            position: relative;
+            border-bottom: none;
+            color: var(--text-light);
+        }
+        .focus-card.featured ul li { color: rgba(255,255,255,0.88); }
+
+        .focus-card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 2px;
+            top: 5px;
+            width: auto;
+            height: auto;
+            background: none;
+            border-radius: 0;
+            color: var(--primary);
+            font-size: 12px;
+        }
+        .focus-card.featured ul li::before { color: #f472b6; }
+
+        /* ===== 工具标签 ===== */
+        .tool-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 18px;
+        }
+
+        .tool-tags .tt {
+            font-size: 12.5px;
+            padding: 5px 13px;
+            border-radius: 8px;
+            background: #f1f5f9;
+            border: 1px solid var(--border);
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .tool-tags .tt.group-video { background: #fdf2f8; border-color: #fbcfe8; color: #be185d; }
+        .tool-tags .tt.group-code  { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+        .tool-tags .tt.group-flow  { background: #f5f3ff; border-color: #ddd6fe; color: #6d28d9; }
+
+        .tool-caption {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 16px;
+        }
+
         /* ===== 新手指南小标题 ===== */
         .guide-subtitle {
             font-size: 16px;
             font-weight: 700;
             color: var(--text);
-            margin: 26px 0 12px;
+            margin: 28px 0 12px;
             padding-left: 12px;
             border-left: 4px solid var(--primary);
         }
 
-        /* ===== 联合发起人双栏卡片 ===== */
+        /* ===== 方案步骤 ===== */
+        .plan-steps {
+            display: grid;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .plan-step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 20px;
+            background: var(--bg);
+            border-radius: 12px;
+        }
+
+        .plan-step .step-num {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .plan-step .step-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .plan-step .step-content p {
+            font-size: 13px;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* ===== 资源卡片网格 ===== */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+            margin-top: 16px;
+        }
+
+        .resource-card {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 14px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .resource-card .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 14px;
+        }
+
+        .icon-compute { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+        .icon-tech { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+        .icon-job { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+        .icon-video { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+
+        .resource-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .resource-card p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ===== 常见问题 ===== */
+        .rule-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .rule-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 14px 16px;
+            background: #fefce8;
+            border-radius: 10px;
+            border: 1px solid #fef08a;
+        }
+
+        .rule-item .check {
+            color: #ca8a04;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .rule-item span {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* ===== 联合发起人卡片 ===== */
         .founders-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -297,9 +606,9 @@
         }
 
         .founder-avatar-1 { background: linear-gradient(135deg, #4a6cf7, #7c3aed); }
-        .founder-avatar-2 { background: linear-gradient(135deg, #06b6d4, #3b82f6); }
-        .founder-avatar-3 { background: linear-gradient(135deg, #f59e0b, #ef4444); }
-        .founder-avatar-4 { background: linear-gradient(135deg, #10b981, #0ea5e9); }
+        .founder-avatar-2 { background: linear-gradient(135deg, #7c3aed, #ec4899); }
+        .founder-avatar-3 { background: linear-gradient(135deg, #ec4899, #f43f5e); }
+        .founder-avatar-4 { background: linear-gradient(135deg, #06b6d4, #3b82f6); }
 
         .founder-info {
             flex: 1;
@@ -318,7 +627,7 @@
             font-size: 12px;
             font-weight: 500;
             padding: 2px 10px;
-            background: linear-gradient(135deg, #eff6ff, #ede9fe);
+            background: linear-gradient(135deg, #eff6ff, #f5f3ff);
             color: var(--primary);
             border-radius: 12px;
             margin-left: 6px;
@@ -391,10 +700,22 @@
             font-size: 11px;
         }
 
+        .founder-section a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px dashed var(--primary);
+        }
+
+        .founder-section a:hover {
+            color: var(--primary-dark);
+            border-bottom-style: solid;
+        }
+
         .complement-box {
             margin-top: 22px;
             padding: 18px 22px;
-            background: linear-gradient(135deg, #f0f9ff, #ede9fe);
+            background: linear-gradient(135deg, #f0f9ff, #fdf2f8);
             border: 1px solid #c7d2fe;
             border-radius: 14px;
         }
@@ -410,24 +731,6 @@
             font-size: 13px;
             color: var(--text);
             line-height: 1.8;
-        }
-
-        @media (max-width: 768px) {
-            .founders-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .founder-section a {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            border-bottom: 1px dashed var(--primary);
-        }
-
-        .founder-section a:hover {
-            color: var(--primary-dark);
-            border-bottom-style: solid;
         }
 
         /* ===== 概况标签 ===== */
@@ -448,133 +751,12 @@
         .tag-blue { background: #eff6ff; color: #2563eb; }
         .tag-purple { background: #f5f3ff; color: #7c3aed; }
         .tag-green { background: #ecfdf5; color: #059669; }
-        .tag-orange { background: #fff7ed; color: #ea580c; }
+        .tag-pink { background: #fdf2f8; color: #db2777; }
 
-        /* ===== 资源卡片网格 ===== */
-        .resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 18px;
-            margin-top: 16px;
-        }
-
-        .resource-card {
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-            border-radius: 14px;
-            padding: 24px;
-            border: 1px solid var(--border);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-        }
-
-        .resource-card .icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-bottom: 14px;
-        }
-
-        .icon-compute { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
-        .icon-tech { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
-        .icon-job { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
-
-        .resource-card h3 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--text);
-        }
-
-        .resource-card p {
-            font-size: 13px;
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        /* ===== 方案步骤 ===== */
-        .plan-steps {
-            display: grid;
-            gap: 16px;
-            margin-top: 16px;
-        }
-
-        .plan-step {
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-            padding: 20px;
-            background: var(--bg);
-            border-radius: 12px;
-        }
-
-        .plan-step .step-num {
-            width: 32px;
-            height: 32px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 14px;
-            flex-shrink: 0;
-        }
-
-        .plan-step .step-content h4 {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .plan-step .step-content p {
-            font-size: 13px;
-            color: var(--text-light);
-            margin: 0;
-        }
-
-        /* ===== 规范列表 ===== */
-        .rule-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 14px;
-            margin-top: 16px;
-        }
-
-        .rule-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            padding: 14px 16px;
-            background: #fefce8;
-            border-radius: 10px;
-            border: 1px solid #fef08a;
-        }
-
-        .rule-item .check {
-            color: #ca8a04;
-            font-weight: 700;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .rule-item span {
-            font-size: 13px;
-            line-height: 1.6;
-        }
-
-        /* ===== 加入号召高亮 ===== */
+        /* ===== 加入号召 ===== */
         .appeal-box {
-            background: linear-gradient(135deg, #eff6ff, #dbeafe);
-            border: 2px solid #93c5fd;
+            background: linear-gradient(135deg, #eff6ff, #fdf2f8);
+            border: 2px solid #c7d2fe;
             border-radius: 14px;
             padding: 28px;
             text-align: center;
@@ -584,7 +766,7 @@
         .appeal-box p {
             font-size: 15px;
             line-height: 2;
-            color: #1e40af;
+            color: #1e3a8a;
         }
 
         /* ===== 签名区 ===== */
@@ -609,181 +791,286 @@
         }
 
         /* ===== 响应式 ===== */
+        @media (max-width: 768px) {
+            .founders-grid, .focus-grid {
+                grid-template-columns: 1fr;
+            }
+            .focus-card.featured { grid-column: auto; }
+        }
+
         @media (max-width: 640px) {
-            .header { padding: 40px 24px; }
-            .header h1 { font-size: 24px; }
+            .header { padding: 48px 24px 44px; }
+            .header h1 { font-size: 25px; }
+            .header .subtitle { font-size: 15px; }
             .section { padding: 24px 20px; }
             .container { padding: 12px; }
+            .qq-banner { align-items: flex-start; }
         }
 
         /* ===== 打印样式 ===== */
         @media print {
             body { background: white; }
             .section { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
-            .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .header, .focus-card.featured { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
     </style>
 </head>
-<body data-page-node-id="guqU5pnQ659lJ3EYFkh7kS">
-    <div class="container" data-page-node-id="wXzccI4d7CNtBBFTXM0pPk">
+<body>
+    <div class="container">
         <!-- 封面 -->
-        <div class="header" data-page-node-id="u9VWl0PA6zRH1y1Hjy3Kgl">
-            <div class="header-content" data-page-node-id="azOHxIQzk2pV545Q0eV2Bn">
-                <div class="badge" data-page-node-id="XXpBVyYTX09OhZtXlSJAdw">网络工作室 · AI小组</div>
-                <h1 data-page-node-id="1blM7G0zEkyf9QA4vDmQ4F">校园<span data-page-node-id="H13fSaOwoBftJaKL7A4Dl4">AI</span>&计算机交流社群</h1>
-                <p class="subtitle" data-page-node-id="d96iyCDIxF94VIYD2QIF5Z">我们在这里等你，一起探索未来</p>
-                <p class="slogan" data-page-node-id="Kzv8MUHLi5bqJMPFM6v3dz">连接技术 · 共享资源 · 共同成长 · 探索无限未来</p>
+        <div class="header">
+            <div class="film-strip top">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="header-content">
+                <div class="badge">网络工作室 · AI小组</div>
+                <h1><span class="grad-a">AIGC</span> × <span class="grad-b">Vibe Coding</span></h1>
+                <p class="subtitle">用 AI 创作视频，用自然语言编写程序</p>
+                <p class="slogan">AIGC 视频为核 · Vibe Coding 为翼 · 工作流提效 · 实战中成长</p>
+            </div>
+            <div class="film-strip bottom">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
             </div>
         </div>
 
         <!-- 基本信息 -->
-        <div class="info-bar" data-page-node-id="WdXKcpwZ92lIoFnPumCJtS">
-            <div class="info-item" data-page-node-id="atIy3KHCspzP4uE4HQ1GBv">
-                <div class="label" data-page-node-id="yvso4Myub2TikfjRwG0WLo">隶属组织</div>
-                <div class="value" data-page-node-id="WZkxUlZAOaMgAhyvhpDQMZ">网络工作室 · AI小组</div>
+        <div class="info-bar">
+            <div class="info-item">
+                <div class="label">我们是谁</div>
+                <div class="value">网络工作室 · AI小组</div>
             </div>
-            <div class="info-item" data-page-node-id="BRYUjFPF1MIORkCPfkelOD">
-                <div class="label" data-page-node-id="VNhbxXT3YuJnp0n9judFWq">所属学校</div>
-                <div class="value" data-page-node-id="yR8tB2zDE2CJT1rMEQAPyc">郑州升达经贸管理学院</div>
+            <div class="info-item">
+                <div class="label">所属学校</div>
+                <div class="value">郑州升达经贸管理学院</div>
             </div>
-            <div class="info-item" data-page-node-id="GvSlj3aon3ZmOuE2wmEwfN">
-                <div class="label" data-page-node-id="WrKqUAG2O8h5sU0gTHyHpi">交流群号</div>
-                <div class="value" data-page-node-id="jRn9Y8wIX9qgLSQ8QEIHlD">QQ群 926936791</div>
+            <div class="info-item">
+                <div class="label">交流群号</div>
+                <div class="value">QQ群 926936791</div>
             </div>
         </div>
 
-        <!-- QQ 群号（纯文字版） -->
-        <div class="qq-banner" data-page-node-id="0F6Hpr74OJd1xU5UMp3EMM">
-            <span class="qq-emoji" data-page-node-id="YEnKZTow8223fPgwGl6QSF">📱</span>
-            <span class="qq-text" data-page-node-id="OaZhHBQEKfzA01tKSg5wOL">QQ群 <strong data-page-node-id="mGTOgG1u8IzLMDd4hq9msL">926936791</strong> · 搜索群号即可加入 · 入群请改备注：学院+技能+姓名（技能：AIGC / Coding / 剪辑 / 摄影，可多选）</span>
+        <!-- QQ 群号横幅 -->
+        <div class="qq-banner">
+            <span class="qq-emoji">📱</span>
+            <span class="qq-text">QQ群 <strong>926936791</strong> · 搜索群号即可加入 · 入群请改备注：学院+方向+姓名（方向：AIGC视频 / Vibe Coding / 工作流 / 算法，可多选）</span>
         </div>
 
-        <!-- 一、社群介绍 -->
-        <div class="section" data-page-node-id="d5vq8NtzV7m362gZY4rxLz">
-            <div class="section-title" data-page-node-id="ovJ4gCUuQPT3celOTpckb4">
-                <div class="num" data-page-node-id="AICZLfElOfckHCvimK81oQ">一</div>
-                <h2 data-page-node-id="cHv8YOu3EMboAvs9cCP9Ur">社群介绍</h2>
+        <!-- 一、小组介绍 -->
+        <div class="section">
+            <div class="section-title">
+                <div class="num">一</div>
+                <h2>小组介绍</h2>
             </div>
-            <div class="section-content" data-page-node-id="bzM3JRtWi1iDM0sMMsqE84">
-                <p data-page-node-id="Sp5wDoPFdWrqARY7LdIu9j"><strong data-page-node-id="xEsqUb1CAWL56GM4GAI8Cn">社群名称：</strong>校园AI&计算机交流社群</p>
-                <p data-page-node-id="68rZJMVCdoJSxoHQKuEgFq"><strong data-page-node-id="HGN5JgOOAzBKsiQWpBDGGt">隶属组织：</strong>郑州升达经贸管理学院 · 网络工作室 · AI小组</p>
-                <p data-page-node-id="uXhQ2PrHxiOYvw6OLH3nQV"><strong data-page-node-id="AAZDHy0NIMWzYDAN7RT2I2">社群定位：</strong>面向全校在校生的公益性AI学习交流平台，零门槛加入，无专业/技术限制。</p>
-                <p data-page-node-id="IY1KmgLp7Lhv7YEdBZb3X5"><strong data-page-node-id="snqirQ2EacZ8JMxYL4sFfr">核心理念：</strong>面向全校各专业对 AI 有兴趣的同学开放，鼓励大家学习、了解并加入，将 AI 与各自所学领域相结合，促进 AI 与各学科的交叉融合，让各领域人才都能借助 AI 提升学习与工作效率。</p>
-                <p data-page-node-id="L34O0IR4jAk9dnpUCOpoKr"><strong data-page-node-id="gtC7p0fEzGqeEnXJ9rG6gN">运营性质：</strong>纯公益、完全免费，无任何商业收费行为。所有活动与资源对在校学生免费开放。</p>
-                <p data-page-node-id="6RLdmdAimwX2GFnzMRqNur"><strong data-page-node-id="9YY4hc5LrXqHfMSpxG7KbY">加入方式：</strong>QQ群 <strong data-page-node-id="kA043Dp6dNDg2VKk9XAHKo">926936791</strong>，欢迎对 AI 感兴趣的同学随时加入。</p>
-                <div class="tags" data-page-node-id="StE8Ppo0elFg5Ei4gQ29GE">
-                    <span class="tag tag-blue" data-page-node-id="0N1wXjqb2sUQ6yx2FKDFxD">零门槛加入</span>
-                    <span class="tag tag-green" data-page-node-id="4gweVzGTy0a5lTFDdJdlLL">纯公益免费</span>
-                    <span class="tag tag-purple" data-page-node-id="Fia9AyrwEnSf4pLySnFRs5">全校开放</span>
-                    <span class="tag tag-orange" data-page-node-id="C26i43SM5NE2NSnFaiz7ee">学生互助</span>
-                    <span class="tag tag-blue" data-page-node-id="40HvkcCzIEEusQaIz1dvgO">学科交叉</span>
+            <div class="section-content">
+                <p><strong>小组名称：</strong>网络工作室 · AI小组（QQ交流群：校园AI&计算机交流社群）</p>
+                <p><strong>所属单位：</strong>郑州升达经贸管理学院 · 网络工作室</p>
+                <p><strong>小组定位：</strong>一个以 <strong>AIGC（AI 生成内容）</strong>与 <strong>Vibe Coding（AI 编程）</strong>为核心方向的校园实战型技术小组，重心放在 <strong>AIGC 视频创作</strong>。</p>
+                <p><strong>我们做什么：</strong>一起用 AI 做视频——AI 短剧、动态漫、AI 短片；一起用 AI 写代码——做网页、做工具、做智能体；同时打磨 AI 工作流，夯实代码与算法基本功。</p>
+                <p><strong>运营性质：</strong>纯公益、完全免费，无任何商业收费行为，所有活动与资源对在校学生开放。</p>
+                <p><strong>加入方式：</strong>QQ群 <strong>926936791</strong>，零基础也欢迎，感兴趣就来。</p>
+                <div class="tags">
+                    <span class="tag tag-pink">AIGC 视频</span>
+                    <span class="tag tag-blue">Vibe Coding</span>
+                    <span class="tag tag-purple">AI 工作流</span>
+                    <span class="tag tag-green">代码与算法</span>
+                    <span class="tag tag-blue">零门槛加入</span>
+                    <span class="tag tag-green">纯公益免费</span>
                 </div>
             </div>
         </div>
 
-        <!-- 二、我们做什么 -->
-        <div class="section" data-page-node-id="FDpR5pBDcIMoYLGsDWoEXb">
-            <div class="section-title" data-page-node-id="OnO6zfV7GUn87NG7WuhGt6">
-                <div class="num" data-page-node-id="I0CEUSHI9wtGFocOUgWo6F">二</div>
-                <h2 data-page-node-id="GicfM0ZiyK2ap1wpKVkMQf">我们做什么</h2>
+        <!-- 二、四大方向 -->
+        <div class="section">
+            <div class="section-title">
+                <div class="num">二</div>
+                <h2>我们的四大方向</h2>
             </div>
-            <div class="section-content" data-page-node-id="9b0P1AHvLO4WpUp5K6aBmL">
-                <ul data-page-node-id="O4Jj2u5tVwIlHwLmZqKQ8m">
-                    <li data-page-node-id="VYMYkpOlpeLKnaIgkyFysI">当前AI工具已全面融入大学生学习、作业、竞赛、创作等场景，全校文、经、管、工各专业均有学生日常使用AI。</li>
-                    <li data-page-node-id="EKF3uN71IYBY5uOet7Y17l">不少同学在使用AI时，会遇到操作不熟、提示词不会写、内容不知如何甄别等疑问，缺少一个交流的平台。</li>
-                    <li data-page-node-id="GN7zeL4WZIRkxiAtOsBgA5">掌握实用AI技巧的同学也缺少分享渠道，文理科之间缺乏技术互通的桥梁。</li>
-                    <li data-page-node-id="AT0GZf35XAMAbmkecwxcIO">本社群致力于搭建<strong data-page-node-id="M2t7VBKXSlXZniWCbgWT6Q">"学生教学生"</strong>的互助平台，打破专业壁垒，实现同学间互相分享、互相教学、彼此答疑。</li>
-                </ul>
+            <div class="section-content">
+                <div class="focus-grid">
+                    <!-- AIGC 视频（核心） -->
+                    <div class="focus-card featured">
+                        <div class="fc-head">
+                            <div class="fc-icon fc-icon-video">🎬</div>
+                            <h3>AIGC 视频创作<span class="fc-core">核心重心</span></h3>
+                        </div>
+                        <p>这是小组的重心。我们跑通从剧本到成片的 AI 视频全流程，组队实战产出 AI 短剧、动态漫与创意短片，并探索账号运营与内容发行。</p>
+                        <ul>
+                            <li>AI 文生视频 / 图生视频：即梦、可灵、Seedance、Runway 等</li>
+                            <li>AI 短剧 / 动态漫：剧本拆解、自动分镜、角色人设一致性</li>
+                            <li>ComfyUI 视频工作流：批量生成、镜头与风格统一</li>
+                            <li>AI 配音 / 音乐 / 音效，剪辑、调色、字幕与后期包装</li>
+                            <li>抖音等平台内容运营、出海短剧发行与商业化探索</li>
+                        </ul>
+                    </div>
+
+                    <!-- Vibe Coding -->
+                    <div class="focus-card">
+                        <div class="fc-head">
+                            <div class="fc-icon fc-icon-code">💻</div>
+                            <h3>Vibe Coding</h3>
+                        </div>
+                        <p>用自然语言指挥 AI 写程序，零基础也能做出可上线的作品，在实战中学会编程。</p>
+                        <ul>
+                            <li>Cursor / Trae / Codex 等 AI 编程工具实操</li>
+                            <li>从一句话需求到可运行的网页、小工具、智能体</li>
+                            <li>配套系统教程，跟做个人主页、待办应用等实战作品</li>
+                        </ul>
+                    </div>
+
+                    <!-- AI 工作流 -->
+                    <div class="focus-card">
+                        <div class="fc-head">
+                            <div class="fc-icon fc-icon-flow">⚡</div>
+                            <h3>AI 工作流与智能体</h3>
+                        </div>
+                        <p>把重复劳动交给自动化，搭建可复用的 AI 生产流水线，让效率成倍提升。</p>
+                        <ul>
+                            <li>扣子 / HiAgent 智能体与工作流搭建</li>
+                            <li>ComfyUI 节点流、多模型 API 批量调度</li>
+                            <li>AI Agent 自动拆解任务、批量派发生成</li>
+                        </ul>
+                    </div>
+
+                    <!-- 代码与算法 -->
+                    <div class="focus-card">
+                        <div class="fc-head">
+                            <div class="fc-icon fc-icon-algo">🧠</div>
+                            <h3>代码 · 算法 · 计算机基础</h3>
+                        </div>
+                        <p>AI 编程也要懂底层。我们一起打牢计算机基本功，让 AI 真正听你指挥。</p>
+                        <ul>
+                            <li>C / C++ / Python，数据结构与算法</li>
+                            <li>每周刷题互助，算法竞赛备赛（百度之星、码蹄杯等）</li>
+                            <li>Git / GitHub、Linux 等工程基础</li>
+                        </ul>
+                    </div>
+
+                    <!-- 学习方式 -->
+                    <div class="focus-card">
+                        <div class="fc-head">
+                            <div class="fc-icon fc-icon-code">🚀</div>
+                            <h3>以战带练 · 作品导向</h3>
+                        </div>
+                        <p>不堆枯燥理论，以项目和作品为驱动，在真实创作与开发中快速成长。</p>
+                        <ul>
+                            <li>视频共创营、Vibe Coding 实战营持续开营</li>
+                            <li>AIGC / 黑客松 / 程序设计赛事组队备赛</li>
+                            <li>老带新、强带弱，问题不过夜</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="tool-caption">🔧 我们日常在用的工具（持续更新）：</p>
+                <div class="tool-tags">
+                    <span class="tt group-video">即梦 Dreamina</span>
+                    <span class="tt group-video">可灵 Kling</span>
+                    <span class="tt group-video">Seedance</span>
+                    <span class="tt group-video">Runway</span>
+                    <span class="tt group-video">Midjourney</span>
+                    <span class="tt group-flow">ComfyUI</span>
+                    <span class="tt group-flow">扣子 Coze</span>
+                    <span class="tt group-flow">HiAgent</span>
+                    <span class="tt group-code">Cursor</span>
+                    <span class="tt group-code">Trae</span>
+                    <span class="tt group-code">OpenAI Codex</span>
+                    <span class="tt group-code">GitHub</span>
+                    <span class="tt">C / C++</span>
+                    <span class="tt">Python</span>
+                </div>
             </div>
         </div>
 
         <!-- 三、新手指南 -->
-        <div class="section" data-page-node-id="Vb4CqvWHyYXjxnL718TUOB">
-            <div class="section-title" data-page-node-id="Xi3G1z4opxi0lXQFp3YRCQ">
-                <div class="num" data-page-node-id="VeBQ5sltcFN60z6yEp1oC0">三</div>
-                <h2 data-page-node-id="kP9q36VzdPHJ67DdOXbQo9">新手指南</h2>
+        <div class="section">
+            <div class="section-title">
+                <div class="num">三</div>
+                <h2>新手指南</h2>
             </div>
-            <div class="section-content" data-page-node-id="Csb1s2TxgwkJLJxnHqY9fz">
-                <p data-page-node-id="5a5bKkHLO9zFTU8dFtBKcX">刚加入的萌新看这里，三分钟快速上手 👇</p>
+            <div class="section-content">
+                <p>刚加入的萌新看这里，三分钟快速上手 👇</p>
 
-                <h3 class="guide-subtitle" data-page-node-id="a1lxL4dn14UnqTXt7d1tjP">🚀 入群三步走</h3>
-                <div class="plan-steps" data-page-node-id="FLhE224JWYDpMxfzGO9wN2">
-                    <div class="plan-step" data-page-node-id="1gNVKPkwbdY5d2FZUR8zAG">
-                        <div class="step-num" data-page-node-id="kakaFxuBw6lucS56P9q2HJ">1</div>
-                        <div class="step-content" data-page-node-id="I5k8sfrmg2O1XtwmEIOQBp">
-                            <h4 data-page-node-id="K5O0imFGjLUkZ1mAZBmJ1g">改好群备注</h4>
-                            <p data-page-node-id="eMuABO7BSKKVTFOGuZBto7">入群后先把备注改成「学院 + 技能 + 姓名」（技能：AIGC / Coding / 剪辑 / 摄影，可多选），方便大家认识你。</p>
+                <h3 class="guide-subtitle">🚀 入群三步走</h3>
+                <div class="plan-steps">
+                    <div class="plan-step">
+                        <div class="step-num">1</div>
+                        <div class="step-content">
+                            <h4>改好群备注</h4>
+                            <p>入群后先把备注改成「学院 + 方向 + 姓名」（方向：AIGC视频 / Vibe Coding / 工作流 / 算法，可多选），方便大家认识你。</p>
                         </div>
                     </div>
-                    <div class="plan-step" data-page-node-id="OI1bIZ1pvJiTFmPrQOfOUA">
-                        <div class="step-num" data-page-node-id="4ESjg5D6yr9KEK2oVTwXH8">2</div>
-                        <div class="step-content" data-page-node-id="Nb8wFMFo1ElBlKqYqLjhSt">
-                            <h4 data-page-node-id="hrHUEKNbAb6iKToxZmUhTH">翻看群公告与置顶</h4>
-                            <p data-page-node-id="RqK7GqaqTCVPRBrmAo6GhI">群公告和置顶里有新手资料包、常用提示词模板、避坑指南和活动安排，先翻一遍能少走很多弯路。</p>
+                    <div class="plan-step">
+                        <div class="step-num">2</div>
+                        <div class="step-content">
+                            <h4>翻看群公告与置顶</h4>
+                            <p>群公告和置顶里有新手资料包、提示词模板、视频与工作流教程、Vibe Coding 课程和活动安排，先翻一遍能少走很多弯路。</p>
                         </div>
                     </div>
-                    <div class="plan-step" data-page-node-id="rymqqFS8OlJzFeSL0oFVhj">
-                        <div class="step-num" data-page-node-id="Ufb3rQLnCTfZ1CWD6kXPFB">3</div>
-                        <div class="step-content" data-page-node-id="yQWLLPAsIZaKwWrqFPCaiA">
-                            <h4 data-page-node-id="MWAeLCrDr0GkYiSVJzw0UV">来一句自我介绍</h4>
-                            <p data-page-node-id="mmumDbGkovco2jQ8ttANY7">简单说说你的专业、目前水平，以及想用 AI 解决什么问题，大家才好精准帮你。</p>
+                    <div class="plan-step">
+                        <div class="step-num">3</div>
+                        <div class="step-content">
+                            <h4>来一句自我介绍</h4>
+                            <p>简单说说你的专业、目前水平，以及想做 AI 视频还是 AI 编程、想解决什么问题，大家才好精准帮你。</p>
                         </div>
                     </div>
                 </div>
 
-                <h3 class="guide-subtitle" data-page-node-id="m0YIe74grVT7Uy3ij0iuC6">🎁 加入你能获得什么</h3>
-                <div class="resource-grid" data-page-node-id="hEChqgZiEjRNEo4ma8QrhS">
-                    <div class="resource-card" data-page-node-id="huDmCtS0sJ97XR3eikAGnh">
-                        <div class="icon icon-compute" data-page-node-id="251AgF4rG4z9pyYmp6X8oL">📚</div>
-                        <h3 data-page-node-id="cjgij8Z5pSMAR1Ljbb65iu">学习资料</h3>
-                        <p data-page-node-id="qzDMZvSUo0YSeFZWllcj6s">提示词模板、AI 工具教程、避坑指南、优质课程，群内持续沉淀共享。</p>
+                <h3 class="guide-subtitle">🎁 加入你能获得什么</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="icon icon-video">🎬</div>
+                        <h3>AIGC 视频实战</h3>
+                        <p>AI 视频生成、短剧/漫剧全流程教学，直接进组参与真实视频项目，从跟做到主创。</p>
                     </div>
-                    <div class="resource-card" data-page-node-id="JecFsLQYlyTMIyomCgZqEP">
-                        <div class="icon icon-tech" data-page-node-id="Ky6uaBbnO70Ar1qU2MRKa0">🤝</div>
-                        <h3 data-page-node-id="qbAKFVHTmVibHO95P6IiMF">答疑互助</h3>
-                        <p data-page-node-id="VDFqLZAOW0umOaTLms65fD">任何 AI / 编程问题都可以在群里提问，同学互帮互答，零基础也不怕。</p>
+                    <div class="resource-card">
+                        <div class="icon icon-compute">📚</div>
+                        <h3>系统教程资料</h3>
+                        <p>《Vibe Coding 全流程教程》、Codex 指南、提示词库、ComfyUI/扣子工作流模板，群内持续沉淀。</p>
                     </div>
-                    <div class="resource-card" data-page-node-id="9ltlUZxtqfDNLvSItDJOwl">
-                        <div class="icon icon-job" data-page-node-id="JlibRwWYrEXLuruyItXd7h">🏆</div>
-                        <h3 data-page-node-id="sGX4fsouNTRvttAiYsnJIa">赛事组队</h3>
-                        <p data-page-node-id="RcDAXUnwpXcCzI4ZW9ahFY">科创 / AIGC 赛事信息、组队渠道、备赛帮扶，让有想法的同学不再孤军奋战。</p>
+                    <div class="resource-card">
+                        <div class="icon icon-tech">🤝</div>
+                        <h3>答疑互助</h3>
+                        <p>AIGC、编程、算法、工作流任何问题都可以在群里提问，同学互帮互答，零基础也不怕。</p>
                     </div>
-                    <div class="resource-card" data-page-node-id="lh0wVmF3JMOBtun8pcBTRI">
-                        <div class="icon icon-compute" data-page-node-id="QJf05iC3DNfRvRIQ12x8h3">☁️</div>
-                        <h3 data-page-node-id="2bK0DA9L0kClFloqivCN2G">算力与内推</h3>
-                        <p data-page-node-id="bG4EDLbwTGv2NRR5n5IpjN">字节火山引擎算力额度、实习 / 校招内推通道，优秀同学可获得官方内推资格。</p>
+                    <div class="resource-card">
+                        <div class="icon icon-job">🏆</div>
+                        <h3>赛事 · 算力 · 内推</h3>
+                        <p>AIGC / 黑客松 / 程序设计赛事组队，火山引擎算力额度，优秀同学可获字节生态实习内推。</p>
                     </div>
                 </div>
 
-                <h3 class="guide-subtitle" data-page-node-id="TCgpFlPWPphvMRauUbj3Am">💬 怎么更好地参与</h3>
-                <ul data-page-node-id="AJ5rHqfdOCblX3nafjnZnt">
-                    <li data-page-node-id="tFcGV9mlWWe691yRdtVYPG">有问题直接问，不用怕「小白」——群里从零基础到进阶都有，互相带。</li>
-                    <li data-page-node-id="oYTh2XaWUPUkeAmJyPhSnk">看到会的问题顺手答一句，互帮互助，也巩固自己。</li>
-                    <li data-page-node-id="UV1eoxGeDRM97iNYf5ktf9">多参加线下沙龙、报名上台分享、加入项目组，成长最快。</li>
+                <h3 class="guide-subtitle">💬 怎么更好地参与</h3>
+                <ul>
+                    <li>有问题直接问，不用怕「小白」——群里从零基础到进阶都有，互相带。</li>
+                    <li>看到会的问题顺手答一句，互帮互助，也巩固自己。</li>
+                    <li>大胆报名视频共创、实战营和线下沙龙，加入项目组成长最快。</li>
+                    <li>多产出作品、多发过程，群里最不缺的就是给你反馈的人。</li>
                 </ul>
 
-                <h3 class="guide-subtitle" data-page-node-id="Rn93nn4Vu7hCYcf1FgcoWw">❓ 常见问题</h3>
-                <div class="rule-list" data-page-node-id="0AgFSHfkEYmJQq61AHuG5F">
-                    <div class="rule-item" data-page-node-id="9shTjbylB3tmcgqLfqB7Pk">
-                        <span class="check" data-page-node-id="jLTNbV0dxbNqySJHcQPger">Q</span>
-                        <span data-page-node-id="ysBlegDf07mZKpqrGtPIDC"><strong data-page-node-id="QtFMCZxs67AA0ddg4oNRwK">我是 AI 小白，能加入吗？</strong><br data-page-node-id="KGxvDEa7AQVA6cKRThCCM3">当然能！零门槛加入，群里很多同学都是零基础起步，一起从零学起。</span>
+                <h3 class="guide-subtitle">❓ 常见问题</h3>
+                <div class="rule-list">
+                    <div class="rule-item">
+                        <span class="check">Q</span>
+                        <span><strong>我是 AI 小白，零基础能加入吗？</strong><br>当然能！AI 视频和 Vibe Coding 恰恰降低了创作与编程的门槛，群里很多同学都是零基础起步。</span>
                     </div>
-                    <div class="rule-item" data-page-node-id="Gj0Xf4eMvYBz6tAvniqdk4">
-                        <span class="check" data-page-node-id="9w6oj0NLifv7RGl8nuTCC7">Q</span>
-                        <span data-page-node-id="nnqsGq0JJGV9nYQImgaGXd"><strong data-page-node-id="l4qSSKZjT5HePk4FosD8zO">非计算机专业也能加入吗？</strong><br data-page-node-id="QglSRnCAhZoqBzVv3FdsWo">可以，社群面向全校各专业，鼓励 AI 和你的专业结合，各领域都能用 AI 提效。</span>
+                    <div class="rule-item">
+                        <span class="check">Q</span>
+                        <span><strong>不会编程、不会拍视频怎么办？</strong><br>都没关系。做视频有 AI 生成画面和配音，写代码可以先用自然语言指挥 AI，边做边学，老成员一对一带。</span>
                     </div>
-                    <div class="rule-item" data-page-node-id="AN3nIipXqJtkdZUFNL7VG7">
-                        <span class="check" data-page-node-id="WEpMlc1GDcXEQ40TOLp17W">Q</span>
-                        <span data-page-node-id="9zdKOn6WwKDoknVRLJraQw"><strong data-page-node-id="CAzmBxzzSWybUG3WA98QFO">会收费吗？</strong><br data-page-node-id="X0ICZjDeQClokBRkpigtDK">全程免费，纯公益，无任何商业收费，所有活动与资源对在校学生免费开放。</span>
+                    <div class="rule-item">
+                        <span class="check">Q</span>
+                        <span><strong>非计算机 / 艺术专业也能加入吗？</strong><br>可以，小组面向全校各专业。好故事、好创意、好审美和懂技术同样重要，AI 让各专业都能参与创作。</span>
                     </div>
-                    <div class="rule-item" data-page-node-id="qC8n3y2aXBaReEMCdVyhSz">
-                        <span class="check" data-page-node-id="EEXjn5n4InQ79yQUB6Rz6f">Q</span>
-                        <span data-page-node-id="xfsyw1EXCVbrJ774njZFAG"><strong data-page-node-id="k2DaeqDiEtbBGTVQ46s3b4">平时忙、怕跟不上怎么办？</strong><br data-page-node-id="hEUKsv5w7KMEPt1vxDlIqC">完全没问题，按自己节奏来，潜水围观也可以，有空再参与活动和交流。</span>
+                    <div class="rule-item">
+                        <span class="check">Q</span>
+                        <span><strong>要花钱吗？电脑配置不够怎么办？</strong><br>全程免费、纯公益。常用 AI 工具多为云端运行，群内还可申请火山引擎官方算力额度，无需高端电脑。</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="check">Q</span>
+                        <span><strong>平时忙、怕跟不上怎么办？</strong><br>完全没问题，按自己节奏来，潜水围观也可以，教程和资料随时可看，有空再参与项目。</span>
                     </div>
                 </div>
             </div>
         </div>
-
 
         <!-- 四、我们的团队 -->
         <div class="section">
@@ -792,7 +1079,7 @@
                 <h2>我们的团队</h2>
             </div>
             <div class="section-content">
-                <p>本社群由<strong>王佳琦、罗景祺</strong>两位同学共同发起，<strong>王卫旭、孙丰雨</strong>为核心成员。团队均为郑州升达经贸管理学院在校生，覆盖「AI 应用开发」「AIGC 内容工程」「AIGC 视频短剧运营」「影视后期剪辑」等方向，互为补充、共同成长。</p>
+                <p>本小组由<strong>王佳琦、罗景祺</strong>两位同学共同发起，<strong>王卫旭、孙丰雨</strong>为核心成员。团队均为郑州升达经贸管理学院在校生，覆盖「AIGC 视频短剧生产与运营」「AIGC 内容工程与自动化」「AI 编程与全栈开发」「AIGC 视频后期」等方向，互为补充、共同成长。</p>
 
                 <div class="founders-grid">
 
@@ -809,7 +1096,7 @@
 
                         <div class="founder-section">
                             <h4>能力方向</h4>
-                            <p>翻译 + 全栈开发复合背景，主攻 <strong>C/C++ 算法竞赛、Qt 桌面开发、AI 应用全栈开发</strong>；同时具备 AIGC 图像工程（ComfyUI 节点流 / 大模型本地化）、游戏开发（Cocos / Unity）学习实践，以及扣子、HiAgent 等工作流搭建能力。</p>
+                            <p>翻译 + 全栈开发复合背景，主攻 <strong>Vibe Coding、C/C++ 算法竞赛、Qt 桌面开发、AI 应用全栈开发</strong>；同时具备 ComfyUI 节点流、大模型本地化实践，以及扣子、HiAgent 等 AI 工作流搭建能力。</p>
                         </div>
 
                         <div class="founder-section">
@@ -848,18 +1135,9 @@
                         <div class="founder-section">
                             <h4>技能与工具</h4>
                             <ul>
-                                <li><strong>开发</strong>：C/C++、Qt 6.7、HTML/CSS/JS、Cocos、Unity（学习实践）</li>
+                                <li><strong>开发</strong>：C/C++、Qt 6.7、HTML/CSS/JS、Cursor / Trae / Codex</li>
                                 <li><strong>AI 工作流</strong>：扣子、HiAgent、ComfyUI、提示词工程</li>
                                 <li><strong>工程协作</strong>：GitHub 协作、Linux 基础命令、Obsidian 个人知识库</li>
-                            </ul>
-                        </div>
-
-                        <div class="founder-section">
-                            <h4>校园分享与运营</h4>
-                            <ul>
-                                <li>依托翻译+全栈开发复合背景，在校内社团、科创工作室开展多场线下技术分享，覆盖零基础 AI 工具到进阶开发；</li>
-                                <li>已完整设计社群 30 天落地行动计划，掌握线上社群维护、线下沙龙策划、教学素材制作全流程；</li>
-                                <li>长期在校内编程小组组织刷题互助，帮助零基础同学入门编程备赛。</li>
                             </ul>
                         </div>
                     </div>
@@ -877,13 +1155,13 @@
 
                         <div class="founder-section">
                             <h4>能力方向</h4>
-                            <p>AIGC 内容工程师，擅长 AI Agent 智能自动化、Codex 自动化工作流、多模型 API 批量调度。</p>
+                            <p>AIGC 内容工程师，擅长 AI Agent 智能自动化、Codex 自动化工作流、多模型 API 批量调度，主攻 AI 漫剧/视频内容的工业化量产。</p>
                         </div>
 
                         <div class="founder-section">
                             <h4>个人优势</h4>
                             <ul>
-                                <li>在校大学生，拥有<strong>团队漫剧联合制作实战经验</strong>与<strong>闲鱼 AIGC 商业化变现实战经验</strong>；</li>
+                                <li>拥有<strong>团队 AI 漫剧联合制作实战经验</strong>与<strong>AIGC 商业化变现实战经验</strong>；</li>
                                 <li>具备完整自动化生产技术栈：Codex 全链路工作流、多模型 API 批量调度、自定义模型匹配脚本；</li>
                                 <li>具备 <strong>AI Agent 智能任务部署经验</strong>——拆解剧本、自动分镜、统一人设、批量派发生成任务。</li>
                             </ul>
@@ -894,8 +1172,8 @@
                             <ul>
                                 <li><strong>个人 AIGC 工作室</strong>· AIGC 内容量产负责人（2025.12–2026.7）</li>
                                 <li><strong>校园团队 AI 漫剧合作项目</strong>（单集工时压缩 70%+）</li>
-                                <li><strong>闲鱼 AIGC 自动化变现量产项目</strong>（长期稳定变现）</li>
-                                <li><strong>杭州「小小大导演」活动</strong>· 杭州 AIGC 培训 技术助教</li>
+                                <li><strong>AIGC 自动化变现量产项目</strong>（长期稳定变现）</li>
+                                <li><strong>杭州「小小大导演」活动</strong>· AIGC 培训技术助教</li>
                             </ul>
                         </div>
 
@@ -905,9 +1183,9 @@
                                 <li>AI Agent 智能自动化落地（精通）</li>
                                 <li>Codex 自动化工作流自研（精通）</li>
                                 <li>多模型 API 调度 & 脚本匹配（精通）</li>
-                                <li>AI 漫剧专项量产（熟练）</li>
+                                <li>AI 漫剧 / AIGC 视频专项量产（熟练）</li>
                                 <li>AIGC 商业化低成本变现（熟练）</li>
-                                <li>校级「挑战杯」二等奖（AIGC 合香电商展示）</li>
+                                <li>校级「挑战杯」二等奖（AIGC 电商展示）</li>
                             </ul>
                         </div>
                     </div>
@@ -925,15 +1203,15 @@
 
                         <div class="founder-section">
                             <h4>能力方向</h4>
-                            <p>AIGC 视频内容工程师，擅长 AIGC 短剧工业化制作、抖音线上内容运营、出海短剧海外平台操盘，负责海内外短剧从 AIGC 内容生产到渠道上线运营全流程。</p>
+                            <p>AIGC 视频内容工程师，擅长 AIGC 短剧工业化制作、短视频平台内容运营、出海短剧海外平台操盘，负责 AIGC 视频从内容生产到渠道上线运营全流程。</p>
                         </div>
 
                         <div class="founder-section">
                             <h4>个人优势</h4>
                             <ul>
-                                <li>在校大学生，拥有个人工作室完整出海短剧实战履历，同时具备国内抖音原创短剧账号运营、海外短剧上线发行、闲鱼 AIGC 店铺商业化变现多线实战经验；</li>
-                                <li>掌握 AIGC 短剧生产 + 海内外运营完整技术栈：AIGC 视频批量制作剪辑、海内外短剧渠道配置上线、账号日常运营、流量与转化数据分析复盘；</li>
-                                <li>拥有短剧项目独立从 0–1 落地经验，跑通闲鱼店铺从开店到盈利完整闭环。</li>
+                                <li>拥有个人工作室完整出海短剧实战履历，同时具备国内原创短剧账号运营、海外短剧上线发行、AIGC 店铺商业化变现多线实战经验；</li>
+                                <li>掌握 AIGC 短剧生产 + 海内外运营完整技术栈：AIGC 视频批量制作、渠道配置上线、账号日常运营、流量与转化数据分析复盘；</li>
+                                <li>拥有短剧项目独立从 0–1 落地经验，跑通从开店到盈利的完整闭环。</li>
                             </ul>
                         </div>
 
@@ -942,8 +1220,8 @@
                             <ul>
                                 <li><strong>个人 AIGC 短剧工作室</strong>· 技术负责人 / 内容量产负责人（2026.6–至今）</li>
                                 <li><strong>出海短剧发行项目</strong>（独立完成 AIGC 短剧制作，海外平台正式上架）</li>
-                                <li><strong>抖音原创短剧自有账号项目</strong>（自主运营，常态化输出原创 AIGC 短剧）</li>
-                                <li><strong>闲鱼 AIGC 自动化变现项目</strong>（独立运营店铺，实现实际营收）</li>
+                                <li><strong>原创短剧自有账号项目</strong>（常态化输出原创 AIGC 短剧）</li>
+                                <li><strong>AIGC 自动化变现项目</strong>（独立运营，实现实际营收）</li>
                             </ul>
                         </div>
 
@@ -951,11 +1229,9 @@
                             <h4>技能</h4>
                             <ul>
                                 <li>AIGC 视频工业化批量制作</li>
-                                <li>抖音短剧账号线上运营</li>
-                                <li>出海短剧海外渠道上线 & 运营</li>
+                                <li>短剧账号线上运营 & 出海渠道上线</li>
                                 <li>短剧流量数据复盘、转化指标诊断</li>
                                 <li>AIGC 短剧项目从 0–1 落地执行</li>
-                                <li>闲鱼线上店铺运营 & 商业化变现</li>
                             </ul>
                         </div>
                     </div>
@@ -973,32 +1249,23 @@
 
                         <div class="founder-section">
                             <h4>能力方向</h4>
-                            <p>主攻影视后期剪辑，结合 AIGC 辅助视频创作；擅长剪辑叙事逻辑搭建、镜头逻辑组接、节奏把控、调色音视频包装，覆盖脚本梳理–素材重构–逻辑剪辑–精剪成片完整流程。</p>
+                            <p>AIGC 视频剪辑与后期包装，擅长剪辑叙事逻辑、镜头组接、节奏把控、调色与音视频包装，覆盖 AIGC 视频从素材到成片的完整后期流程。</p>
                         </div>
 
                         <div class="founder-section">
                             <h4>个人优势</h4>
                             <ul>
-                                <li>大二在校，具备独立后期与团队项目实战，核心强项为剪辑叙事逻辑，善于通过镜头排布梳理故事脉络；</li>
-                                <li>能够解读脚本结构、重构素材叙事顺序，熟练粗精剪、调色转场、字幕配乐混音，支持多版本剪辑迭代优化；</li>
-                                <li>熟练使用 AIGC 工具参与视频创作，拥有省级、国家级数媒赛事获奖经历。</li>
+                                <li>具备独立后期与团队项目实战，核心强项为剪辑叙事逻辑，善于通过镜头排布梳理故事脉络；</li>
+                                <li>能够解读脚本、重构素材叙事顺序，熟练粗精剪、调色转场、字幕配乐，支持多版本迭代；</li>
+                                <li>熟练使用 AIGC 工具生成与处理视频素材，拥有省级、国家级数媒赛事获奖经历。</li>
                             </ul>
                         </div>
 
                         <div class="founder-section">
-                            <h4>工作与项目经历</h4>
+                            <h4>项目与获奖</h4>
                             <ul>
-                                <li><strong>个人 AIGC 视频创作项目</strong>· 后期剪辑主创</li>
+                                <li><strong>AIGC 视频创作项目</strong>· 后期剪辑主创</li>
                                 <li><strong>校园团队视频项目</strong>· 主剪辑 & AIGC 素材协助</li>
-                            </ul>
-                        </div>
-
-                        <div class="founder-section">
-                            <h4>技能与获奖</h4>
-                            <ul>
-                                <li>剪辑叙事逻辑搭建、镜头组接、节奏把控（熟练）</li>
-                                <li>视频调色、转场特效、字幕音效包装（熟练）</li>
-                                <li>AIGC 视频素材生成（熟练）</li>
                                 <li>🏆 有创意河南视频大赛 <strong>二等奖</strong>（省级）</li>
                                 <li>🏆 全国数字媒体艺术大赛 <strong>国赛三等奖</strong>（国家级）</li>
                             </ul>
@@ -1010,41 +1277,41 @@
                 <!-- 互补优势总结 -->
                 <div class="complement-box">
                     <h4>🤝 能力互补</h4>
-                    <p><strong>王佳琦</strong>侧重 AI 应用开发、Qt/前端工程、产品设计与校园活动分享；<strong>罗景祺</strong>侧重 AIGC 内容工程、自动化工作流、商业化变现；<strong>王卫旭</strong>侧重 AIGC 短剧工业化与海内外内容运营；<strong>孙丰雨</strong>侧重影视后期剪辑与 AIGC 辅助视频创作。四位同学技术与内容互补，覆盖从「工具使用 → 产品开发 → 内容产出 → 视频运营 → 商业落地」全链路，共同支撑社群的建设与持续运营。</p>
+                    <p><strong>王卫旭</strong>主攻 AIGC 短剧生产与海内外运营，<strong>孙丰雨</strong>负责 AIGC 视频剪辑与后期成片，<strong>罗景祺</strong>擅长 AIGC 内容工程、Agent 自动化与漫剧量产，<strong>王佳琦</strong>主攻 Vibe Coding、全栈开发、算法与工作流。四人覆盖「剧本创意 → AI 视频生成 → 剪辑后期 → 账号运营 → 自动化量产 → AI 编程与产品开发」全链路，共同支撑小组的视频创作与技术实践。</p>
                 </div>
 
             </div>
         </div>
 
-        <!-- 五、社群资源 -->
-        <div class="section" data-page-node-id="5GfcOjf5HEcvmRsEXhDbHA">
-            <div class="section-title" data-page-node-id="q7Crd7Jg77CIXDUdAfbGlS">
-                <div class="num" data-page-node-id="MT52MAFw8fDnfRP0uVffVA">五</div>
-                <h2 data-page-node-id="HJ7WpQFJmYbIdFbPspFtP5">社群福利资源（字节跳动·火山引擎）</h2>
+        <!-- 五、福利资源 -->
+        <div class="section">
+            <div class="section-title">
+                <div class="num">五</div>
+                <h2>福利资源（字节跳动 · 火山引擎）</h2>
             </div>
-            <div class="section-content" data-page-node-id="2WE60GIQSZJBqFOnEDbutG">
-                <p data-page-node-id="mscR7fFENf5G4L56PpOOTC">本社群对接字节跳动火山引擎校园生态，为入群学生提供以下三类增值资源（<strong data-page-node-id="YQs9ETHKInGddoDBEnYA9D">自愿使用，不强制</strong>）：</p>
+            <div class="section-content">
+                <p>本小组对接字节跳动火山引擎校园生态，为成员提供以下增值资源（<strong>自愿使用，不强制</strong>）：</p>
 
-                <div class="resource-grid" data-page-node-id="n1qKYYTQwjOhxQkXB0CfUx">
-                    <div class="resource-card" data-page-node-id="8A096usErPCkaytw6C72oI">
-                        <div class="icon icon-compute" data-page-node-id="ZW4MgKMZAmawewfMtxg3ZW">☁️</div>
-                        <h3 data-page-node-id="IIQHvfvGaF4bWbGBFIGXJD">算力资源扶持</h3>
-                        <p data-page-node-id="OKFRaBhvHA9tdGmHISBdLa">群内成员可申请字节官方专属算力额度，用于AI绘图、模型调试、课程作业、科创竞赛，解决个人电脑硬件不足的问题。</p>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="icon icon-compute">☁️</div>
+                        <h3>算力资源扶持</h3>
+                        <p>可申请字节官方专属算力额度，用于 AI 视频/图片生成、模型调试、课程作业与科创竞赛，解决个人电脑硬件不足的问题。</p>
                     </div>
-                    <div class="resource-card" data-page-node-id="vMJsmGuZYUiVHEGypwGlTU">
-                        <div class="icon icon-tech" data-page-node-id="8WaUGc6b2qy1exXFhVaY5t">💡</div>
-                        <h3 data-page-node-id="qAnLxGdZupIQ9g1ZbPLc5I">专业技术赋能</h3>
-                        <p data-page-node-id="XrzCLQHwCmq4VeHNYCWATE">字节一线技术团队定期开展线上交流与干货分享，从项目搭建到技术难点全程指导，助力项目落地。</p>
+                    <div class="resource-card">
+                        <div class="icon icon-tech">💡</div>
+                        <h3>专业技术赋能</h3>
+                        <p>字节一线技术团队定期开展线上交流与干货分享，从工作流搭建到技术难点全程指导，助力项目落地。</p>
                     </div>
-                    <div class="resource-card" data-page-node-id="0BdqhKL8XWpqO43axnmElq">
-                        <div class="icon icon-job" data-page-node-id="4GkprzifZ6VuTp8rrSQfLk">🚀</div>
-                        <h3 data-page-node-id="rWDBOAG5BRlH860EzqEgeU">实习就业通道</h3>
-                        <p data-page-node-id="o2GdiwwX0HnavQ4RDukeeZ">积极参与社群活动、完成科创项目的优秀同学，将优先获得字节生态官方校招/实习内推名额。</p>
+                    <div class="resource-card">
+                        <div class="icon icon-job">🚀</div>
+                        <h3>实习就业通道</h3>
+                        <p>积极参与小组活动、完成视频或开发项目的优秀同学，将优先获得字节生态官方校招 / 实习内推名额。</p>
                     </div>
                 </div>
 
-                <p style="margin-top: 18px; padding: 14px; background: #fffbeb; border-radius: 10px; font-size: 13px; color: #92400e;" data-page-node-id="qSb2dEJuqjdFku7Y7ImgMD">
-                    <strong data-page-node-id="hiXjj2k8aT8tsWvv5GQ9yH">⚠️ 说明：</strong>以上资源均为附加福利，不作为参与社群活动的硬性条件。仅日常交流AI工具使用的同学可完整参与全部活动。
+                <p style="margin-top: 18px; padding: 14px; background: #fffbeb; border-radius: 10px; font-size: 13px; color: #92400e;">
+                    <strong>⚠️ 说明：</strong>以上资源均为附加福利，不作为参与小组活动的硬性条件。所有日常交流、教程与共创活动均可免费完整参与。
                 </p>
             </div>
         </div>
@@ -1056,42 +1323,42 @@
                 <h2>我们的活动</h2>
             </div>
             <div class="section-content">
-                <p><strong>核心宗旨：</strong>面向全体AI使用者，零门槛加入，鼓励互帮互学、自主分享。</p>
+                <p><strong>核心宗旨：</strong>作品导向、以战带练，围绕 AIGC 视频与 AI 编程持续实战，零门槛加入，鼓励互帮互学。</p>
 
                 <div class="plan-steps">
                     <div class="plan-step">
                         <div class="step-num">1</div>
                         <div class="step-content">
-                            <h4>技术交流 · 资源共享</h4>
-                            <p>AI 工具、编程技术日常交流，共享提示词模板、避坑指南、学习资料与教程；分层交流机制兼顾普通用户与技术进阶需求。</p>
+                            <h4>🎬 AIGC 视频共创营</h4>
+                            <p>小组的招牌活动。组队创作 AI 短剧 / 动态漫 / 创意短片，从剧本、分镜、AI 生成到剪辑成片全流程实战，作品可直接投奖、投流。</p>
                         </div>
                     </div>
                     <div class="plan-step">
                         <div class="step-num">2</div>
                         <div class="step-content">
-                            <h4>赛事组队 · 备赛帮扶</h4>
-                            <p>对接科创 / AIGC 赛事信息，提供组队渠道、资料共享与全程备赛帮扶，让有想法的同学不再孤军奋战。</p>
+                            <h4>💻 Vibe Coding 实战营</h4>
+                            <p>跟着教程和实战任务，用 AI 编程工具做网页、小工具和智能体，每期产出可上线作品，零基础友好。</p>
                         </div>
                     </div>
                     <div class="plan-step">
                         <div class="step-num">3</div>
                         <div class="step-content">
-                            <h4>线下沙龙 · 分享会</h4>
-                            <p>定期举办主题沙龙与分享会，<strong>大众普及场</strong>覆盖 AI 写作、PPT、短视频、外语学习等；<strong>技术进阶场</strong>覆盖 AI 项目搭建、代码开发、算力实操、竞赛备赛。鼓励同学上台分享。</p>
+                            <h4>⚡ 工作流拆解与搭建</h4>
+                            <p>分享并手把手搭建 ComfyUI、扣子、Agent 自动化工作流，沉淀可复用模板，把视频与内容生产做成流水线。</p>
                         </div>
                     </div>
                     <div class="plan-step">
                         <div class="step-num">4</div>
                         <div class="step-content">
-                            <h4>简历 · 实习 · 内推</h4>
-                            <p>常态化开展简历与实习经验交流，对接字节跳动·火山引擎校园生态的实习 / 校招内推通道，优秀同学可获得官方内推资格。</p>
+                            <h4>🧠 算法刷题 · 编程基础</h4>
+                            <p>常态化刷题互助与编程入门辅导，组织备赛百度之星、码蹄杯等程序设计竞赛，打牢 AI 时代的底层基本功。</p>
                         </div>
                     </div>
                     <div class="plan-step">
                         <div class="step-num">5</div>
                         <div class="step-content">
-                            <h4>项目探讨 · 智能体开发</h4>
-                            <p>自由探讨 AI 项目、智能体开发一切想法；群内长期沉淀分享素材、沙龙课件与实用教程，整套运营方案可承接给后续在校生。</p>
+                            <h4>🏆 赛事组队 · 线下沙龙</h4>
+                            <p>对接 AIGC、黑客松、程序设计类赛事，提供组队渠道与备赛帮扶；定期举办线下沙龙与分享会，鼓励同学上台分享。</p>
                         </div>
                     </div>
                 </div>
@@ -1099,28 +1366,32 @@
         </div>
 
         <!-- 七、群规与氛围 -->
-        <div class="section" data-page-node-id="GGdkM8MBiUqSEZZdrA2jKi">
-            <div class="section-title" data-page-node-id="8fFcKfMXupsydUmBnI034R">
-                <div class="num" data-page-node-id="jsPrj0SJBrdJOgfSF0STVY">七</div>
-                <h2 data-page-node-id="abf8QhvlMQKXKXQEHgLJz4">群规与氛围</h2>
+        <div class="section">
+            <div class="section-title">
+                <div class="num">七</div>
+                <h2>群规与氛围</h2>
             </div>
-            <div class="section-content" data-page-node-id="5rNmKx60MgClcv5ftGaMc3">
-                <div class="rule-list" data-page-node-id="LHND0s3HGle4DlEG1bM6Ev">
-                    <div class="rule-item" data-page-node-id="x3sFEQvlH3nogSeSd78mEw">
-                        <span class="check" data-page-node-id="OJjPHoEXSQTJbJ9f29DVYM">✓</span>
-                        <span data-page-node-id="vJBfUR0KOONDcPqoAqo1Oa"><strong data-page-node-id="hDD9yMuM8VGJVmTKPksc52">人员管理：</strong>仅限本校在校学生加入，校外人员禁止入群</span>
+            <div class="section-content">
+                <div class="rule-list">
+                    <div class="rule-item">
+                        <span class="check">✓</span>
+                        <span><strong>人员管理：</strong>仅限本校在校学生加入，校外人员禁止入群</span>
                     </div>
-                    <div class="rule-item" data-page-node-id="iAGYEewGm0s4QTyBJECpfX">
-                        <span class="check" data-page-node-id="xphjw6nXgDUIGPmMJSyrUI">✓</span>
-                        <span data-page-node-id="FQ6QE3BZ9onh7LVy4sp6im"><strong data-page-node-id="ZSE879jzklGpEne2zAhjaP">发言规范：</strong>仅用于AI学习交流，严禁广告、推销、不实信息；志愿管理员团队共同维护环境</span>
+                    <div class="rule-item">
+                        <span class="check">✓</span>
+                        <span><strong>发言规范：</strong>聚焦 AIGC、AI 编程与计算机技术交流，严禁广告、推销、不实信息</span>
                     </div>
-                    <div class="rule-item" data-page-node-id="tiHdWKCGr7qB7DOSTqnpLn">
-                        <span class="check" data-page-node-id="p6Mi80jRvUic8l05J4a5j9">✓</span>
-                        <span data-page-node-id="mafzzhXFvEfwFRKQACEQFA"><strong data-page-node-id="Rpn8Kg442eNv9nhW8GdrF0">商业管控：</strong>全程无任何收费、带货、付费培训等商业行为</span>
+                    <div class="rule-item">
+                        <span class="check">✓</span>
+                        <span><strong>商业管控：</strong>全程无任何收费、带货、付费培训等商业行为</span>
                     </div>
-                    <div class="rule-item" data-page-node-id="LWKGuAUx2G4yxGnEu6J5f6">
-                        <span class="check" data-page-node-id="D67yAbOFzoQeotHQK7jrIh">✓</span>
-                        <span data-page-node-id="6mhc5sBWpWjyqD6HSjU68I"><strong data-page-node-id="783MexkJmuDAEEgbpPTQmP">内容合规：</strong>常态化科普学术诚信规范，引导大家理性、合规使用AI工具</span>
+                    <div class="rule-item">
+                        <span class="check">✓</span>
+                        <span><strong>内容合规：</strong>科普学术诚信与版权规范，引导大家理性、合规使用 AI 工具与素材</span>
+                    </div>
+                    <div class="rule-item">
+                        <span class="check">✓</span>
+                        <span><strong>鼓励分享：</strong>欢迎晒作品、晒教程、答疑互助，优质分享会被整理进群资料</span>
                     </div>
                 </div>
             </div>
@@ -1134,9 +1405,9 @@
             </div>
             <div class="section-content">
                 <div class="appeal-box">
-                    <p>欢迎全校各专业对 AI 感兴趣的同学加入<strong>校园AI&计算机交流社群</strong>！<br>
-                    无论你是 AI 小白还是进阶玩家，这里都有你的位置。<br>
-                    一起学习、分享、实践，让 AI 为我们的学习和生活提效 🚀<br><br>
+                    <p>欢迎对 <strong>AIGC 视频创作</strong>或 <strong>AI 编程</strong>感兴趣的同学加入 <strong>网络工作室 · AI小组</strong>！<br>
+                    无论你是 AI 小白还是进阶玩家，无论你擅长讲故事、做画面还是写代码，这里都有你的位置。<br>
+                    一起用 AI 做出属于自己的视频和作品 🚀<br><br>
                     <strong>QQ群：926936791</strong></p>
                 </div>
             </div>
@@ -1145,11 +1416,11 @@
         <!-- 签名 -->
         <div class="signature">
             <p>郑州升达经贸管理学院 · 网络工作室 · AI小组</p>
-            <p>QQ群 926936791 · 纯公益 · 无收费</p>
+            <p>QQ群 926936791 · AIGC × Vibe Coding · 纯公益 · 无收费</p>
         </div>
 
-        <div class="footer" data-page-node-id="karLoIs6AxU6I5qV8TszgR">
-            <p data-page-node-id="MOIIsYNTboPjByQRSkOtF7">—— 让热爱发光，让成长发生 ——</p>
+        <div class="footer">
+            <p>—— 让创意成片，让想法上线 ——</p>
         </div>
     </div>
 </body>
