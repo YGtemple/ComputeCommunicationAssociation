@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第5章 实战项目一 —— 个人主页/简历页面 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">第5章 · 实战项目一 —— 个人主页/简历页面 （3/5）</span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter" id="lec-ch5"><div class="lec-body"><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch5-4"><span class="lec-sec-no">5.4</span> 第三步：多轮迭代优化</h3>
+<p>初版生成后，不要期望一次完美。接下来通过多轮对话，逐步优化。每一轮只改一个或几个点，不要一次性提太多需求。</p>
+<h4 class="lec-h4">5.4.1 第二轮：优化整体样式和布局</h4>
+<p>如果初版的整体风格和你预期有差距，先调整大的样式：</p>
+<pre class="lec-code lec-prompt"><code>个人主页初版已经生成了，整体结构不错，但样式需要调整：
+
+1. 主色调从深蓝色改成【你想要的颜色，比如：清新的青绿色 #0d9488】
+2. 首屏区域的高度占满整个视口（100vh），内容垂直居中
+3. 导航栏的毛玻璃效果再明显一些，加个底部阴影
+4. 项目卡片的圆角加大到 16px，阴影更柔和，hover 时上浮 8px 并加阴影
+5. 技能进度条加动画效果：页面滚动到该区域时，进度条从 0 动画增长到目标值
+6. 整体字体加大一号，行高增加到 1.8，阅读更舒适
+7. 各个区块之间的间距加大，增加留白感
+
+只修改样式，不改变 HTML 结构和功能。给出修改后的完整代码。</code></pre>
+<h4 class="lec-h4">5.4.2 第三轮：添加交互动效</h4>
+<p>样式满意后，添加一些交互动效，让页面更有活力：</p>
+<pre class="lec-code lec-prompt"><code>在当前个人主页基础上，添加以下交互动效：
+
+1. 滚动出现动画：页面滚动时，各个区块的内容从下方淡入上移出现（用 Intersection Observer 实现）
+2. 导航栏高亮：滚动到对应区块时，导航栏中对应的链接高亮显示
+3. 打字机效果：首屏的一句话介绍用打字机效果逐字显示
+4. 回到顶部按钮：页面滚动超过一屏时，右下角出现“回到顶部”按钮，点击平滑滚动到顶部
+5. 项目卡片 hover 时，图片有缩放效果（scale 1.05），加过渡动画
+6. 技能进度条动画：之前加过，确认在滚动到该区域时触发
+7. 所有动画加 will-change 和合适的缓动函数，保证流畅
+
+不改变现有布局和内容，只添加动画效果。给出完整代码。</code></pre>
+<h4 class="lec-h4">5.4.3 第四轮：响应式适配</h4>
+<p>电脑端满意后，检查手机端的显示效果，进行适配：</p>
+<pre class="lec-code lec-prompt"><code>检查并优化个人主页的手机端显示效果（宽度小于 768px）：
+
+1. 导航栏：右侧导航链接隐藏，变成汉堡菜单按钮，点击展开/收起菜单（带动画）
+2. 首屏：头像缩小到 120px，姓名和介绍字体缩小，两个按钮上下排列
+3. 关于我：左右布局变成上下布局，图片在文字上方
+4. 技能：进度条宽度 100%，技能名和百分比上下排列
+5. 项目卡片：从一行 3 个变成一行 1 个，卡片宽度 100%
+6. 联系方式：三个联系方式从横向变成纵向排列
+7. 整体内边距减小到 16px，避免内容太挤
+8. 检查所有文字在手机端是否清晰可读，字体不小于 14px
+
+给出修改后的完整代码，重点是 @media 部分的调整。</code></pre>
+<h4 class="lec-h4">5.4.4 第五轮：替换成你自己的内容</h4>
+<p>样式和功能都满意后，把模板内容替换成你自己的真实信息。这一步你可以自己手动改（用搜索替换），也可以让 AI 帮你改：</p>
+<pre class="lec-code lec-prompt"><code>把个人主页中的模板内容替换成我的真实信息：
+
+【基本信息】
+- 姓名：王佳琦
+- 一句话介绍：郑州升达经贸管理学院翻译专业大二学生 | 校园AI&amp;计算机交流社群联合发起人 | AI 工具深度使用者
+- 邮箱：【你的邮箱】
+- GitHub：【你的GitHub链接，如果没有就写“暂无”】
+- 微信：【你的微信号】
+
+【关于我】
+我是王佳琦，郑州升达经贸管理学院翻译专业大二学生。对 AI 工具和编程充满热情，联合发起了校园AI&amp;计算机交流社群，致力于帮助零基础同学入门 AI 和编程。擅长将复杂的技术概念用通俗的语言讲解，相信“人人都能用 AI 创造”。
+
+【教育背景】
+郑州升达经贸管理学院 | 翻译专业 | 2024 - 至今
+
+【技能】（进度条形式）
+1. AI 工具应用 - 90%
+2. 提示词工程 - 85%
+3. Vibe Coding - 80%
+4. 翻译/英语 - 85%
+5. 视频剪辑 - 70%
+6. 社群运营 - 75%
+
+【项目作品】（3个项目卡片）
+1. 校园AI&amp;计算机交流社群：联合发起的校园社群，帮助零基础同学入门AI和编程，目前已有XX名成员。
+2. Vibe Coding 全流程教程：从零开始的 AI 编程教程，配合视频教学，帮助新手快速上手。
+3. 个人主页网站：你正在看的这个网站，用 Vibe Coding 方式制作，纯前端实现。
+
+只替换文字内容，不改变样式和布局。给出修改后的完整代码。</code></pre>
+<p><strong>注意：</strong>上面的信息是示例，请替换成你自己的真实信息。邮箱、微信号等敏感信息可以只写一部分，或者用“联系我获取”代替。如果不想公开某些信息，直接删掉那一项即可。</p>
+<h4 class="lec-h4">5.4.5 第六轮及以后：细节打磨</h4>
+<p>内容替换后，再仔细检查一遍，做最后的细节打磨：</p>
+<ul class="lec-list">
+<li><strong>错别字检查：</strong>通读一遍，有没有错别字、语句不通顺的地方</li>
+<li><strong>链接检查：</strong>所有按钮和链接是否能正常跳转（GitHub、邮箱等）</li>
+<li><strong>图片替换：</strong>把占位图换成你自己的头像和项目截图（可以用图床或本地图片）</li>
+<li><strong>SEO 优化：</strong>修改 title 和 meta description，让搜索引擎能正确收录</li>
+<li><strong>性能检查：</strong>页面加载速度、动画是否流畅</li>
+<li><strong>多浏览器测试：</strong>在 Chrome、Edge、手机浏览器中都打开看看</li>
+</ul>
+<p>发现问题就继续和 AI 对话修改，直到你满意为止。记住：<strong>完成比完美更重要</strong>，先有一个 80 分的版本上线，后面可以慢慢优化。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch5-5"><span class="lec-sec-no">5.5</span> 常见问题与解决方案</h3>
+<div class="lec-faq">
+<details class="lec-faq-item" open="">
+<summary>问题1：AI 生成的代码太长，被截断了</summary>
+<div class="lec-faq-ans"><p><strong>解决方案：</strong>输入“继续”或“接着写”，AI 会从截断的地方继续写。如果多次截断，可以让 AI“分文件生成”——先生成 HTML 结构，再生成 CSS，最后生成 JS。</p></div>
+</details>
+<details class="lec-faq-item">
+<summary>问题2：页面打开是空白的，什么都不显示</summary>
+<div class="lec-faq-ans"><p><strong>解决方案：</strong>按 F12 打开开发者工具，看 Console 面板有没有红色报错。常见原因：JS 语法错误导致页面渲染中断、CSS 选择器错误、HTML 标签没有闭合。把报错信息复制给 AI，让它修复。</p></div>
+</details>
+<details class="lec-faq-item">
+<summary>问题3：导航栏点击不滚动，或者滚动位置不对</summary>
+<div class="lec-faq-ans"><p><strong>解决方案：</strong>检查导航链接的 href 是否和对应区块的 id 一致（比如 href="#about" 对应 id="about"）。检查 CSS 中是否有 scroll-behavior: smooth。如果滚动位置被固定导航栏挡住，给每个区块加 scroll-margin-top。</p></div>
+</details>
+<details class="lec-faq-item">
+<summary>问题4：手机端布局乱了，元素重叠或溢出</summary>
+<div class="lec-faq-ans"><p><strong>解决方案：</strong>检查 @media 媒体查询是否正确生效。常见原因：元素设置了固定宽度（如 width: 800px）导致手机端溢出，改成 max-width: 100%。用 Flexbox 的 flex-wrap: wrap 让元素自动换行。</p></div>
+</details>
+<details class="lec-faq-item">
+<summary>问题5：动画不流畅，有卡顿感</summary>
+<div class="lec-faq-ans"><p><strong>解决方案：</strong>动画属性用 transform 和 opacity（浏览器优化过），不要用 width/height/top/left 等（会触发重排）。给动画加 will-change 属性。减少同时触发的动画数量。</p></div>
+</details>
+<details class="lec-faq-item">
+<summary>问题6：AI 改着改着把之前的功能改没了</summary>
+<div class="lec-faq-ans"><p><strong>解决方案：</strong>每一轮修改前，让 AI“先总结当前已实现的功能列表”，然后明确说“在保持现有所有功能的基础上，只修改XXX”。如果改坏了，用 Trae 的“时间线”功能回退到之前的版本。</p></div>
+</details>
+<details class="lec-faq-item">
+<summary>问题7：头像和项目图片怎么换成自己的？</summary>
+<div class="lec-faq-ans"><p><strong>解决方案：</strong>1. 准备好你的头像图片（建议正方形，200x200 以上）2. 把图片放到和 index.html 同一个文件夹里，命名为 avatar.jpg3. 把代码中的图片地址从占位图改成<code class="lec-inl-code">src="avatar.jpg"</code>4. 项目截图同理，命名为 project1.jpg 等，替换对应地址5. 如果要部署到网上，图片需要一起上传，或者用图床服务（如 SM.MS、Imgur）获取在线链接</p></div>
+</details>
+<details class="lec-faq-item">
+<summary>问题8：页面在不同电脑上字体显示不一样</summary>
+<div class="lec-faq-ans"><p><strong>解决方案：</strong>这是正常的，因为不同电脑安装的字体不同。可以在 CSS 中指定字体栈：<code class="lec-inl-code">font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;</code>，这样会优先使用系统默认的好看字体。如果一定要用特定字体，需要用 @font-face 引入字体文件（会增加页面加载时间）。</p></div>
+</details>
+</div>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch5-6"><span class="lec-sec-no">5.6</span> 个人主页制作检查清单</h3>
+<p>在宣布“完成”之前，对照这个清单逐项检查：</p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>检查项</th><th>是否完成</th></tr></thead>
+<tbody>
+<tr><td>页面包含所有规划的区块（导航、首屏、关于、技能、项目、联系、页脚）</td><td>☐</td></tr>
+<tr><td>所有文字内容已替换成自己的真实信息</td><td>☐</td></tr>
+<tr><td>没有错别字和语句不通顺的地方</td><td>☐</td></tr>
+<tr><td>导航栏点击能平滑滚动到对应区域</td><td>☐</td></tr>
+<tr><td>所有链接和按钮能正常跳转/有反应</td><td>☐</td></tr>
+<tr><td>头像和项目图片已替换（或用合适的占位图）</td><td>☐</td></tr>
+<tr><td>电脑端显示正常，布局美观</td><td>☐</td></tr>
+<tr><td>手机端显示正常，响应式适配良好</td><td>☐</td></tr>
+<tr><td>动画流畅，没有卡顿</td><td>☐</td></tr>
+<tr><td>浏览器控制台没有红色报错</td><td>☐</td></tr>
+<tr><td>页面 title 和 meta 描述已设置</td><td>☐</td></tr>
+<tr><td>代码中有基本的中文注释，方便后续修改</td><td>☐</td></tr>
+</tbody>
+</table>
+</div>
+</section><aside class="lec-callout lec-summary"><div class="lec-co-title">✅ 本章小结</div><div class="lec-co-body">
+<p><strong>本章关键点：</strong></p>
+<ol class="lec-steps">
+<li><strong>先想清楚再动手：</strong>动手前花 5 分钟规划页面结构、设计风格、准备个人信息。需求越清晰，AI 生成越精准。</li>
+<li><strong>第一轮用 CRCO 框架写提示词：</strong>上下文 + 需求（分点）+ 约束（技术栈、文件结构、设计风格）+ 输出要求。一次生成完整初版。</li>
+<li><strong>多轮迭代，每轮只改几个点：</strong>第二轮优化样式 → 第三轮加动效 → 第四轮响应式 → 第五轮替换内容 → 第六轮细节打磨。不要一次性提太多需求。</li>
+<li><strong>完成比完美更重要：</strong>先做出 80 分的版本，后面可以慢慢优化。不要在细节上死磕导致项目做不完。</li>
+<li><strong>学会用检查清单：</strong>完成后对照检查清单逐项验证，确保没有遗漏和 bug。</li>
+<li><strong>常见问题要会排查：</strong>白屏看 Console、导航不滚动检查 id 和 href、手机端乱检查媒体查询和固定宽度、动画卡用 transform/opacity。</li>
+<li><strong>你的个人主页是你最好的名片：</strong>做好后部署上线（第8章教），链接可以放在简历、社交媒体、邮件签名里，让别人一眼看到你的能力。</li>
+</ol>
+</div></aside><p>下一章，我们将进入<strong>第七篇 实战篇（二）</strong>，做第二个实战项目——待办清单/日程助手。这个项目比个人主页更有“交互感”，会用到更多 JavaScript 逻辑（添加、删除、完成、筛选、本地存储），是锻炼 Vibe Coding 逻辑思维的好项目。</p><section class="lec-sec" id="lec-ch5-8"><h3 class="lec-h3"><span class="lec-sec-no">5.8</span> 拓展阅读：AI 办公效率工具全攻略——不只是写代码，AI 还能帮你搞定 PPT/PDF/文档/表格</h3><aside class="lec-callout lec-note"><div class="lec-co-title">📌 补充</div><div class="lec-co-body">
+<p><strong>本节为拓展阅读内容：</strong>本节介绍 AI 办公效率工具（PPT、PDF、文档、表格、思维导图、设计、会议等），与个人主页项目无直接关系。如果你当前的目标是完成个人主页项目，可以先跳过本节，后续需要时再回来学习。如果你想全面提升 AI 时代的学习和工作效率，建议认真阅读。</p>
+</div></aside><p><strong>为什么要学 AI 办公工具？</strong>本课程的主线是 Vibe Coding（用 AI 写代码做项目），但作为学生，你日常遇到的大量任务不是写代码，而是<strong>做 PPT、读 PDF、写报告、做表格、整理资料</strong>。这些任务用 AI 工具可以效率提升 5-10 倍。</p><p>这一节我们不讲编程，专门讲<strong>如何用 AI 搞定日常办公和学习任务</strong>。覆盖 7 大场景，每个场景都有工具推荐、操作步骤、提示词示例和避坑指南。</p><h4 class="lec-h4">5.8.1 AI 办公工具全景图——7 大场景速览</h4><div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>场景</th><th>你要做的事</th><th>推荐工具（免费优先）</th><th>效率提升</th></tr></thead>
+<tbody>
+<tr><td><strong>📊 PPT 生成</strong></td><td>做课堂汇报、答辩、工作总结、路演</td><td>WPS AI（首选）、Gamma、讯飞智文、Trae Work</td><td>从 4 小时 → 20 分钟</td></tr>
+<tr><td><strong>📄 PDF 处理</strong></td><td>读论文、看合同、总结报告、文档问答</td><td>豆包（首选）、Kimi、ChatPDF、WPS AI</td><td>从 2 小时 → 5 分钟</td></tr>
+<tr><td><strong>📝 文档/文章</strong></td><td>写报告、写论文、写文案、润色扩写</td><td>豆包（首选）、Kimi、WPS AI、通义千问</td><td>从 3 小时 → 30 分钟</td></tr>
+<tr><td><strong>📈 表格/数据</strong></td><td>做 Excel、数据分析、公式生成、图表制作</td><td>ChatExcel（首选）、WPS AI、Trae Work、通义千问</td><td>从 2 小时 → 10 分钟</td></tr>
+<tr><td><strong>🧠 思维导图</strong></td><td>整理笔记、梳理思路、备课、做大纲</td><td>MindShow（首选）、豆包、XMind AI、幕布</td><td>从 1 小时 → 5 分钟</td></tr>
+<tr><td><strong>🎨 设计/图片</strong></td><td>做海报、做封面、配图、修图</td><td>Canva 可画（首选）、稿定设计、美图设计室</td><td>从 2 小时 → 15 分钟</td></tr>
+<tr><td><strong>🎙️ 会议/语音</strong></td><td>会议纪要、听课记录、语音转文字、总结</td><td>通义听悟（首选）、讯飞听见、飞书妙记</td><td>从 1 小时整理 → 5 分钟</td></tr>
+</tbody>
+</table>
+</div><p><strong>学生党最优组合（全部免费或有 generous 免费额度）：</strong></p><p>PPT → WPS AI | PDF → 豆包 | 文档 → 豆包 + Kimi | 表格 → ChatExcel + WPS AI | 思维导图 → MindShow + 豆包 | 设计 → Canva | 会议 → 通义听悟</p><p>这 7 个工具搞定你 95% 的日常办公和学习任务，全部国内直连、中文友好，且都有 generous 的免费额度（注意：WPS AI 免费用户每日3次，ChatExcel 每日数十次，Kimi 高级功能每月限额，签到可领额外积分）。</p><h4 class="lec-h4">5.8.2 场景一：AI 生成 PPT——从 4 小时到 20 分钟</h4><p><strong>推荐工具对比</strong></p></section></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-ch5-2.html">← 上一页</a>
+    <span class="pager-info">第 3 页，共 5 页</span>
+    <a class="pager-btn" href="lec-ch5-4.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>
