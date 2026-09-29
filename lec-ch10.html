@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第10章 课程总结与资源汇总 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">第10章 · 课程总结与资源汇总 </span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter" id="lec-ch10"><header class="lec-ch-head">
+<span class="lec-ch-badge">第10章</span>
+<h2 class="lec-ch-title">课程总结与资源汇总</h2>
+<p class="lec-ch-sub">第十一篇 · 资源汇总篇</p>
+</header><div class="lec-body"><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch10-1"><span class="lec-sec-no">10.1</span> 你已经学会了什么</h3>
+<p>恭喜你学完了整个课程！回顾一下，从零基础到现在，你已经掌握了：</p>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>篇章</th><th>核心能力</th></tr></thead>
+<tbody>
+<tr><td>认知篇</td><td>理解 Vibe Coding 的本质、核心工作流程、适用场景和边界</td></tr>
+<tr><td>工具篇</td><td>熟练使用 Trae、豆包、DeepSeek 等 AI 编程工具，知道不同场景用什么工具</td></tr>
+<tr><td>提示词工程篇</td><td>掌握 CRCO 框架，能写出清晰、具体、有结构的提示词，有大量模板和正反例参考</td></tr>
+<tr><td>基础篇</td><td>能看懂 HTML/CSS/JS 代码，知道每部分在干什么，出问题能大概定位，能用术语和 AI 沟通</td></tr>
+<tr><td>实战一</td><td>独立完成个人主页/简历网站，从需求梳理到多轮迭代到内容替换</td></tr>
+<tr><td>实战二</td><td>独立完成待办清单/日程助手，掌握交互密集型应用的开发方法</td></tr>
+<tr><td>调试篇</td><td>掌握调试七步流程，能读取报错信息，排查六大常见问题，会用 console.log 和二分法</td></tr>
+<tr><td>部署篇</td><td>能用 Netlify 拖拽和 GitHub Pages 两种方式免费部署网站，让作品被全世界看到</td></tr>
+<tr><td>进阶篇</td><td>了解项目规则文件、多模型组合、上下文管理、Git 版本控制、代码审查、安全注意事项</td></tr>
+</tbody>
+</table>
+</div>
+<p>更重要的是，你掌握了一种<strong>用 AI 解决问题的思维方式</strong>——遇到需求先拆解、用清晰的语言描述给 AI、迭代优化、出问题会排查。这种能力可以迁移到任何领域，不仅仅是编程。</p>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch10-2"><span class="lec-sec-no">10.2</span> 提示词模板库（速查）</h3>
+<p>以下是课程中所有提示词模板的汇总，方便你快速查找使用。</p>
+<h4 class="lec-h4">10.2.1 从零生成新项目</h4>
+<pre class="lec-code lec-prompt"><code>帮我创建一个【项目名称】。
+
+【上下文】
+- 我的编程水平：【零基础/有一点基础】
+- 项目用途：【给谁用、解决什么问题】
+
+【功能需求】
+1. 【功能1，具体描述】
+2. 【功能2，具体描述】
+...
+
+【约束】
+1. 技术栈：纯 HTML/CSS/JS，不使用框架
+2. 单文件，CSS 在 style 标签，JS 在 script 标签
+3. 设计风格：【简洁现代/渐变活力等】，主色调【颜色】
+4. 响应式设计
+5. 代码加中文注释
+
+【输出】
+1. 实现思路
+2. 完整代码
+3. 运行说明</code></pre>
+<h4 class="lec-h4">10.2.2 修改现有代码</h4>
+<pre class="lec-code lec-prompt"><code>在现有代码基础上修改：
+
+【修改需求】
+1. 【改什么、改成什么样】
+2. ...
+
+【约束】
+- 保持现有所有功能不变
+- 只修改【XX部分】
+
+【输出】
+1. 做了哪些修改
+2. 修改后的完整代码
+3. 标注新增部分</code></pre>
+<h4 class="lec-h4">10.2.3 添加新功能</h4>
+<pre class="lec-code lec-prompt"><code>添加【新功能名称】功能：
+
+1. 触发方式：【用户做什么操作】
+2. 功能逻辑：【具体做什么】
+3. 界面变化：【加什么UI元素】
+4. 数据处理：【涉及什么数据】
+5. 边界情况：【空输入/异常怎么处理】
+
+保持现有功能不变，给出完整代码。</code></pre>
+<h4 class="lec-h4">10.2.4 调试报错</h4>
+<pre class="lec-code lec-prompt"><code>代码运行报错：
+
+【环境】浏览器/操作系统
+
+【现象】
+- 操作：【做了什么】
+- 期望：【应该怎样】
+- 实际：【实际怎样】
+
+【报错信息】
+【完整复制控制台红色报错】
+
+【相关代码】
+【粘贴代码】
+
+【最近修改】
+【改了什么】
+
+请：1. 分析原因 2. 定位问题 3. 给出修复代码 4. 说明如何避免</code></pre>
+<h4 class="lec-h4">10.2.5 代码审查</h4>
+<pre class="lec-code lec-prompt"><code>以资深工程师视角审查代码：
+
+审查维度：功能正确性、安全性、性能、代码质量、可维护性
+
+每个问题按以下格式：
+【等级：🔴严重/🟡中等/🟢轻微】
+- 问题：
+- 位置：
+- 修复建议：
+- 修复代码：
+
+最后：总体评价 + 3个最重要改进建议
+
+代码：【粘贴】</code></pre>
+<h4 class="lec-h4">10.2.6 解释学习</h4>
+<pre class="lec-code lec-prompt"><code>解释下面的【代码/概念】，我是零基础：
+
+1. 一句话说明整体
+2. 逐行/逐段解释
+3. 专业术语用通俗比喻
+4. 举生活化例子
+5. 给2-3个练习题巩固
+
+内容：【粘贴】</code></pre>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch10-3"><span class="lec-sec-no">10.3</span> 工具资源汇总</h3>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>类别</th><th>工具</th><th>网址</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>AI 编程 IDE</td><td>Trae</td><td><a href="https://www.trae.cn" rel="noopener" target="_blank">https://www.trae.cn</a></td><td>字节出品，课程主力，国内版免费</td></tr>
+<tr><td></td><td>WorkBuddy</td><td><a href="https://codebuddy.tencent.com" rel="noopener" target="_blank">https://codebuddy.tencent.com</a></td><td>腾讯出品，备选</td></tr>
+<tr><td></td><td>Cursor</td><td><a href="https://cursor.com" rel="noopener" target="_blank">https://cursor.com</a></td><td>国际知名 AI IDE，有免费额度</td></tr>
+<tr><td>AI 对话工具</td><td>豆包</td><td><a href="https://www.doubao.com" rel="noopener" target="_blank">https://www.doubao.com</a></td><td>字节出品，中文好，免费</td></tr>
+<tr><td></td><td>DeepSeek</td><td><a href="https://chat.deepseek.com" rel="noopener" target="_blank">https://chat.deepseek.com</a></td><td>代码能力强，免费，R1推理模型</td></tr>
+<tr><td></td><td>ChatGPT</td><td><a href="https://chat.openai.com" rel="noopener" target="_blank">https://chat.openai.com</a></td><td>OpenAI，综合能力强，需网络</td></tr>
+<tr><td></td><td>Grok</td><td><a href="https://grok.com" rel="noopener" target="_blank">https://grok.com</a></td><td>xAI，实时信息，需网络</td></tr>
+<tr><td>部署平台</td><td>Netlify</td><td><a href="https://www.netlify.com" rel="noopener" target="_blank">https://www.netlify.com</a></td><td>拖拽部署，最简单，免费</td></tr>
+<tr><td></td><td>GitHub Pages</td><td><a href="https://pages.github.com" rel="noopener" target="_blank">https://pages.github.com</a></td><td>和代码管理结合，免费</td></tr>
+<tr><td>代码托管</td><td>GitHub</td><td><a href="https://github.com" rel="noopener" target="_blank">https://github.com</a></td><td>全球最大代码托管平台</td></tr>
+<tr><td>版本控制</td><td>Git</td><td><a href="https://git-scm.com" rel="noopener" target="_blank">https://git-scm.com</a></td><td>下载和官方文档</td></tr>
+</tbody>
+</table>
+</div>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch10-4"><span class="lec-sec-no">10.4</span> 学习资源汇总</h3>
+<div class="lec-table-wrap">
+<table class="lec-table">
+<thead><tr><th>类别</th><th>资源</th><th>网址</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>前端基础</td><td>MDN Web Docs</td><td><a href="https://developer.mozilla.org/zh-CN/" rel="noopener" target="_blank">https://developer.mozilla.org/zh-CN/</a></td><td>最权威的前端文档，有中文版</td></tr>
+<tr><td></td><td>freeCodeCamp</td><td><a href="https://www.freecodecamp.org" rel="noopener" target="_blank">https://www.freecodecamp.org</a></td><td>免费编程学习平台，互动式练习</td></tr>
+<tr><td></td><td>菜鸟教程</td><td><a href="https://www.runoob.com" rel="noopener" target="_blank">https://www.runoob.com</a></td><td>中文入门教程，适合零基础</td></tr>
+<tr><td>CSS 学习</td><td>Flexbox Froggy</td><td><a href="https://flexboxfroggy.com/#zh-cn" rel="noopener" target="_blank">https://flexboxfroggy.com/#zh-cn</a></td><td>游戏学 Flexbox，有趣又有效</td></tr>
+<tr><td></td><td>CSS Tricks</td><td><a href="https://css-tricks.com" rel="noopener" target="_blank">https://css-tricks.com</a></td><td>CSS 技巧文章大全</td></tr>
+<tr><td>Git 学习</td><td>廖雪峰 Git 教程</td><td><a href="https://www.liaoxuefeng.com/wiki/896043488029600" rel="noopener" target="_blank">https://www.liaoxuefeng.com/wiki/896043488029600</a></td><td>中文 Git 入门经典</td></tr>
+<tr><td></td><td>Pro Git（中文版）</td><td><a href="https://git-scm.com/book/zh/v2" rel="noopener" target="_blank">https://git-scm.com/book/zh/v2</a></td><td>Git 官方书籍，深入学习</td></tr>
+<tr><td>Vibe Coding</td><td>Trae 官方文档</td><td><a href="https://docs.trae.cn" rel="noopener" target="_blank">https://docs.trae.cn</a></td><td>Trae 使用指南和最佳实践</td></tr>
+<tr><td></td><td>GitHub 开源教程</td><td>搜索 "vibe coding tutorial"</td><td>社区分享的 Vibe Coding 教程和经验</td></tr>
+<tr><td>设计灵感</td><td>个人主页参考</td><td><a href="https://lzwjava.com/" rel="noopener" target="_blank">https://lzwjava.com/</a></td><td>课程参考的个人主页风格</td></tr>
+</tbody>
+</table>
+</div>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch10-5"><span class="lec-sec-no">10.5</span> 常见问题 FAQ</h3>
+<div class="lec-faq">
+<details class="lec-faq-item" open="">
+<summary>Q1：我完全零基础，真的能学会吗？</summary>
+<div class="lec-faq-ans"><strong>A：</strong>完全可以。本课程就是为零基础设计的。Vibe Coding 不需要你手写代码，只需要你会用中文描述需求。跟着课程一步步做，两个项目都能做出来。关键是动手做，不要只看不动。</div>
+</details>
+<details class="lec-faq-item">
+<summary>Q2：AI 生成的代码我看不懂，怎么办？</summary>
+<div class="lec-faq-ans"><strong>A：</strong>正常的，刚开始都看不懂。第4章教了你前端基础，能看懂大概就够了。看不懂的部分，直接复制给 AI 让它解释（用 10.2.6 的解释学习模板）。用多了，慢慢就懂了。不需要一开始就全懂。</div>
+</details>
+<details class="lec-faq-item">
+<summary>Q3：AI 改着改着把项目改坏了，怎么办？</summary>
+<div class="lec-faq-ans"><strong>A：</strong>用 Git 版本控制（第9.5节），每完成一个功能提交一次，改坏了 git reset 回退。或者手动备份重要版本。另外，每轮修改只让 AI 改一个点，不要一次性提太多需求，降低改坏概率。</div>
+</details>
+<details class="lec-faq-item">
+<summary>Q4：做项目时卡住了，AI 也解决不了，怎么办？</summary>
+<div class="lec-faq-ans"><strong>A：</strong>几个方法：(1) 换个 AI 模型试试（DeepSeek、GPT 等）；(2) 把问题拆小，先解决一部分；(3) 搜索错误信息，看网上有没有人遇到过；(4) 在社群里提问（QQ群 926936791），同学和学长学姐会帮你；(5) 暂时跳过这个功能，先做其他的，回头再解决。</div>
+</details>
+<details class="lec-faq-item">
+<summary>Q5：Vibe Coding 做出来的项目能写进简历吗？</summary>
+<div class="lec-faq-ans"><strong>A：</strong>当然可以！而且非常推荐。部署上线的项目链接放在简历里，面试时直接打开展示，比说"我学过XX"有说服力 100 倍。重点是你能讲清楚项目的功能、你遇到的问题、怎么解决的。面试官更看重你的问题解决能力，而不是是不是纯手写代码。</div>
+</details>
+<details class="lec-faq-item">
+<summary>Q6：学完这个课程，我能找编程相关的工作吗？</summary>
+<div class="lec-faq-ans"><strong>A：</strong>本课程是入门课程，学完能做个人项目，但距离找前端开发工作还有差距。但这是一个很好的起点——你已经掌握了 AI 时代最重要的能力（用 AI 高效解决问题）。继续深入学习前端基础、做更多项目、学习框架和工程化，结合 Vibe Coding 的高效率，你会比传统学习者进步更快。</div>
+</details>
+<details class="lec-faq-item">
+<summary>Q7：AI 越来越强，学编程还有意义吗？</summary>
+<div class="lec-faq-ans"><strong>A：</strong>有意义，但学习方式变了。以前是"学语法→练手写→做项目"，现在是"做项目→AI写代码→你审查和迭代→遇到不懂的再学"。AI 不会替代会用 AI 的人，只会替代不会用 AI 的人。懂代码的人用 AI，效率是不懂的人的 10 倍。你不需要成为算法专家，但需要能看懂代码、判断质量、和 AI 有效沟通。</div>
+</details>
+<details class="lec-faq-item">
+<summary>Q8：课程里的两个项目做完了，接下来做什么？</summary>
+<div class="lec-faq-ans"><strong>A：</strong>继续做更多项目！推荐练手项目：个人博客、计算器、天气应用（调用API）、记事本、番茄钟、井字棋小游戏、记账本、天气应用、音乐播放器（简单版）。每个项目都会让你学到新东西。也可以尝试给已有的项目加功能（比如给待办清单加日历视图、给个人主页加博客列表）。</div>
+</details>
+</div>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch10-6"><span class="lec-sec-no">10.6</span> 社群与交流</h3>
+<p><strong>校园AI&amp;计算机交流社群</strong></p>
+<p>一个人学容易卡住，一群人学进步更快。加入我们的社群，和志同道合的同学一起学习、交流、互相帮助。</p>
+<ul class="lec-list">
+<li><strong>QQ群：</strong>926936791</li>
+<li><strong>社群定位：</strong>帮助零基础同学入门 AI 和编程，分享 Vibe Coding 经验和项目作品</li>
+<li><strong>你可以在群里：</strong>提问求助、分享作品、交流提示词技巧、组队做项目、认识志同道合的朋友</li>
+<li><strong>也欢迎你学会后帮助其他新手：</strong>教是最好的学。帮别人解答问题的过程，你自己的理解也会更深刻。</li>
+</ul>
+</section><section class="lec-sec">
+<h3 class="lec-h3" id="lec-ch10-7"><span class="lec-sec-no">10.7</span> 写在最后</h3>
+<p>恭喜你完成了整个 Vibe Coding 全流程教程！</p>
+<p>回想一下，课程开始时，你可能对"用 AI 写代码"还感到陌生和不确定。而现在，你已经能独立做出个人主页和待办清单，能部署上线，能调试排错，能和 AI 高效协作。这是一个了不起的进步。</p>
+<p>但这不是终点，而是一个新的起点。AI 技术正在飞速发展，新的工具、新的能力不断涌现。保持好奇心，持续学习，多做项目，你会在 AI 时代获得远超常人的创造力和效率。</p>
+<p>记住几个核心理念：</p>
+<ul class="lec-list">
+<li><strong>完成比完美更重要：</strong>先做出来，再慢慢优化。不要在细节上死磕导致项目做不完。</li>
+<li><strong>动手比看更重要：</strong>看 10 遍教程不如亲手做 1 遍。做项目中遇到的问题，才是你真正学到的东西。</li>
+<li><strong>AI 是副驾驶，你是机长：</strong>AI 帮你干体力活，但方向、质量、决策由你把控。不要盲目相信 AI，要审查、要验证、要有自己的判断。</li>
+<li><strong>教是最好的学：</strong>学会了就分享给别人，帮别人解答问题。在教的过程中，你自己的理解会更深刻。</li>
+<li><strong>保持好奇，持续探索：</strong>AI 时代变化很快，今天的最佳实践明天可能就过时了。保持学习的心态，拥抱变化。</li>
+</ul>
+<p>最后，把你做的项目部署上线，把链接分享给朋友、同学、社群。看到别人访问和点赞你的作品，那种成就感会激励你继续前行。</p>
+<p>祝你在 Vibe Coding 的世界里，创造出更多有趣、有用的作品！</p>
+<p><strong>—— 校园AI&amp;计算机交流社群 出品</strong></p>
+<p><strong>QQ群：926936791</strong></p>
+</section></div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-ch9.html">← 上一页</a>
+    <span class="pager-info">讲义正文</span>
+    <span class="pager-btn disabled">下一页 →</span>
+  </nav>
+</div>
+</body>
+</html>

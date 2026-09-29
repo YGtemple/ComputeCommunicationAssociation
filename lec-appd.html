@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>附录D 附录D 调试常见错误排查速查表 · Vibe Coding 教程</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body">
+<div class="subpage-bar">
+  <a class="sp-home" href="index.html#lecture">📚 讲义目录</a>
+  <span class="sp-crumb">附录D · 附录D 调试常见错误排查速查表 </span>
+</div>
+<div class="container subpage-container">
+<article class="lec-chapter lec-appendix" id="lec-appd"><header class="lec-ch-head">
+<span class="lec-ch-badge">附录D</span>
+<h2 class="lec-ch-title">附录D 调试常见错误排查速查表</h2>
+</header><div class="lec-body">
+<ul class="lec-list">
+<li><strong>错误1：一看到报错就慌，直接把整个项目删了重做</strong><br/><strong>正确做法：</strong>报错是正常的，先读报错信息，按七步流程排查。删了重做只会浪费时间，而且同样的问题可能还会出现。</li>
+<li><strong>错误2：只告诉 AI"报错了"，不给具体信息</strong><br/><strong>正确做法：</strong>把完整的报错信息、相关代码、操作步骤、期望结果都给 AI。信息越全，AI 定位越快。</li>
+<li><strong>错误3：AI 说修好了就信了，不测试</strong><br/><strong>正确做法：</strong>AI 给出修复方案后，一定要实际测试。刷新页面，操作一遍，看问题是否真的解决了，有没有引入新问题。</li>
+<li><strong>错误4：控制台有黄色警告就以为是错误</strong><br/><strong>正确做法：</strong>红色是错误（必须修），黄色是警告（建议关注但不一定影响运行）。先解决红色错误，黄色警告如果不影响功能可以暂时不管。</li>
+<li><strong>错误5：改了代码但没保存，以为没生效</strong><br/><strong>正确做法：</strong>每次改完代码按 <kbd class="lec-kbd">Ctrl</kbd>+<kbd class="lec-kbd">S</kbd> 保存，然后刷新浏览器（<kbd class="lec-kbd">Ctrl</kbd>+<kbd class="lec-kbd">R</kbd>）看效果。如果用了 Live Server，会自动刷新，但也要确认保存了。</li>
+<li><strong>错误6：浏览器缓存了旧代码，改了没反应</strong><br/><strong>正确做法：</strong>按 <kbd class="lec-kbd">Ctrl</kbd>+<kbd class="lec-kbd">Shift</kbd>+<kbd class="lec-kbd">R</kbd> 强制刷新（忽略缓存）。或者在开发者工具打开的情况下，右键刷新按钮选择"清空缓存并硬性重新加载"。</li>
+</ul>
+</div></article>
+  <nav class="subpage-pager">
+    <a class="pager-btn" href="lec-ch7.html">← 上一页</a>
+    <span class="pager-info">讲义正文</span>
+    <a class="pager-btn" href="lec-ch8.html">下一页 →</a>
+  </nav>
+</div>
+</body>
+</html>
