@@ -1,6 +1,6 @@
 # ComputeCommunicationAssociation 仓库说明文档
 
-> 一句话简介：校园 AI 技术小组官网，AIGC×CODING 双方向，内嵌 Vibe Coding 全套教程
+> 一句话简介：校园AI小组官网，AIGC×CODING 与 Vibe Coding 教程
 
 > 校园技术小组「网络工作室 · AI小组」官方站点 · 纯静态多页网站
 
